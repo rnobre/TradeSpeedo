@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TradeSpeedo.Login" %>
 
+
 <!DOCTYPE html>
 
     <link href="Style/bootstrap.min.css" rel="stylesheet" />
