@@ -11,7 +11,9 @@ namespace TradeSpeedo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Valida se usuário está logado
+            var usuario = Session["usuario"];
+            if (usuario == null) Response.Redirect("Login.aspx");
         }
     }
 }
