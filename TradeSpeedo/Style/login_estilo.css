@@ -1,0 +1,149 @@
+﻿  body {
+      background-color: #f0f0f0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #313131;
+      line-height: 1;
+      padding: 5px;
+  }
+   
+   
+      .form-login {
+          max-width: 450px;
+          max-height: 350px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 10px;
+          border-radius: 10px;
+          margin-top: 10%;
+      }
+   
+          .form-login input {
+              margin-bottom: 10px;
+          }
+   
+      .btn {
+          display: inline-block;
+          padding: 6px 12px;
+          border: 2px solid #FE370f;
+          color: #ddd;
+          text-decoration: none;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin: 15px 5px 0;
+          transition: all .2s;
+          min-width: 100px;
+          text-align: center;
+          font-size: 14px;
+          background:#ffffff;
+      }
+   
+          .btn:hover, .btn.hover {
+              background: #ffffff;           
+              color: #777;
+          }
+   
+          .btn.btn-lg {
+              padding: 10px 16px;
+              font-size: 18px;
+          }
+   
+          .btn.btn-sm {
+              padding: 5px 10px;
+              font-size: 12px;
+          }
+   
+          .btn.btn-xs {
+              padding: 1px 5px;
+              font-size: 12px;
+              padding: 1px 5px;
+            
+          }
+   
+          .btn.primary {
+              border-color: #Fe370F;
+              color: #4f5557;
+              
+          }
+   
+              .btn.primary:hover, .btn.primary.hover {
+                  background: #Fe370F;
+                  color: #fff;
+              }
+   
+          .btn.danger {
+              border-color: #e74c3c;
+              color: #e74c3c;
+          }
+   
+              .btn.danger:hover, .btn.danger.hover {
+                  background: #e74c3c;
+                  color: #fff;
+              }
+   
+          .btn.success {
+              border-color: #27ae60;
+              color: #27ae60;
+          }
+   
+              .btn.success:hover, .btn.success.hover {
+                  background: #27ae60;
+                  color: #fff;
+              }
+   
+          .btn.warning {
+              border-color: #f1c40f;
+              color: #f1c40f;
+          }
+   
+              .btn.warning:hover, .btn.warning.hover {
+                  background: #f1c40f;
+                  color: #fff;
+              }
+   
+          .btn.black {
+              border-color: #34495e;
+              color: #34495e;
+          }
+   
+              .btn.black:hover, .btn.black.hover {
+                  background: #34495e;
+                  color: #fff;
+              }
+   
+          .btn.black {
+              border-color: #34495e;
+              color: #34495e;
+          }
+   
+              .btn.black:hover, .btn.black.hover {
+                  background: #34495e;
+                  color: #fff;
+              }
+   
+          .btn.info {
+              border-color: #5bc0de;
+              color: #5bc0de;
+          }
+   
+              .btn.info:hover, .btn.info.hover {
+                  background: #5bc0de;
+                  color: #fff;
+              }
+   
+          .btn.clear {
+              border-color: #777;
+              color: #777;
+          }
+   
+              .btn.clear:hover, .btn.clear.hover {
+                  background: #777;
+                  color: #fff;
+              }
+  .pTitulo
+  {
+      text-align: center;
+      color:white;
+      font-size:25px    
+
+      
+  }
