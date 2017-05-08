@@ -30,13 +30,17 @@
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user" style="color:#FE370F"></i></span> 
                           <asp:TextBox runat="server" ID="txtUsuario" class="form-control input-lg" placeholder="Usuário" type="text"></asp:TextBox>
                       </div>
-   
+
+                     
                       <div style="margin-bottom: 25px" class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock" style="color:#FE370F"></i></span>
                           <asp:TextBox runat="server" ID="txtSenha" class="form-control input-lg" placeholder="Senha" type="password"></asp:TextBox>
                        
                       </div>
    
+                      <div id="dErro" class="dErro">
+                          
+                      </div>
                       <div style="margin-top:10px" class="form-group">
                           
                           <div style="left:120px;"class="col-sm-12 controls">

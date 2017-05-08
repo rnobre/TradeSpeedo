@@ -24,16 +24,23 @@ namespace TradeSpeedo.Model
             var conexao = new SqlConnection(stringConexao); // Conexão com banco de dados
             conexao.Open();
 
-            var sql = $"SELECT TOP 1 LOGIN, NOME FROM USUARIOS WHERE LOGIN = {login};";
+            var sql = $"SELECT TOP 1 USUARIO, NOME_COMPLETO FROM USUARIO_TRADE WHERE USUARIO = '{login}' AND PASSW = '{senha}' ";
             var dr = new SqlCommand(sql, conexao).ExecuteReader(); // Executa query e retorna consulta
             if(dr.Read())
             {
-                var nome = dr["NOME"].ToString(); // Nome do usuário no banco de dados
+                var nome = dr["NOME_COMPLETO"].ToString(); // Nome do usuário no banco de dados
                 return new Usuario(login, nome); // Retorna usuário encontrado
+             
             }
-
+               
+            if(dr == null)
+            {
+                //Pesquisar como apresentar o erro
+            }       
+          
             // Se não encontrar, retorna nulo
             return null;
+            
         }
     }
 }
