@@ -1,0 +1,64 @@
+﻿.dIndex
+{
+    height:1366px;
+    width:auto;
+}
+.dLogo
+{
+    width: 178px;
+    height: 64px;
+}
+.dLogin
+{
+     width: 210px;
+     position:relative;
+     top: -42px;
+     left: 1190px;
+     margin-top: 0px;
+}
+.dPesquisa
+{
+    height: 90px;
+    width: 890px;
+    position:relative;
+    top: 0px;
+    left: 237px;
+}
+.busca 
+{
+    width: 875px;
+}
+
+.h2
+{
+    position:relative;
+    top: 4px;
+    left: 0px;
+    width: 194px;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+.box.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+.box.is-dragover {
+  background-color: grey;
+}
+
+.box.is-uploading .box__input {
+  visibility: none;
+}
+.box.is-uploading .box__uploading {
+  display: block;
+}
