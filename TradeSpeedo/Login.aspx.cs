@@ -24,7 +24,7 @@ namespace TradeSpeedo
 
             var imagem = new Imagem(Session["conexao"].ToString());
             imagem.Carregar(1);
-            Response.Write(imagem.URL);
+            Response.Write(imagem.Url);
         }
 
        

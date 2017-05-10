@@ -11,19 +11,13 @@ namespace TradeSpeedo.Model
 
     {
         private SqlConnection _conexao;
-        private object v;
 
         public int ID { get; set; }
-
-        public string CLIFOR { get; set; }
-
-        public string CNPJ { get; set; }
-
-        public string URL { get; set; }
-
-        public int TIPO_EXPOSICAO { get; set; }
-
-        public int ID_CLASSIFICACAO { get; set; }
+        public string Clifor { get; set; }
+        public string Cnpj { get; set; }
+        public string Url { get; set; }
+        public int TipoExposicaoID { get; set; }
+        public int ClassificacaoID { get; set; }
 
         public Imagem(string stringConexao)
         {
@@ -38,11 +32,11 @@ namespace TradeSpeedo.Model
             var dr = new SqlCommand(sql, _conexao).ExecuteReader(); // Executa query e retorna consulta
             if (dr.Read())
             {
-                this.CLIFOR = dr["COD_CLIFOR"].ToString();
-                this.CNPJ = dr["CNPJ"].ToString();
-                this.URL = dr["URL"].ToString();
-                this.TIPO_EXPOSICAO = Convert.ToInt32(dr["ID_TIPO_EXPOSICAO"].ToString());
-                this.ID_CLASSIFICACAO = Convert.ToInt32(dr["ID_TIPO_EXPOSICAO"].ToString());
+                this.Clifor = dr["COD_CLIFOR"].ToString();
+                this.Cnpj = dr["CNPJ"].ToString();
+                this.Url = dr["URL"].ToString();
+                this.TipoExposicaoID = Convert.ToInt32(dr["ID_TIPO_EXPOSICAO"].ToString());
+                this.ClassificacaoID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
                 dr.Close();
             }
 
