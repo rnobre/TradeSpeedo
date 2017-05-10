@@ -20,24 +20,20 @@ namespace TradeSpeedo.Pages
 
         }
         
-        public string RetornaClientes()
+        public string RetornaUsuarios()
         {
 
             consulta = "SELECT " +
-                        "LTRIM(RTRIM(B.CLIENTE_ATACADO)) " +
-                        "LTRIM(RTRIM(A.CLIFOR)) " +
-                        "FROM[LINX_PRODUCAO].DBO.CADASTRO_CLI_FOR  A " +
-                        "JOIN[LINX_PRODUCAO].DBO.CLIENTES_ATACADO B ON A.NOME_CLIFOR = B.CLIENTE_ATACADO AND A.CLIFOR = B.CLIFOR " +
-                        "WHERE b.INATIVO = 0 " +
-                        "and a.INDICA_CLIENTE = '1' " +
-                        "and a.INDICA_FILIAL = '0' " +
-                        "and a.INDICA_FORNECEDOR = '0' " +
-                        "ORDER BY b.CLIFOR ";
+                        "LTRIM(RTRIM(CLIFOR)) " +
+                        "LTRIM(RTRIM(CLIENTE)) " +
+                        "LTRIM(RTRIM(CNPJ)) " +
+                        "LTRIM(RTRIM(REPRESENTANTE)) " +
+                        "FROM TRADE_CLIENTE ";            
             var conexao = new SqlConnection(conn);
             SqlCommand comando = new SqlCommand(consulta, conexao);
             SqlDataReader dr = null;
 
-            var clientes = new StringBuilder();
+            var usuarios = new StringBuilder();
 
 
             try
@@ -48,14 +44,14 @@ namespace TradeSpeedo.Pages
                 {
                     Console.WriteLine(dr.GetString(1));
 
-                    clientes.Append("{");
-                    clientes.AppendLine(" 'clienteatacado' : '" + dr["CLIENTE_ATACADO"].ToString() + "', ");
-                    clientes.AppendLine(" 'clifor' : '" + dr["CLIFOR"].ToString() + "', ");
-                    clientes.Append("},");
+                    usuarios.Append("{");
+                    usuarios.AppendLine(" 'clienteatacado' : '" + dr["CLIENTE_ATACADO"].ToString() + "', ");
+                    usuarios.AppendLine(" 'clifor' : '" + dr["CLIFOR"].ToString() + "', ");
+                    usuarios.Append("},");
                 }
 
                 dr.Close();
-                return clientes.ToString();
+                return usuarios.ToString();
             }
             catch (Exception ex)
             {

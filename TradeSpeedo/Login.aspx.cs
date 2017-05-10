@@ -11,15 +11,23 @@ namespace TradeSpeedo
 {
     public partial class Login : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            
+
+            if (!Page.IsPostBack)
             {
                 // Grava string de conexão em sessão
                 Session["conexao"] = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
             }
+
+            var imagem = new Imagem(Session["conexao"].ToString());
+            imagem.Carregar(1);
+            Response.Write(imagem.URL);
         }
 
+       
         protected void Acessar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();

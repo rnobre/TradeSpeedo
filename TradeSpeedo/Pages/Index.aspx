@@ -34,19 +34,19 @@
     <script>
         var usuarios =
             [
-                <%=RetornaClientes()%>
+                 <%=RetornaUsuarios()%>
             ]
 
-        var arrayParaTabela = function (clientes, busca) {
+        var arrayParaTabela = function (funcionarios, busca) {
             var $tabela = $("<table></table>");
             var buscaEmMinusculo = busca.toLowerCase();
 
-            for (var i = 0; i < clientes.legth; i++) {
-                var cliente = clientes[i];
+            for (var i = 0; i < funcionarios.legth; i++) {
+                var funcionario = funcionarios[i];
 
-                if(cliente.clienteatacado.toLowerCase().indexOf(buscaEmMinusculo) !== -1 {
+                if (funcionario.clienteatacado.toLowerCase().indexOf(buscaEmMinusculo) !== -1) {
                     var linha = "<tr>";
-                    linha += "<td><a CLIENTE_ATACADO='"  + cliente.clienteatacado + "' href='javascript:preencheFicha(usuarios, " + cliente.clienteatacado + ")'>" + cliente.clifor + "</a></td>";
+                    linha += "<td><a CLIENTE_ATACADO='" + funcionario.clienteatacado + "' href='javascript:preencheFicha(usuarios, " + funcionario.clienteatacado + ")'>" + funcionario.clifor + "</a></td>";
 
                     $tabela.append(linha);       
                 }
@@ -61,8 +61,8 @@
             var tabela = arrayParaTabela(usuarios, termo);
 
            
-            $("#listaClientes").empty();
-            $("#listaClientes").append(tabela);
+            $("#listaFuncionarios").empty();
+            $("#listaFuncionarios").append(tabela);
                 
         };
 
@@ -71,23 +71,23 @@
             for (var i = 0; i < usuarios.length; i++) {
                 var usuario = usuarios[i];
 
-                if (cliente.clienteatacado.toLowerCase().indexOf(buscaEmMinusculo) !== -1 || cliente.clifor.indexOf(busca) !== -1) {
-                    return cliente;
+                if (usuario.clienteatacado.toLowerCase().indexOf(buscaEmMinusculo) !== -1 || usuario.clifor.indexOf(busca) !== -1) {
+                    return usuario;
                 }
             }
         }
 
         $("#busca").keyup(function () {
             var termo = $("#busca").val();
-            constroiTabelaHTML(clientes, termo);
+            constroiTabelaHTML(usuarios, termo);
 
-            var primeiroUsuario = retornaPrimeiroUsuario(clientes, termo);
-            preencheFicha(clientes, primeiroUsuario.clienteatacado);
+            var primeiroUsuario = retornaPrimeiroUsuario(usuarios, termo);
+            preencheFicha(usuarios, primeiroUsuario.clienteatacado);
         });
 
 
         // Preenche a ficha de usuário
-        var preencheFicha = function (clientes, codigoUsuario) {
+        var preencheFicha = function (usuarios, codigoUsuario) {
 
             var usuario;
 
@@ -97,6 +97,9 @@
                     usuario = usuarios[i];
                 }
             }
+
+            $("#busca").text(usuario.clienteatacado);
+            
 
         }
             constroiTabelaHTML(usuarios, '');

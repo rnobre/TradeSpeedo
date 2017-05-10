@@ -198,6 +198,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Classificacao.cs" />
+    <Compile Include="Model\Imagem.cs" />
+    <Compile Include="Model\Tipo.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Pages\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
