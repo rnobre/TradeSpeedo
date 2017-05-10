@@ -32,6 +32,7 @@ namespace TradeSpeedo.Model
             var dr = new SqlCommand(sql, _conexao).ExecuteReader(); // Executa query e retorna consulta
             if (dr.Read())
             {
+                this.ID = ID;
                 this.Clifor = dr["COD_CLIFOR"].ToString();
                 this.Cnpj = dr["CNPJ"].ToString();
                 this.Url = dr["URL"].ToString();
@@ -48,9 +49,14 @@ namespace TradeSpeedo.Model
 
         }
 
-        public void Exluir()
+        public void Excluir()
         {
+            _conexao.Open();
 
+            var sql = $"DELETE FROM TRADE_IMAGEM WHERE ID_IMAGEM = {this.ID}";
+            new SqlCommand(sql, _conexao).ExecuteNonQuery();
+
+            _conexao.Close();
         }        
 
     }
