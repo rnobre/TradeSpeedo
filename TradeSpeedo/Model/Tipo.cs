@@ -9,9 +9,14 @@ namespace TradeSpeedo.Model
     public class Tipo
     {
         private SqlConnection _conexao;
-        public int ID { get; set; }
+        public int? ID { get; set; }
 
         public string TIPO_DESCRICAO { get; set; }
+
+        public Tipo(string stringConexao)
+        {
+            _conexao = new SqlConnection(stringConexao);
+        }
 
         public void Carregar(int ID)
         {
@@ -35,10 +40,7 @@ namespace TradeSpeedo.Model
 
           if(this.ID == null)
             {
-                var tipo = new Tipo(_conexao);
-
-                tipo.ID = 1;
-                tipo.TIPO_DESCRICAO = "Conner";
+                
 
                 
                 var sql = $"INSERT INTO TRADE_TIPO_EXPOSICAO VALUES ('{ID}'.'{TIPO_DESCRICAO}')";

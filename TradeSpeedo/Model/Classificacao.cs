@@ -9,9 +9,14 @@ namespace TradeSpeedo.Model
     public class Classificacao
     {
         private SqlConnection _conexao;
-        public int ID{ get; set; }
+        public int? ID{ get; set; }
 
         public string CLASSIF_DESCRICAO { get; set; }
+
+        public Classificacao(string stringConexao)
+        {
+            _conexao = new SqlConnection(stringConexao);
+        }
 
         public void Carregar(int ID)
         {
@@ -36,10 +41,7 @@ namespace TradeSpeedo.Model
 
             if(this.ID == null)
             {
-                var classificacao = new Classificacao(_conexao);
-
-                classificacao.ID = 1;
-                classificacao.CLASSIF_DESCRICAO = "Premium";
+                
 
                 var sql = $"INSERT INTO TRADE_CLASSIFICACAO VALUES ('{ID}','{CLASSIF_DESCRICAO}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();

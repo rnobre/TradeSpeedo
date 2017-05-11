@@ -12,7 +12,7 @@ namespace TradeSpeedo.Model
     {
         private SqlConnection _conexao;
 
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string Clifor { get; set; }
         public string Cnpj { get; set; }
         public string Url { get; set; }
@@ -52,14 +52,6 @@ namespace TradeSpeedo.Model
             if(this.ID == null)
 
             {
-                var imagem = new Imagem(_conexao);
-
-                imagem.Clifor = "00003";
-                imagem.Cnpj = "000030303030";
-                imagem.Url = "icmiewmew.ocm.br";
-                imagem.TipoExposicaoID = 2;
-                imagem.ClassificacaoID = 1;
-
                 var sql = $"INSERT INTO TRADE_IMAGEM VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
