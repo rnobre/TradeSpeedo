@@ -60,14 +60,14 @@ namespace TradeSpeedo.Model
                 imagem.TipoExposicaoID = 2;
                 imagem.ClassificacaoID = 1;
 
-                var sql = $"INSERT INTO TRADE_IMAGEM VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}'";
+                var sql = $"INSERT INTO TRADE_IMAGEM VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             }
 
             else
             {
-                var sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,URL= '{Url}' ,ID_TIPO_EXPPOSICAO = '{TipoExposicaoID}' , ID_CLASSIFICACAO = '{ClassificacaoID}'";
+                var sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,URL= '{Url}' ,ID_TIPO_EXPPOSICAO = '{TipoExposicaoID}' , ID_CLASSIFICACAO = '{ClassificacaoID}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
             }
             _conexao.Close();
