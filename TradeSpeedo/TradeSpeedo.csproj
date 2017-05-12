@@ -161,6 +161,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Style\bootstrap.min.css" />
     <Content Include="Style\dropzone.css" />
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
