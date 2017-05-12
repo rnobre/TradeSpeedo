@@ -11,7 +11,7 @@ namespace TradeSpeedo.Model
         private SqlConnection _conexao;
         public int? ID{ get; set; }
 
-        public string CLASSIF_DESCRICAO { get; set; }
+        public string Descricao { get; set; }
 
         public Classificacao(string stringConexao)
         {
@@ -27,7 +27,7 @@ namespace TradeSpeedo.Model
             if(dr.Read())
             {
                 this.ID = ID;
-                this.CLASSIF_DESCRICAO = dr["DESCRICAO"].ToString();
+                this.Descricao = dr["DESCRICAO"].ToString();
                 dr.Close();
             }
 
@@ -43,13 +43,13 @@ namespace TradeSpeedo.Model
             {
                 
 
-                var sql = $"INSERT INTO TRADE_CLASSIFICACAO VALUES ('{ID}','{CLASSIF_DESCRICAO}')";
+                var sql = $"INSERT INTO TRADE_CLASSIFICACAO (DESCRICAO )VALUES ('{Descricao}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
             }
 
             else
             {
-                var sql = $"UPDATE TRADE_CLASSIFICACAO SET ID_CLASSIFICACAO = '{ID}', {CLASSIF_DESCRICAO} WHERE ID_CLASSIFICACAO = '{ID}'";
+                var sql = $"UPDATE TRADE_CLASSIFICACAO SET ID_CLASSIFICACAO = '{ID}', DESCRICAO ='{Descricao}' WHERE ID_CLASSIFICACAO = '{ID}'";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
             }
         }
