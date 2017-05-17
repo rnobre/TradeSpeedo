@@ -118,7 +118,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Image\logo_speedo.JPG" />
+    <Content Include="Image\Camera_box.png" />
+    <Content Include="Image\logo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Pages\Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />

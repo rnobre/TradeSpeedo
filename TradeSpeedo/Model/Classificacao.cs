@@ -9,7 +9,7 @@ namespace TradeSpeedo.Model
     public class Classificacao
     {
         private SqlConnection _conexao;
-        public int? ID{ get; set; }
+        public int? ID { get; set; }
 
         public string Descricao { get; set; }
 
@@ -24,7 +24,7 @@ namespace TradeSpeedo.Model
 
             var sql = $"SELECT * FROM TRADE_CLASSIFICACAO WHERE ID_CLASSIFICACAO = '{ID}'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-            if(dr.Read())
+            if (dr.Read())
             {
                 this.ID = ID;
                 this.Descricao = dr["DESCRICAO"].ToString();
@@ -39,9 +39,9 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            if(this.ID == null)
+            if (this.ID == null)
             {
-                
+
 
                 var sql = $"INSERT INTO TRADE_CLASSIFICACAO (DESCRICAO )VALUES ('{Descricao}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
@@ -53,7 +53,7 @@ namespace TradeSpeedo.Model
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
             }
         }
-        
+
         public void Excluir()
         {
             _conexao.Open();

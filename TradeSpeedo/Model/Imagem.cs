@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace TradeSpeedo.Model
 {
-    
+
     public class Imagem
 
     {
@@ -23,7 +23,7 @@ namespace TradeSpeedo.Model
         public Imagem(string stringConexao)
         {
             _conexao = new SqlConnection(stringConexao);
-        }  
+        }
 
         public void Carregar(int ID)
         {
@@ -51,7 +51,7 @@ namespace TradeSpeedo.Model
             _conexao.Open();
 
 
-            if(this.ID == null)
+            if (this.ID == null)
 
             {
                 var sql = $"INSERT INTO TRADE_IMAGEM (COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA) VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}','{Sequencia}')";
@@ -76,7 +76,7 @@ namespace TradeSpeedo.Model
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();
-        }        
+        }
 
     }
 }

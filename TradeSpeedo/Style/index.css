@@ -1,64 +1,55 @@
-﻿.dIndex
-{
-    height:1366px;
-    width:auto;
+﻿.dIndex {
+    height: auto;
+    width: auto;
 }
-.dLogo
-{
-    width: 178px;
-    height: 64px;
-}
-.dLogin
-{
-     width: 210px;
-     position:relative;
-     top: -42px;
-     left: 1190px;
-     margin-top: 0px;
-}
-.dPesquisa
-{
-    height: 90px;
-    width: 890px;
-    position:relative;
+
+.dLogo {
+    position: relative;
+    width: 242px;
+    height: 103px;
     top: 0px;
-    left: 237px;
-}
-.busca 
-{
-    width: 875px;
+    left: 13px;
 }
 
-.h2
-{
-    position:relative;
-    top: 4px;
+.dLogin {
+    width: 210px;
+    position: relative;
+    top: -77px;
+    left: 1197px;
+    margin-top: 0px;
+}
+
+.dPesquisa {
+    height: 100px;
+    width: 1114px;
+    position: relative;
+    top: -8px;
+    left: 143px;
+}
+
+.busca {
+    width: 1010px;
+    height: 26px;
+}
+
+.h2 {
+    position: relative;
+    top: 7px;
     left: 0px;
-    width: 194px;
+    width: 259px;
 }
 
-.box__dragndrop,
-.box__uploading,
-.box__success,
-.box__error {
-  display: none;
+.IUpload {
+    padding: 10px;
+    height: 239px;
+    width: 250px;
+   
 }
 
-.box.has-advanced-upload {
-  background-color: white;
-  outline: 2px dashed black;
-  outline-offset: -10px;
-}
-.box.has-advanced-upload .box__dragndrop {
-  display: inline;
-}
-.box.is-dragover {
-  background-color: grey;
+.DDTipo, .DDClassif, .FUpload {
+    margin: 20px;
 }
 
-.box.is-uploading .box__input {
-  visibility: none;
-}
-.box.is-uploading .box__uploading {
-  display: block;
+.col-md-2 {
+    padding: 5px;
 }
