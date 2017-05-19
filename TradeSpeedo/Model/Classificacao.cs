@@ -9,6 +9,9 @@ namespace TradeSpeedo.Model
     public class Classificacao
     {
         private SqlConnection _conexao;
+
+        private string _stringconexao { get; set; }
+
         public int? ID { get; set; }
 
         public string Descricao { get; set; }
@@ -16,6 +19,7 @@ namespace TradeSpeedo.Model
         public Classificacao(string stringConexao)
         {
             _conexao = new SqlConnection(stringConexao);
+            _stringconexao = stringConexao;
         }
 
         public void Carregar(int ID)
@@ -62,6 +66,32 @@ namespace TradeSpeedo.Model
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();
+        }
+        
+        public List<Classificacao> Lista()
+        {
+            
+            var classif = new  List<Classificacao>();
+
+            _conexao.Open();
+
+            var sql = $"SELECT ID_CLASSIFICACAO, DESCRICAO FROM TRADE_CLASSIFICACAO";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while(dr.Read())
+            {
+                var classificacao = new Classificacao(_stringconexao);
+                                
+                classificacao.ID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
+                classificacao.Descricao = dr["DESCRICAO"].ToString();
+
+                classif.Add(classificacao);
+            }
+
+            _conexao.Close();
+
+            return classif;
+
         }
     }
 }

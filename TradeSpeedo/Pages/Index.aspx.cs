@@ -14,8 +14,8 @@ namespace TradeSpeedo.Pages
 {
     public partial class Index : System.Web.UI.Page
     {
-       
-        
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -28,7 +28,7 @@ namespace TradeSpeedo.Pages
             {
 
                 var conexao = Session["conexao"].ToString();
-                
+
 
                 var tipo = new Tipo(conexao);
 
@@ -52,13 +52,36 @@ namespace TradeSpeedo.Pages
                 DDTipo5.DataTextField = "Descricao";
                 DDTipo5.DataValueField = "ID";
                 DDTipo5.DataBind();
+
+                var classif = new Classificacao(conexao);
+
+                DDClassif1.DataSource = classif.Lista();
+                DDClassif1.DataTextField = "Descricao";
+                DDClassif1.DataValueField = "ID";
+                DDClassif1.DataBind();
+                DDClassif2.DataSource = classif.Lista();
+                DDClassif2.DataTextField = "Descricao";
+                DDClassif2.DataValueField = "ID";
+                DDClassif2.DataBind();
+                DDClassif3.DataSource = classif.Lista();
+                DDClassif3.DataTextField = "Descricao";
+                DDClassif3.DataValueField = "ID";
+                DDClassif3.DataBind();
+                DDClassif4.DataSource = classif.Lista();
+                DDClassif4.DataTextField = "Descricao";
+                DDClassif4.DataValueField = "ID";
+                DDClassif4.DataBind();
+                DDClassif5.DataSource = classif.Lista();
+                DDClassif5.DataTextField = "Descricao";
+                DDClassif5.DataValueField = "ID";
+                DDClassif5.DataBind();
             }
 
-           
-        }
-                
-    
+
         }
 
-        
+
     }
+
+
+}

@@ -89,7 +89,7 @@ namespace TradeSpeedo.Model
             {
                 var tipo = new Tipo(_stringconexao);
 
-                tipo.ID = Convert.ToInt32(dr["ID_TIPO"].ToString());               
+                tipo.ID = Convert.ToInt32(dr["ID_TIPO"].ToString());
                 tipo.Descricao = dr["DESCRICAO"].ToString();
 
                 tipos.Add(tipo);
@@ -102,6 +102,6 @@ namespace TradeSpeedo.Model
             return tipos;
         }
 
-    
+
     }
 }

@@ -31,6 +31,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDTipo1;
         
         /// <summary>
+        /// DDClassif1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDClassif1;
+        
+        /// <summary>
         /// DDTipo2 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDTipo2;
+        
+        /// <summary>
+        /// DDClassif2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDClassif2;
         
         /// <summary>
         /// DDTipo3 control.
@@ -49,6 +67,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDTipo3;
         
         /// <summary>
+        /// DDClassif3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDClassif3;
+        
+        /// <summary>
         /// DDTipo4 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDTipo4;
         
         /// <summary>
+        /// DDClassif4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDClassif4;
+        
+        /// <summary>
         /// DDTipo5 control.
         /// </summary>
         /// <remarks>
@@ -65,5 +101,14 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDTipo5;
+        
+        /// <summary>
+        /// DDClassif5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDClassif5;
     }
 }

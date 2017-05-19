@@ -37,31 +37,31 @@
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo1" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif1" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo2" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo3" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif3" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo4" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif4" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo5" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" runat="server"></asp:DropDownList>
                 </div>
             </div>
         </div>
