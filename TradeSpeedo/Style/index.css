@@ -47,9 +47,130 @@
 }
 
 .DDTipo, .DDClassif, .FUpload {
-    margin: 20px;
+    margin: 20px 20px 20px 0px;
 }
 
 .col-md-2 {
     padding: 5px;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 900;
+    margin: 50px 1150px 0; /*Margim*/
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 30px;
+    background: #ffffff;
+    width: 250px;
+    height: 70px;
+    
+}
+
+    .btn:hover, .btn.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btn.btn-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+    }
+
+    .btn.btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btn.btn-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btn.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+    }
+
+        .btn.primary:hover, .btn.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+        }
+
+    .btn.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btn.danger:hover, .btn.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btn.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btn.success:hover, .btn.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btn.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btn.warning:hover, .btn.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btn.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btn.black:hover, .btn.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btn.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btn.black:hover, .btn.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btn.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+.btn.info:hover, .btn.info.hover {
+     background: #5bc0de;
+     color: #fff;
+}
+
+.btn.clear {
+     border-color: #777;
+     color: #777;
+}
+
+.btn.clear:hover, .btn.clear.hover
+{
+    background: #777;
+    color: #fff;
 }

@@ -36,7 +36,8 @@ namespace TradeSpeedo
             {
                 // Loga
                 Session["usuario"] = usuario;
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Pages/Index.aspx");
+
             }
         }
     }

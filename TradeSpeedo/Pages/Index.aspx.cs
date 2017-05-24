@@ -75,6 +75,15 @@ namespace TradeSpeedo.Pages
                 DDClassif5.DataTextField = "Descricao";
                 DDClassif5.DataValueField = "ID";
                 DDClassif5.DataBind();
+
+                var cliente = new Cliente(conexao);
+                var usuario = (Usuario)Session["usuario"];
+
+                DDPesquisa.DataSource = cliente.Lista(usuario.Clifor);
+                DDPesquisa.DataTextField = "NomeCompleto";
+                DDPesquisa.DataValueField = "Clifor";
+                DDPesquisa.DataBind();
+
             }
 
 

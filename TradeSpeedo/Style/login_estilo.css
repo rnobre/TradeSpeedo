@@ -123,20 +123,21 @@
         color: #5bc0de;
     }
 
-        .btn.info:hover, .btn.info.hover {
-            background: #5bc0de;
-            color: #fff;
-        }
+.btn.info:hover, .btn.info.hover {
+     background: #5bc0de;
+     color: #fff;
+}
 
-    .btn.clear {
-        border-color: #777;
-        color: #777;
-    }
+.btn.clear {
+     border-color: #777;
+     color: #777;
+}
 
-        .btn.clear:hover, .btn.clear.hover {
-            background: #777;
-            color: #fff;
-        }
+.btn.clear:hover, .btn.clear.hover
+{
+    background: #777;
+    color: #fff;
+}
 
 .pTitulo {
     text-align: center;

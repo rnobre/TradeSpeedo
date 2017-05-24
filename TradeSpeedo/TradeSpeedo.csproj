@@ -201,6 +201,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Classificacao.cs" />
+    <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Imagem.cs" />
     <Compile Include="Model\Tipo.cs" />
     <Compile Include="Model\Usuario.cs" />

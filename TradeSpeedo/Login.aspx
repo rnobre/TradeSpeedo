@@ -19,7 +19,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background: #Fe370F">
                         <div class="panel-title">
-                            <p id="pTitulo" class="pTitulo" style="text-align: center; color: white; font-size: 20px; margin-bottom: -5px;">Sistema Trade</p>
+                            <p id="pTitulo" class="pTitulo">Sistema Trade</p>
                         </div>
                     </div>
 

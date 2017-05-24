@@ -24,13 +24,14 @@
 
             <div id="dLogin" class="dLogin">
                 <span id="sWelcome" class="sWelcome">Bem vindo,
-                    <asp:Label runat="server"></asp:Label>Raphael Nobre !</span>
+                    <asp:Label runat="server" ID="Luser"></asp:Label>Raphael Nobre !</span>
             </div>
             <div id="dPesquisa" class="dPesquisa">
                 <div id="dTexto" class="dTexto">
                     <h2 id="h2" class="h2">Pesquise o cliente:</h2>
                 </div>
-                <input type="text" id="busca" class="busca form-control" autofocus="autofocus" placeholder="Pesquisar" />
+                <%--<input type="text" id="busca" class="busca form-control" autofocus="autofocus" placeholder="Pesquisar" />--%>
+                <asp:DropDownList runat="server" CssClass="DDTipo form-control" ID="DDPesquisa" Height="30px" Width="1141px"></asp:DropDownList>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
@@ -63,8 +64,11 @@
                     <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo5" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" runat="server"></asp:DropDownList>
                 </div>
+                 <div class="col-md-2">
+                     <asp:Button ID="Acessar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" />
+                </div>
             </div>
         </div>
-    </form>
+    </form>'
 </body>
 </html>
