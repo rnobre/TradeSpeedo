@@ -38,13 +38,13 @@
                             <asp:TextBox runat="server" ID="txtSenha" class="form-control input-lg" placeholder="Senha" type="password"></asp:TextBox>
 
                         </div>
-
-                        <div id="dErro" class="dErro">
-                        </div>
                         <div style="margin-top: 10px" class="form-group">
 
                             <div style="left: 120px;" class="col-sm-12 controls">
                                 <asp:Button ID="Acessar" Text="Acessar" runat="server" CssClass="btn primary btn-lg" OnClick="Acessar_Click" />
+                            </div>
+                            <div id="dErro" class="dErro" runat="server">
+                                <p id="PErro">Usuário ou senha incorreto.</p>
                             </div>
                         </div>
                     </div>

@@ -144,3 +144,15 @@
     color: white;
     font-size: 25px;
 }
+
+.dErro{
+    
+    position:relative;
+    color: #Fe370F; 
+    font-weight: bold;
+    width: 214px;
+    height: 20px;
+    top: 11px;
+    left: 120px;
+    font-size:12px;
+}

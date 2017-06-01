@@ -62,7 +62,7 @@
     color: #ddd;
     text-decoration: none;
     font-weight: 900;
-    margin: 50px 1150px 0; /*Margim*/
+    margin: 50px 1150px 0; /*Margin*/
     transition: all .2s;
     min-width: 100px;
     text-align: center;
@@ -173,4 +173,10 @@
 {
     background: #777;
     color: #fff;
+}
+
+.DDPesquisa
+{
+    height:30px;
+    Width:1141px;
 }

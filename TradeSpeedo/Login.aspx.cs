@@ -20,6 +20,8 @@ namespace TradeSpeedo
             {
                 // Grava string de conexão em sessão
                 Session["conexao"] = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
+                dErro.Visible = false;
+
             }
 
         }
@@ -37,7 +39,11 @@ namespace TradeSpeedo
                 // Loga
                 Session["usuario"] = usuario;
                 Response.Redirect("Pages/Index.aspx");
-
+                
+            }
+            else
+            {
+                dErro.Visible = true;
             }
         }
     }

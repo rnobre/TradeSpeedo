@@ -15,8 +15,8 @@
 
     <title>Sistema Trade</title>
 </head>
-<body style="height: auto">
-    <form id="form1" runat="server">
+<body class="body" id="body" >
+    <form id="form1" ckass="form1" runat="server">
         <div id="dIndex" class="dIndex">
             <div id="dLogo" class="dLogo">
                 <img src="../Image/logo.png" />
@@ -24,14 +24,15 @@
 
             <div id="dLogin" class="dLogin">
                 <span id="sWelcome" class="sWelcome">Bem vindo,
-                    <asp:Label runat="server" ID="Luser"></asp:Label>Raphael Nobre !</span>
+                    <asp:Label runat="server" ID="Luser"></asp:Label>!</span>                    
+                <asp:LinkButton ID="BtnSair" runat="server" OnClick="BtnSair_Click">Sair</asp:LinkButton>
             </div>
             <div id="dPesquisa" class="dPesquisa">
                 <div id="dTexto" class="dTexto">
                     <h2 id="h2" class="h2">Pesquise o cliente:</h2>
                 </div>
                 <%--<input type="text" id="busca" class="busca form-control" autofocus="autofocus" placeholder="Pesquisar" />--%>
-                <asp:DropDownList runat="server" CssClass="DDTipo form-control" ID="DDPesquisa" Height="30px" Width="1141px"></asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="DDPesquisa form-control" autofocus="autofocus" ID="DDPesquisa"></asp:DropDownList>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">

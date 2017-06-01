@@ -22,6 +22,7 @@ namespace TradeSpeedo.Pages
             {
                 // Grava string de conexão em sessão
                 Session["conexao"] = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
+                
             }
 
 
@@ -84,12 +85,18 @@ namespace TradeSpeedo.Pages
                 DDPesquisa.DataValueField = "Clifor";
                 DDPesquisa.DataBind();
 
+                Luser.Text = usuario.Nome.ToString();
+
             }
 
 
         }
 
-
+        protected void BtnSair_Click(object sender, EventArgs e)
+        {
+            Session["conexao"] = null;
+            Response.Redirect("/Login.aspx");
+        }
     }
 
 
