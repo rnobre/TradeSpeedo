@@ -81,71 +81,32 @@ namespace TradeSpeedo.Pages
             Response.Redirect("/Login.aspx");
         }
 
+        private void SalvarImagem(DropDownList classificacao, DropDownList tipo, int sequencia, string conexao, string clifor)
+        {
+            if (classificacao.SelectedValue != "" || tipo.SelectedValue != "")
+            {
+                var imagem= new Imagem(conexao)
+                {
+                    Clifor = clifor,
+                    Sequencia = sequencia,
+                    ClassificacaoID = Convert.ToInt32(classificacao.SelectedValue),
+                    TipoExposicaoID = Convert.ToInt32(tipo.SelectedValue)
+                };
+                imagem.Salvar();
+            }
+        }
+
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
             var clifor = DDPesquisa.SelectedValue;
 
-            if (DDClassif1.SelectedValue != "" && DDTipo1.SelectedValue != "")
-            {
-                var imagem1 = new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = 1,
-                    ClassificacaoID = Convert.ToInt32(DDClassif1.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(DDTipo1.SelectedValue)
-                };
-                imagem1.Salvar();
-            }
-
-
-            if (DDClassif2.SelectedValue != "" && DDTipo2.SelectedValue != "")
-            {
-                var imagem2 = new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = 2,
-                    ClassificacaoID = Convert.ToInt32(DDClassif2.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(DDTipo2.SelectedValue)
-                };
-                imagem2.Salvar();
-            }
-
-            if (DDClassif3.SelectedValue != "" && DDTipo3.SelectedValue != "")
-            {
-                var imagem3 = new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = 3,
-                    ClassificacaoID = Convert.ToInt32(DDClassif3.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(DDTipo3.SelectedValue)
-                };
-                imagem3.Salvar();
-            }
-
-            if (DDClassif4.SelectedValue != "" && DDTipo4.SelectedValue != "")
-            {
-                var imagem4 = new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = 4,
-                    ClassificacaoID = Convert.ToInt32(DDClassif4.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(DDTipo4.SelectedValue)
-                };
-                imagem4.Salvar();
-            }
-
-            if (DDClassif5.SelectedValue != "" && DDTipo5.SelectedValue != "")
-            {
-                var imagem5 = new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = 5,
-                    ClassificacaoID = Convert.ToInt32(DDClassif5.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(DDTipo5.SelectedValue)
-                };
-                imagem5.Salvar();
-            }
+            SalvarImagem(DDClassif1, DDTipo1, 1, conexao, clifor);
+            SalvarImagem(DDClassif2, DDTipo2, 2, conexao, clifor);
+            SalvarImagem(DDClassif3, DDTipo3, 3, conexao, clifor);
+            SalvarImagem(DDClassif4, DDTipo4, 4, conexao, clifor);
+            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);
+            
 
         }
 
