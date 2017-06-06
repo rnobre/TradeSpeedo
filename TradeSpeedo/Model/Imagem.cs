@@ -12,7 +12,7 @@ namespace TradeSpeedo.Model
     {
         private SqlConnection _conexao;
 
-        public int? ID { get; set; }
+        public int ID { get; set; }
         public string Clifor { get; set; }
         public string Cnpj { get; set; }
         public string Url { get; set; }
@@ -29,7 +29,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"SELECT TOP 1 ID_IMAGEM,COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA FROM TRADE_IMAGEM WHERE ID_IMAGEM = {ID}";
+            var sql = $"SELECT TOP 1 COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA FROM TRADE_IMAGEM WHERE ID_IMAGEM = {ID}";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader(); // Executa query e retorna consulta
             if (dr.Read())
             {
@@ -46,12 +46,33 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
+        public void Carregar(string clifor, int sequencia)
+        {
+            _conexao.Open();
+
+            var sql = $"SELECT TOP 1 ID_IMAGEM,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO FROM TRADE_IMAGEM WHERE COD_CLIFOR = '{clifor}' and SEQUENCIA = {sequencia} ";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader(); // Executa query e retorna consulta
+            if (dr.Read())
+            {
+                this.ID = Convert.ToInt32(dr["ID_IMAGEM"].ToString());
+                this.Clifor = clifor;
+                this.Cnpj = dr["CNPJ"].ToString();
+                this.Url = dr["URL"].ToString();
+                this.TipoExposicaoID = Convert.ToInt32(dr["ID_TIPO_EXPOSICAO"].ToString());
+                this.ClassificacaoID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
+                this.Sequencia = sequencia;
+                dr.Close();
+            }
+
+            _conexao.Close();
+        }
+
         public void Salvar()
         {
             _conexao.Open();
 
 
-            if (this.ID == null)
+            if (this.ID == 0)
 
             {
                 var sql = $"INSERT INTO TRADE_IMAGEM (COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA) VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}','{Sequencia}')";

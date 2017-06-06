@@ -34,12 +34,12 @@ namespace TradeSpeedo
             var conexao = Session["conexao"].ToString();
             var usuario = Usuario.RetornaUsuario(txtUsuario.Text, txtSenha.Text, conexao);
 
-            if(usuario != null)
+            if (usuario != null)
             {
                 // Loga
                 Session["usuario"] = usuario;
                 Response.Redirect("Pages/Index.aspx");
-                
+
             }
             else
             {

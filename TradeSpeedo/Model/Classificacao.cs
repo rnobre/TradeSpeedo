@@ -43,7 +43,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            if (this.ID == null)
+            if (this.ID == 0)
             {
 
 
@@ -67,21 +67,21 @@ namespace TradeSpeedo.Model
 
             _conexao.Close();
         }
-        
+
         public List<Classificacao> Lista()
         {
-            
-            var classif = new  List<Classificacao>();
+
+            var classif = new List<Classificacao>();
 
             _conexao.Open();
 
             var sql = $"SELECT ID_CLASSIFICACAO, DESCRICAO FROM TRADE_CLASSIFICACAO";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
-            while(dr.Read())
+            while (dr.Read())
             {
                 var classificacao = new Classificacao(_stringconexao);
-                                
+
                 classificacao.ID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
                 classificacao.Descricao = dr["DESCRICAO"].ToString();
 

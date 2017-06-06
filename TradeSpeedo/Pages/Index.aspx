@@ -15,8 +15,8 @@
 
     <title>Sistema Trade</title>
 </head>
-<body class="body" id="body" >
-    <form id="form1" ckass="form1" runat="server">
+<body class="body" id="body">
+    <form id="form1" class="form1" runat="server">
         <div id="dIndex" class="dIndex">
             <div id="dLogo" class="dLogo">
                 <img src="../Image/logo.png" />
@@ -24,52 +24,53 @@
 
             <div id="dLogin" class="dLogin">
                 <span id="sWelcome" class="sWelcome">Bem vindo,
-                    <asp:Label runat="server" ID="Luser"></asp:Label>!</span>                    
-                <asp:LinkButton ID="BtnSair" runat="server" OnClick="BtnSair_Click">Sair</asp:LinkButton>
+                    <asp:Label runat="server" ID="Luser"></asp:Label>!</span>
+                <asp:LinkButton ID="BtnSair" class="BtnSair" runat="server" OnClick="BtnSair_Click">Sair</asp:LinkButton>
             </div>
             <div id="dPesquisa" class="dPesquisa">
                 <div id="dTexto" class="dTexto">
                     <h2 id="h2" class="h2">Pesquise o cliente:</h2>
                 </div>
                 <%--<input type="text" id="busca" class="busca form-control" autofocus="autofocus" placeholder="Pesquisar" />--%>
-                <asp:DropDownList runat="server" CssClass="DDPesquisa form-control" autofocus="autofocus" ID="DDPesquisa"></asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="DDPesquisa form-control" DataTextField="NomeCompleto" DataValueField="Clifor" autofocus="autofocus" ID="DDPesquisa" OnSelectedIndexChanged="DDPesquisa_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
-                    <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo1" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif1" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo1" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif1" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
-                    <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo2" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo2" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
-                    <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo3" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif3" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo3" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif3" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
-                    <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo4" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif4" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo4" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif4" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:Image CssClass="IUpload" runat="server" AlternateText="Selecione a foto para envio" ImageUrl="~/Image/Camera_box.png" />
                     <asp:FileUpload CssClass="FUpload" runat="server" />
-                    <asp:DropDownList CssClass="DDTipo form-control" id="DDTipo5" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
-                 <div class="col-md-2">
-                     <asp:Button ID="Acessar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" />
+                <div class="col-md-2">
+                    <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" OnClick="BtnSalvar_Click" />
                 </div>
             </div>
         </div>
-    </form>'
+    </form>
+    '
 </body>
 </html>

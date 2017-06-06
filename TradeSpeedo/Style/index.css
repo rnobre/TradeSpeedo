@@ -12,10 +12,10 @@
 }
 
 .dLogin {
-    width: 210px;
+    width: 240px;
     position: relative;
-    top: -77px;
-    left: 1197px;
+    top: -57px;
+    left: 1167px;
     margin-top: 0px;
 }
 
@@ -43,7 +43,6 @@
     padding: 10px;
     height: 239px;
     width: 250px;
-   
 }
 
 .DDTipo, .DDClassif, .FUpload {
@@ -70,7 +69,6 @@
     background: #ffffff;
     width: 250px;
     height: 70px;
-    
 }
 
     .btn:hover, .btn.hover {
@@ -159,24 +157,26 @@
         color: #5bc0de;
     }
 
-.btn.info:hover, .btn.info.hover {
-     background: #5bc0de;
-     color: #fff;
+        .btn.info:hover, .btn.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btn.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btn.clear:hover, .btn.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+
+.DDPesquisa {
+    height: 30px;
+    Width: 1141px;
 }
 
-.btn.clear {
-     border-color: #777;
-     color: #777;
-}
-
-.btn.clear:hover, .btn.clear.hover
-{
-    background: #777;
-    color: #fff;
-}
-
-.DDPesquisa
-{
-    height:30px;
-    Width:1141px;
+.BtnSair, BtnSair.hover {
+    color: #Fe370F;
 }
