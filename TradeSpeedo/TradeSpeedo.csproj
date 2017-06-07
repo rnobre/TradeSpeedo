@@ -123,16 +123,14 @@
     <Content Include="Image\logo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Pages\Index.aspx" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -163,8 +161,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Style\bootstrap-select.min.css" />
     <Content Include="Style\bootstrap.min.css" />
-    <Content Include="Style\dropzone.css" />
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
     <Content Include="ViewSwitcher.ascx" />

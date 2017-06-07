@@ -173,8 +173,12 @@
         }
 
 .DDPesquisa {
-    height: 30px;
+    top:-5px;
+    height: 40px;
     Width: 1141px;
+    border: none;
+    z-index:2;
+    
 }
 
 .BtnSair, BtnSair.hover {

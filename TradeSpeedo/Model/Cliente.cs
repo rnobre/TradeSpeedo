@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using TradeSpeedo.Model;
+using System.Text;
 
 namespace TradeSpeedo.Model
 {
@@ -34,11 +35,11 @@ namespace TradeSpeedo.Model
         public List<Cliente> Lista(string cliforRepresentante)
         {
             var clientes = new List<Cliente>();
-            
+
 
             _conexao.Open();
 
-            var sql = $"SELECT CLIFOR,CLIENTE,CNPJ,REPRESENTANTE, CLIFOR_REPRE FROM TRADE_CLIENTE WHERE CLIFOR_REPRE = {cliforRepresentante}";
+            var sql = $"SELECT CLIFOR,CLIENTE,CNPJ,REPRESENTANTE, CLIFOR_REPRE FROM TRADE_CLIENTE WHERE CLIFOR_REPRE = '{cliforRepresentante}'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while (dr.Read())
@@ -61,8 +62,8 @@ namespace TradeSpeedo.Model
 
             return clientes;
 
-
         }
+
     }
 
 }

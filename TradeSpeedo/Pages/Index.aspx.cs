@@ -13,8 +13,7 @@ using TradeSpeedo.Model;
 namespace TradeSpeedo.Pages
 {
     public partial class Index : System.Web.UI.Page
-    {
-
+    {        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -105,8 +104,7 @@ namespace TradeSpeedo.Pages
             SalvarImagem(DDClassif2, DDTipo2, 2, conexao, clifor);
             SalvarImagem(DDClassif3, DDTipo3, 3, conexao, clifor);
             SalvarImagem(DDClassif4, DDTipo4, 4, conexao, clifor);
-            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);
-            
+            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);        
 
         }
 
@@ -186,10 +184,31 @@ namespace TradeSpeedo.Pages
                 DDTipo5.SelectedIndex = 0;
                 DDClassif5.SelectedIndex = 0;
             }
-
-
         }
+
+
+
+        //public string AutoCompletar()
+        //{
+        //    var conexao = Session["conexao"].ToString();
+        //    var clientes = new StringBuilder();
+
+        //    foreach (var cliente in new Cliente(conexao).Lista(conexao))
+        //    {
+        //        clientes.Append("{");
+        //        clientes.AppendLine(" 'Clifor' : '" + cliente.Clifor + "', ");
+        //        clientes.AppendLine(" 'Cliente' : '" + cliente.Clientes + "', ");
+        //        clientes.AppendLine(" 'Cnpj' : '" + cliente.Cnpj.ToString() + "', ");
+        //        clientes.AppendLine(" 'Repre' : '" + cliente.Representante+ "', ");
+        //        clientes.AppendLine(" 'CliforRepre' : '" + cliente.Clifor_Repre.ToString() + "', ");
+        //        clientes.Append("},");
+        //    }
+
+        //    return clientes.ToString();
+        //}
     }
 
-
 }
+
+
+
