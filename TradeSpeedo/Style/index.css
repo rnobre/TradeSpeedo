@@ -45,8 +45,14 @@
     width: 250px;
 }
 
-.DDTipo, .DDClassif, .FUpload {
+.DDClassif, .FUpload {
     margin: 20px 20px 20px 0px;
+   
+}
+
+.DDTipo{
+    margin: 20px 20px 20px 0px;
+    margin-top:50px;
 }
 
 .col-md-2 {
@@ -177,10 +183,59 @@
     height: 40px;
     Width: 1141px;
     border: none;
-    z-index:2;
+    z-index:30;
     
 }
 
 .BtnSair, BtnSair.hover {
     color: #Fe370F;
 }
+.image-preview {
+    width: 238px;
+    height: 220px;
+    top:10px;
+    padding:10px;
+    overflow:hidden;
+}
+.image-preview {
+            width: 238px;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: url(../Image/Camera_box.png) no-repeat;
+            background-size: 238px 220px;
+            color: #ecf0f1;  
+            max-width:238px;
+            max-height:220px;
+                     
+        }
+
+.image-preview input {
+                line-height: 238px;                
+                position: absolute;
+                opacity: 0;
+                z-index: 10;
+                max-width:238px;
+                max-height:220px;
+               
+            }
+
+.image-preview label {
+                position: absolute;
+                z-index: 5;
+                opacity: 0.8;
+                cursor: pointer;                
+                width: auto;
+                height: auto;
+                font-size: 20px;              
+                text-transform: uppercase;
+                top: 0;
+                left: 0;
+                right: 2px;
+                bottom: 2px;
+                margin: auto;
+                text-align: center;
+                max-width:238px;
+                max-height:250px;
+                
+            }

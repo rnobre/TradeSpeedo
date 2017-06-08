@@ -67,15 +67,6 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif1;
         
         /// <summary>
-        /// IUpload2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IUpload2;
-        
-        /// <summary>
         /// DDTipo2 control.
         /// </summary>
         /// <remarks>
@@ -92,15 +83,6 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDClassif2;
-        
-        /// <summary>
-        /// IUpload3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IUpload3;
         
         /// <summary>
         /// DDTipo3 control.
@@ -121,15 +103,6 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif3;
         
         /// <summary>
-        /// IUpload4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IUpload4;
-        
-        /// <summary>
         /// DDTipo4 control.
         /// </summary>
         /// <remarks>
@@ -146,15 +119,6 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDClassif4;
-        
-        /// <summary>
-        /// IUpload5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IUpload5;
         
         /// <summary>
         /// DDTipo5 control.
