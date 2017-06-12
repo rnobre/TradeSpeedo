@@ -9,6 +9,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using TradeSpeedo.Model;
+using System.Runtime.InteropServices.ComTypes;
+using System.IO;
 
 namespace TradeSpeedo.Pages
 {
@@ -46,19 +48,19 @@ namespace TradeSpeedo.Pages
 
                 DDClassif1.DataSource = classifs;
                 DDClassif1.DataBind();
-                DDClassif1.Items.Insert(0, new ListItem("Classif. da Exposição", ""));
+                DDClassif1.Items.Insert(0, new ListItem("Classificação da Exposição"));
                 DDClassif2.DataSource = classifs;
                 DDClassif2.DataBind();
-                DDClassif2.Items.Insert(0, new ListItem("Classif. da Exposição", ""));
+                DDClassif2.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
                 DDClassif3.DataSource = classifs;
                 DDClassif3.DataBind();
-                DDClassif3.Items.Insert(0, new ListItem("Classif. da Exposição", ""));
+                DDClassif3.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
                 DDClassif4.DataSource = classifs;
                 DDClassif4.DataBind();
-                DDClassif4.Items.Insert(0, new ListItem("Classif. da Exposição", ""));
+                DDClassif4.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
                 DDClassif5.DataSource = classifs;
                 DDClassif5.DataBind();
-                DDClassif5.Items.Insert(0, new ListItem("Classif. da Exposição", ""));
+                DDClassif5.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
 
                 var cliente = new Cliente(conexao);
                 var usuario = (Usuario)Session["usuario"];
@@ -97,6 +99,15 @@ namespace TradeSpeedo.Pages
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
+
+            HttpPostedFile file = Request.Files["image"];
+
+            if(file != null && file.ContentLength > 0)
+            {
+                string fname = Path.GetFileName(file.FileName);
+                file.SaveAs(Server.MapPath(Path.Combine("Uploads", fname)));
+            }
+
             var conexao = Session["conexao"].ToString();
             var clifor = DDPesquisa.SelectedValue;
 
@@ -104,8 +115,10 @@ namespace TradeSpeedo.Pages
             SalvarImagem(DDClassif2, DDTipo2, 2, conexao, clifor);
             SalvarImagem(DDClassif3, DDTipo3, 3, conexao, clifor);
             SalvarImagem(DDClassif4, DDTipo4, 4, conexao, clifor);
-            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);        
+            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);       
 
+     
+            
         }
 
         protected void DDPesquisa_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,7 +135,7 @@ namespace TradeSpeedo.Pages
                 DDClassif1.SelectedValue = imagem1.ClassificacaoID.ToString();
 
             }
-            else // não encontrou imagem pro cliente
+            else 
             {
                 DDTipo1.SelectedIndex = 0;
                 DDClassif1.SelectedIndex = 0;
@@ -186,26 +199,8 @@ namespace TradeSpeedo.Pages
             }
         }
 
+       
 
-
-        //public string AutoCompletar()
-        //{
-        //    var conexao = Session["conexao"].ToString();
-        //    var clientes = new StringBuilder();
-
-        //    foreach (var cliente in new Cliente(conexao).Lista(conexao))
-        //    {
-        //        clientes.Append("{");
-        //        clientes.AppendLine(" 'Clifor' : '" + cliente.Clifor + "', ");
-        //        clientes.AppendLine(" 'Cliente' : '" + cliente.Clientes + "', ");
-        //        clientes.AppendLine(" 'Cnpj' : '" + cliente.Cnpj.ToString() + "', ");
-        //        clientes.AppendLine(" 'Repre' : '" + cliente.Representante+ "', ");
-        //        clientes.AppendLine(" 'CliforRepre' : '" + cliente.Clifor_Repre.ToString() + "', ");
-        //        clientes.Append("},");
-        //    }
-
-        //    return clientes.ToString();
-        //}
     }
 
 }

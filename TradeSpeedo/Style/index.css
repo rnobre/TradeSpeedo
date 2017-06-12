@@ -1,4 +1,7 @@
-﻿.dIndex {
+﻿/*.body{
+    width:400px;
+}*/
+.dIndex {
     height: auto;
     width: auto;
 }
@@ -21,22 +24,25 @@
 
 .dPesquisa {
     height: 100px;
-    width: 1114px;
+    width: 1130px;
     position: relative;
-    top: -8px;
-    left: 143px;
+    left: 122px;
+    top:20px;
+    
 }
 
 .busca {
     width: 1010px;
     height: 26px;
+    
 }
 
 .h2 {
-    position: relative;
-    top: 7px;
-    left: 0px;
+
+    position:static;    
+    left: -143px;
     width: 259px;
+
 }
 
 .IUpload {
@@ -45,18 +51,19 @@
     width: 250px;
 }
 
-.DDClassif, .FUpload {
-    margin: 20px 20px 20px 0px;
-   
+.DDClassif {
+    margin: 20px 20px 20px 10px;
+  
 }
 
 .DDTipo{
-    margin: 20px 20px 20px 0px;
-    margin-top:50px;
+    margin: 20px 20px 20px 10px;
+    margin-top: -40px;
 }
 
 .col-md-2 {
     padding: 5px;
+    margin-top: 90px;
 }
 
 
@@ -67,7 +74,7 @@
     color: #ddd;
     text-decoration: none;
     font-weight: 900;
-    margin: 50px 1150px 0; /*Margin*/
+    margin: 50px 500px 0; /*Margin*/
     transition: all .2s;
     min-width: 100px;
     text-align: center;
@@ -75,6 +82,7 @@
     background: #ffffff;
     width: 250px;
     height: 70px;
+    margin-top: -10px;
 }
 
     .btn:hover, .btn.hover {
@@ -85,6 +93,8 @@
     .btn.btn-lg {
         padding: 10px 16px;
         font-size: 30px;
+        margin: 50px 500px 0; /*Margin*/
+        margin-top: -10px;
     }
 
     .btn.btn-sm {
@@ -101,11 +111,15 @@
     .btn.primary {
         border-color: #Fe370F;
         color: #4f5557;
+        margin: 50px 500px 0; /*Margin*/
+        margin-top: -10px;
     }
 
         .btn.primary:hover, .btn.primary.hover {
             background: #Fe370F;
             color: #fff;
+            margin: 50px 500px 0; /*Margin*/
+            margin-top: -10px;
         }
 
     .btn.danger {
@@ -179,36 +193,39 @@
         }
 
 .DDPesquisa {
-    top:-5px;
+    top: -30px;
     height: 40px;
-    Width: 1141px;
+    Width: 1100px;
     border: none;
     z-index:30;
+    margin:50px;
     
 }
 
-.BtnSair, BtnSair.hover {
+.BtnSair, .BtnSair:hover {
     color: #Fe370F;
+    text-decoration:none;
 }
 .image-preview {
     width: 238px;
     height: 220px;
-    top:10px;
+    top:-75px;
     padding:10px;
     overflow:hidden;
+    
 }
 .image-preview {
             width: 238px;
             height: 220px;
-            position: relative;
+            position:relative;
             overflow: hidden;
             background: url(../Image/Camera_box.png) no-repeat;
             background-size: 238px 220px;
             color: #ecf0f1;  
             max-width:238px;
             max-height:220px;
-                     
-        }
+    left: 0px;
+}
 
 .image-preview input {
                 line-height: 238px;                
