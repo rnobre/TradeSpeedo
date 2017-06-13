@@ -7,14 +7,14 @@
 
     <script src="../Scripts/jquery-3.1.1.min.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
-    <script src="../Scripts/bootstrap-select.min.js"></script>    
+    <script src="../Scripts/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.uploadPreview.min.js"></script>
     <link href="../Style/index.css" rel="stylesheet" type="text/css" />
     <link href="../Style/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../Style/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
 
-    <title>Sistema Trade</title>  
+    <title>Sistema Trade</title>
 </head>
 <body class="body" id="body">
     <form id="form1" class="form1" runat="server">
@@ -22,7 +22,6 @@
             <div id="dLogo" class="dLogo">
                 <img src="../Image/logo.png" />
             </div>
-
             <div id="dLogin" class="dLogin">
                 <span id="sWelcome" class="sWelcome">Bem vindo,
                     <asp:Label runat="server" ID="Luser"></asp:Label>!</span>
@@ -36,42 +35,47 @@
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <div id="image-preview1" class="image-preview">
-                        <label for="image-upload" id="image-label1" class="image-label"></label>                        
-                        <input type="file" name="image" id="image-upload1" class="image-upload" />
+                    <div id="imagepreview1" class="image-preview">
+                        <label id="LblID1" runat="server" class="LblID"></label>
+                        <label for="image-upload" runat="server" id="imagelabel1" class="image-label"></label>
+                        <input type="file" runat="server" name="image" id="imageupload1" class="image-upload" />
                     </div>
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo1" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif1" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="image-preview2" class="image-preview">
-                        <label for="image-upload" id="image-label2" class="image-label"></label>                    
-                        <input type="file" name="image" id="image-upload2" class="image-upload" />
-                    </div>                    
+                    <div id="imagepreview2" class="image-preview">
+                        <label id="LblID2" runat="server" class="LblID"></label>
+                        <label for="image-upload" runat="server" id="imagelabel2" class="image-label"></label>
+                        <input type="file" runat="server" name="image" id="imageupload2" class="image-upload" />
+                    </div>
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo2" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" DataTextField="Descricao" DataValueField="ID" runat="server" Height="34px"></asp:DropDownList>
+                    <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
-                <div class="col-md-2">     
-                    <div id="image-preview3" class="image-preview">
-                        <label for="image-upload" id="image-label3" class="image-label"></label>                        
-                        <input type="file" name="image" id="image-upload3" class="image-upload" />
-                    </div>             
+                <div class="col-md-2">
+                    <div id="imagepreview3" class="image-preview">
+                        <label id="LblID3" runat="server" class="LblID"></label>
+                        <label for="image-upload" runat="server" id="imagelabel3" class="image-label"></label>
+                        <input type="file" runat="server" name="image" id="imageupload3" class="image-upload" />
+                    </div>
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo3" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif3" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="image-preview4" class="image-preview">
-                        <label for="image-upload" id="image-label4" class="image-label"></label>                        
-                        <input type="file" name="image" id="image-upload4" class="image-upload" />
-                    </div>      
+                    <div id="imagepreview4" class="image-preview">
+                        <label id="LblID4" runat="server" class="LblID"></label>
+                        <label for="image-upload" runat="server" id="imagelabel4" class="image-label"></label>
+                        <input type="file" runat="server" name="image" id="imageupload4" class="image-upload" />
+                    </div>
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo4" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif4" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="image-preview5" class="image-preview">
-                        <label for="image-upload" id="image-label5" class="image-label"></label>                        
-                        <input type="file" name="image" id="image-upload5" class="image-upload" />
-                    </div>      
+                    <div id="imagepreview5" class="image-preview">
+                        <label id="LblID5" runat="server" class="LblID"></label>
+                        <label for="image-upload" runat="server" id="imagelabel5" class="image-label"></label>
+                        <input type="file" runat="server" name="image" id="imageupload5" class="image-upload" />
+                    </div>
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
@@ -89,42 +93,42 @@
 
                 $(document).ready(function () {
                     $.uploadPreview({
-                        input_field: "#image-upload1",
-                        preview_box: "#image-preview1",
-                        label_field: "#image-label1",
-                        
+                        input_field: "#imageupload1",
+                        preview_box: "#imagepreview1",
+                        label_field: "#imagelabel1",
+
                     });
                 });
                 $(document).ready(function () {
                     $.uploadPreview({
-                        input_field: "#image-upload2",
-                        preview_box: "#image-preview2",
-                        label_field: "#image-label2",
-                        
+                        input_field: "#imageupload2",
+                        preview_box: "#imagepreview2",
+                        label_field: "#imagelabel2",
+
                     });
                 });
                 $(document).ready(function () {
                     $.uploadPreview({
-                        input_field: "#image-upload3",
-                        preview_box: "#image-preview3",
-                        label_field: "#image-label3",
-                        
+                        input_field: "#imageupload3",
+                        preview_box: "#imagepreview3",
+                        label_field: "#imagelabel3",
+
                     });
                 });
                 $(document).ready(function () {
                     $.uploadPreview({
-                        input_field: "#image-upload4",
-                        preview_box: "#image-preview4",
-                        label_field: "#image-label4",
-                       
+                        input_field: "#imageupload4",
+                        preview_box: "#imagepreview4",
+                        label_field: "#imagelabel4",
+
                     });
                 });
                 $(document).ready(function () {
                     $.uploadPreview({
-                        input_field: "#image-upload5",
-                        preview_box: "#image-preview5",
-                        label_field: "#image-label5",
-                       
+                        input_field: "#imageupload5",
+                        preview_box: "#imagepreview5",
+                        label_field: "#imagelabel5",
+
                     });
                 });
             </script>

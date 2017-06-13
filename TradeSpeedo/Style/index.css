@@ -10,7 +10,7 @@
     position: relative;
     width: 242px;
     height: 103px;
-    top: 0px;
+    top: -170px;
     left: 13px;
 }
 
@@ -74,7 +74,7 @@
     color: #ddd;
     text-decoration: none;
     font-weight: 900;
-    margin: 50px 500px 0; /*Margin*/
+    margin: 50px 1100px  0; /*Margin*/
     transition: all .2s;
     min-width: 100px;
     text-align: center;
@@ -93,13 +93,14 @@
     .btn.btn-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin: 50px 500px 0; /*Margin*/
+        margin: 50px 1100px 0; /*Margin*/
         margin-top: -10px;
     }
 
     .btn.btn-sm {
         padding: 5px 10px;
         font-size: 12px;
+        
     }
 
     .btn.btn-xs {
@@ -111,15 +112,15 @@
     .btn.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin: 50px 500px 0; /*Margin*/
-        margin-top: -10px;
+        margin: 50px 1100px 0; /*Margin*/
+        margin-top: -70px;
     }
 
         .btn.primary:hover, .btn.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin: 50px 500px 0; /*Margin*/
-            margin-top: -10px;
+            margin: 50px 1100px  0; /*Margin*/
+            margin-top: -70px;
         }
 
     .btn.danger {
@@ -256,3 +257,7 @@
                 max-height:250px;
                 
             }
+
+/*.LblID{
+    display:none;
+}*/

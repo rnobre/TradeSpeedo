@@ -70,6 +70,7 @@ namespace TradeSpeedo.Pages
                 DDPesquisa.Items.Insert(0, new ListItem("Selecione um cliente", ""));
 
                 Luser.Text = usuario.Nome.ToString();
+                
 
             }
 
@@ -100,16 +101,64 @@ namespace TradeSpeedo.Pages
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
 
-            HttpPostedFile file = Request.Files["image"];
-
-            if(file != null && file.ContentLength > 0)
-            {
-                string fname = Path.GetFileName(file.FileName);
-                file.SaveAs(Server.MapPath(Path.Combine("Uploads", fname)));
-            }
-
             var conexao = Session["conexao"].ToString();
             var clifor = DDPesquisa.SelectedValue;
+            var sequencia = new Imagem(conexao).Sequencia;
+            var ID = new Imagem(conexao).ID;
+
+
+            HttpPostedFile imagem1 = Request.Files["imageupload1"];
+
+            if (imagem1 != null && imagem1.ContentLength > 0)
+            {
+                
+                string extimagem = Path.GetExtension(imagem1.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+                
+                imagem1.SaveAs(Server.MapPath(Path.Combine("~/Uploads", nomeimagem)));
+            }
+
+            HttpPostedFile imagem2 = Request.Files["imageupload2"];
+
+            if (imagem2 != null && imagem2.ContentLength > 0)
+            {
+                string extimagem = Path.GetExtension(imagem2.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+                imagem2.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
+            }
+
+            HttpPostedFile imagem3 = Request.Files["imageupload3"];
+
+            if (imagem3 != null && imagem3.ContentLength > 0)
+            {
+
+                string extimagem = Path.GetExtension(imagem3.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+
+                imagem3.SaveAs(Server.MapPath(Path.Combine("~/Uploads", nomeimagem)));
+            }
+
+            HttpPostedFile imagem4 = Request.Files["imageupload4"];
+
+            if (imagem4 != null && imagem4.ContentLength > 0)
+            {
+                string extimagem = Path.GetExtension(imagem4.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+                imagem4.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
+            }
+
+
+            HttpPostedFile imagem5 = Request.Files["imageupload5"];
+
+            if (imagem5 != null && imagem5.ContentLength > 0)
+            {
+                string extimagem = Path.GetExtension(imagem5.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+                imagem5.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
+            }
+
+            
+
 
             SalvarImagem(DDClassif1, DDTipo1, 1, conexao, clifor);
             SalvarImagem(DDClassif2, DDTipo2, 2, conexao, clifor);
@@ -127,18 +176,19 @@ namespace TradeSpeedo.Pages
 
             var imagem1 = new Imagem(conexao);
             imagem1.Carregar(DDPesquisa.SelectedValue, 1);
-
+            
 
             if (imagem1.ID != 0)
             {
                 DDTipo1.SelectedValue = imagem1.TipoExposicaoID.ToString();
                 DDClassif1.SelectedValue = imagem1.ClassificacaoID.ToString();
-
+                LblID1.InnerText = imagem1.ID.ToString();
             }
             else 
             {
                 DDTipo1.SelectedIndex = 0;
                 DDClassif1.SelectedIndex = 0;
+                
 
             }
 
@@ -149,11 +199,13 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo2.SelectedValue = imagem2.TipoExposicaoID.ToString();
                 DDClassif2.SelectedValue = imagem2.ClassificacaoID.ToString();
+                LblID2.InnerText = imagem2.ID.ToString();
             }
             else
             {
                 DDTipo2.SelectedIndex = 0;
                 DDClassif2.SelectedIndex = 0;
+                
             }
 
             var imagem3 = new Imagem(conexao);
@@ -163,6 +215,7 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo3.SelectedValue = imagem3.TipoExposicaoID.ToString();
                 DDClassif3.SelectedValue = imagem3.ClassificacaoID.ToString();
+                LblID3.InnerText = imagem3.ID.ToString();
             }
             else
             {
@@ -177,6 +230,7 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo4.SelectedValue = imagem4.TipoExposicaoID.ToString();
                 DDClassif4.SelectedValue = imagem4.ClassificacaoID.ToString();
+                LblID4.InnerText = imagem4.ID.ToString();
             }
             else
             {
@@ -191,6 +245,7 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo5.SelectedValue = imagem5.TipoExposicaoID.ToString();
                 DDClassif5.SelectedValue = imagem5.ClassificacaoID.ToString();
+                LblID5.InnerText = imagem5.ID.ToString();
             }
             else
             {

@@ -1386,6 +1386,8 @@ figure {
 
 img {
     vertical-align: middle;
+    margin-right: 0px;
+    margin-top: 176px;
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
@@ -1864,7 +1866,7 @@ pre {
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-    top: 22px;
+    top: 70px;
     left: 0px;
 }
 

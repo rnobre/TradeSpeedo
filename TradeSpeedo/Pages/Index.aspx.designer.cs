@@ -49,6 +49,33 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDPesquisa;
         
         /// <summary>
+        /// LblID1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID1;
+        
+        /// <summary>
+        /// imagelabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelabel1;
+        
+        /// <summary>
+        /// imageupload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageupload1;
+        
+        /// <summary>
         /// DDTipo1 control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,33 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDClassif1;
+        
+        /// <summary>
+        /// LblID2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID2;
+        
+        /// <summary>
+        /// imagelabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelabel2;
+        
+        /// <summary>
+        /// imageupload2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageupload2;
         
         /// <summary>
         /// DDTipo2 control.
@@ -85,6 +139,33 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif2;
         
         /// <summary>
+        /// LblID3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID3;
+        
+        /// <summary>
+        /// imagelabel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelabel3;
+        
+        /// <summary>
+        /// imageupload3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageupload3;
+        
+        /// <summary>
         /// DDTipo3 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +184,33 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif3;
         
         /// <summary>
+        /// LblID4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID4;
+        
+        /// <summary>
+        /// imagelabel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelabel4;
+        
+        /// <summary>
+        /// imageupload4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageupload4;
+        
+        /// <summary>
         /// DDTipo4 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +227,33 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDClassif4;
+        
+        /// <summary>
+        /// LblID5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID5;
+        
+        /// <summary>
+        /// imagelabel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelabel5;
+        
+        /// <summary>
+        /// imageupload5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imageupload5;
         
         /// <summary>
         /// DDTipo5 control.

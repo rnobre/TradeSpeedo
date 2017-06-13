@@ -121,6 +121,7 @@
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Image\Camera_box.png" />
+    <Content Include="Image\large_processing.gif" />
     <Content Include="Image\logo.png" />
     <Content Include="Login.aspx" />
     <Content Include="Pages\Index.aspx" />

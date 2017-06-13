@@ -42,7 +42,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            if (this.ID == 0)
+            if (ID == 0)
             {
 
 
