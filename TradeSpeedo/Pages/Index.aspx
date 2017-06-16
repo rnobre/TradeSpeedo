@@ -35,8 +35,8 @@
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <div id="imagepreview1" class="image-preview">
-                        <label id="LblID1" runat="server" class="LblID"></label>
+                    <div id="imagepreview1" class="image-preview">                        
+                        <asp:HiddenField ID="lbl1" runat="server"></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel1" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload1" class="image-upload" />
                     </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-2">
                     <div id="imagepreview2" class="image-preview">
-                        <label id="LblID2" runat="server" class="LblID"></label>
+                        <asp:HiddenField id="lbl2" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel2" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload2" class="image-upload" />
                     </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-2">
                     <div id="imagepreview3" class="image-preview">
-                        <label id="LblID3" runat="server" class="LblID"></label>
+                        <asp:HiddenField id="lbl3" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel3" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload3" class="image-upload" />
                     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-2">
                     <div id="imagepreview4" class="image-preview">
-                        <label id="LblID4" runat="server" class="LblID"></label>
+                        <asp:HiddenField id="lbl4" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel4" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload4" class="image-upload" />
                     </div>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="col-md-2">
                     <div id="imagepreview5" class="image-preview">
-                        <label id="LblID5" runat="server" class="LblID"></label>
+                        <asp:HiddenField id="lbl5" runat="server"></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel5" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload5" class="image-upload" />
                     </div>

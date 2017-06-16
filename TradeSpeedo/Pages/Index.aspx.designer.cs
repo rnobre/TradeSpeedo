@@ -49,13 +49,13 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDPesquisa;
         
         /// <summary>
-        /// LblID1 control.
+        /// lbl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID1;
+        protected global::System.Web.UI.WebControls.HiddenField lbl1;
         
         /// <summary>
         /// imagelabel1 control.
@@ -94,13 +94,13 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif1;
         
         /// <summary>
-        /// LblID2 control.
+        /// lbl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID2;
+        protected global::System.Web.UI.WebControls.HiddenField lbl2;
         
         /// <summary>
         /// imagelabel2 control.
@@ -139,13 +139,13 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif2;
         
         /// <summary>
-        /// LblID3 control.
+        /// lbl3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID3;
+        protected global::System.Web.UI.WebControls.HiddenField lbl3;
         
         /// <summary>
         /// imagelabel3 control.
@@ -184,13 +184,13 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif3;
         
         /// <summary>
-        /// LblID4 control.
+        /// lbl4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID4;
+        protected global::System.Web.UI.WebControls.HiddenField lbl4;
         
         /// <summary>
         /// imagelabel4 control.
@@ -229,13 +229,13 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif4;
         
         /// <summary>
-        /// LblID5 control.
+        /// lbl5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblID5;
+        protected global::System.Web.UI.WebControls.HiddenField lbl5;
         
         /// <summary>
         /// imagelabel5 control.

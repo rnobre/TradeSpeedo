@@ -11,11 +11,13 @@ using System.Text;
 using TradeSpeedo.Model;
 using System.Runtime.InteropServices.ComTypes;
 using System.IO;
+using System.Security.AccessControl;
+
 
 namespace TradeSpeedo.Pages
 {
     public partial class Index : System.Web.UI.Page
-    {        
+    {
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +29,7 @@ namespace TradeSpeedo.Pages
                 var tipo = new Tipo(conexao);
                 var tipos = tipo.Lista();
 
+                // Preenche combos de tipos
                 DDTipo1.DataSource = tipos;
                 DDTipo1.DataBind();
                 DDTipo1.Items.Insert(0, new ListItem("Tipo de Exposição", ""));
@@ -48,7 +51,7 @@ namespace TradeSpeedo.Pages
 
                 DDClassif1.DataSource = classifs;
                 DDClassif1.DataBind();
-                DDClassif1.Items.Insert(0, new ListItem("Classificação da Exposição"));
+                DDClassif1.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
                 DDClassif2.DataSource = classifs;
                 DDClassif2.DataBind();
                 DDClassif2.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
@@ -70,104 +73,16 @@ namespace TradeSpeedo.Pages
                 DDPesquisa.Items.Insert(0, new ListItem("Selecione um cliente", ""));
 
                 Luser.Text = usuario.Nome.ToString();
-                
+
 
             }
-
-
         }
+
 
         protected void BtnSair_Click(object sender, EventArgs e)
         {
             Session["conexao"] = null;
             Response.Redirect("/Login.aspx");
-        }
-
-        private void SalvarImagem(DropDownList classificacao, DropDownList tipo, int sequencia, string conexao, string clifor)
-        {
-            if (classificacao.SelectedValue != "" || tipo.SelectedValue != "")
-            {
-                var imagem= new Imagem(conexao)
-                {
-                    Clifor = clifor,
-                    Sequencia = sequencia,
-                    ClassificacaoID = Convert.ToInt32(classificacao.SelectedValue),
-                    TipoExposicaoID = Convert.ToInt32(tipo.SelectedValue)
-                };
-                imagem.Salvar();
-            }
-        }
-
-        protected void BtnSalvar_Click(object sender, EventArgs e)
-        {
-
-            var conexao = Session["conexao"].ToString();
-            var clifor = DDPesquisa.SelectedValue;
-            var sequencia = new Imagem(conexao).Sequencia;
-            var ID = new Imagem(conexao).ID;
-
-
-            HttpPostedFile imagem1 = Request.Files["imageupload1"];
-
-            if (imagem1 != null && imagem1.ContentLength > 0)
-            {
-                
-                string extimagem = Path.GetExtension(imagem1.FileName).ToLower();
-                string nomeimagem = clifor + '_' + sequencia + extimagem;
-                
-                imagem1.SaveAs(Server.MapPath(Path.Combine("~/Uploads", nomeimagem)));
-            }
-
-            HttpPostedFile imagem2 = Request.Files["imageupload2"];
-
-            if (imagem2 != null && imagem2.ContentLength > 0)
-            {
-                string extimagem = Path.GetExtension(imagem2.FileName).ToLower();
-                string nomeimagem = clifor + '_' + sequencia + extimagem;
-                imagem2.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
-            }
-
-            HttpPostedFile imagem3 = Request.Files["imageupload3"];
-
-            if (imagem3 != null && imagem3.ContentLength > 0)
-            {
-
-                string extimagem = Path.GetExtension(imagem3.FileName).ToLower();
-                string nomeimagem = clifor + '_' + sequencia + extimagem;
-
-                imagem3.SaveAs(Server.MapPath(Path.Combine("~/Uploads", nomeimagem)));
-            }
-
-            HttpPostedFile imagem4 = Request.Files["imageupload4"];
-
-            if (imagem4 != null && imagem4.ContentLength > 0)
-            {
-                string extimagem = Path.GetExtension(imagem4.FileName).ToLower();
-                string nomeimagem = clifor + '_' + sequencia + extimagem;
-                imagem4.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
-            }
-
-
-            HttpPostedFile imagem5 = Request.Files["imageupload5"];
-
-            if (imagem5 != null && imagem5.ContentLength > 0)
-            {
-                string extimagem = Path.GetExtension(imagem5.FileName).ToLower();
-                string nomeimagem = clifor + '_' + sequencia + extimagem;
-                imagem5.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
-            }
-
-            
-
-
-            SalvarImagem(DDClassif1, DDTipo1, 1, conexao, clifor);
-            SalvarImagem(DDClassif2, DDTipo2, 2, conexao, clifor);
-            SalvarImagem(DDClassif3, DDTipo3, 3, conexao, clifor);
-            SalvarImagem(DDClassif4, DDTipo4, 4, conexao, clifor);
-            SalvarImagem(DDClassif5, DDTipo5, 5, conexao, clifor);       
-
-     
-            
         }
 
         protected void DDPesquisa_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,19 +91,20 @@ namespace TradeSpeedo.Pages
 
             var imagem1 = new Imagem(conexao);
             imagem1.Carregar(DDPesquisa.SelectedValue, 1);
-            
+
 
             if (imagem1.ID != 0)
             {
                 DDTipo1.SelectedValue = imagem1.TipoExposicaoID.ToString();
                 DDClassif1.SelectedValue = imagem1.ClassificacaoID.ToString();
-                LblID1.InnerText = imagem1.ID.ToString();
+                lbl1.Value = imagem1.ID.ToString();
             }
-            else 
+            else
             {
                 DDTipo1.SelectedIndex = 0;
                 DDClassif1.SelectedIndex = 0;
-                
+                lbl1.Value = "0";
+
 
             }
 
@@ -199,13 +115,13 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo2.SelectedValue = imagem2.TipoExposicaoID.ToString();
                 DDClassif2.SelectedValue = imagem2.ClassificacaoID.ToString();
-                LblID2.InnerText = imagem2.ID.ToString();
+                lbl2.Value = imagem1.ID.ToString();
             }
             else
             {
                 DDTipo2.SelectedIndex = 0;
                 DDClassif2.SelectedIndex = 0;
-                
+                lbl2.Value = "0";
             }
 
             var imagem3 = new Imagem(conexao);
@@ -215,12 +131,13 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo3.SelectedValue = imagem3.TipoExposicaoID.ToString();
                 DDClassif3.SelectedValue = imagem3.ClassificacaoID.ToString();
-                LblID3.InnerText = imagem3.ID.ToString();
+                lbl3.Value = imagem1.ID.ToString();
             }
             else
             {
                 DDTipo3.SelectedIndex = 0;
                 DDClassif3.SelectedIndex = 0;
+                lbl3.Value = "0";
             }
 
             var imagem4 = new Imagem(conexao);
@@ -230,12 +147,13 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo4.SelectedValue = imagem4.TipoExposicaoID.ToString();
                 DDClassif4.SelectedValue = imagem4.ClassificacaoID.ToString();
-                LblID4.InnerText = imagem4.ID.ToString();
+                lbl4.Value = imagem1.ID.ToString();
             }
             else
             {
                 DDTipo4.SelectedIndex = 0;
                 DDClassif4.SelectedIndex = 0;
+                lbl4.Value = "0";
             }
 
             var imagem5 = new Imagem(conexao);
@@ -245,16 +163,63 @@ namespace TradeSpeedo.Pages
             {
                 DDTipo5.SelectedValue = imagem5.TipoExposicaoID.ToString();
                 DDClassif5.SelectedValue = imagem5.ClassificacaoID.ToString();
-                LblID5.InnerText = imagem5.ID.ToString();
+                lbl5.Value = imagem1.ID.ToString();
             }
             else
             {
                 DDTipo5.SelectedIndex = 0;
                 DDClassif5.SelectedIndex = 0;
+                lbl5.Value = "0";
             }
         }
 
-       
+        private void SalvarImagem(int Id_img, DropDownList classificacao, DropDownList tipo, int sequencia, string conexao, string clifor)
+        {
+            if (classificacao.SelectedValue != "" || tipo.SelectedValue != "")
+            {
+                var imagem = new Imagem(conexao)
+                {
+                    ID = Id_img,
+                    Clifor = clifor,
+                    Sequencia = sequencia,
+                    ClassificacaoID = Convert.ToInt32(classificacao.SelectedValue),
+                    TipoExposicaoID = Convert.ToInt32(tipo.SelectedValue)
+                };
+                imagem.Salvar();
+            }
+        }
+
+        private void SubirImagem(string imagemupload, string sequencia, string clifor)
+        {
+            HttpPostedFile imagem = Request.Files[imagemupload];
+
+            if (imagem != null && imagem.ContentLength > 0)
+            {
+                string extimagem = Path.GetExtension(imagem.FileName).ToLower();
+                string nomeimagem = clifor + '_' + sequencia + extimagem;
+                imagem.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
+            }
+        }
+        protected void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            var clifor = DDPesquisa.SelectedValue;
+            SubirImagem("imageupload1", "1", clifor);
+            SubirImagem("imageupload2", "2", clifor);
+            SubirImagem("imageupload3", "3", clifor);
+            SubirImagem("imageupload4", "4", clifor);
+            SubirImagem("imageupload5", "5", clifor);
+            
+            var conexao = Session["conexao"].ToString();
+            SalvarImagem(Convert.ToInt32(lbl1.Value), DDClassif1, DDTipo1, 1, conexao, clifor);
+            SalvarImagem(Convert.ToInt32(lbl2.Value), DDClassif2, DDTipo2, 2, conexao, clifor);
+            SalvarImagem(Convert.ToInt32(lbl3.Value), DDClassif3, DDTipo3, 3, conexao, clifor);
+            SalvarImagem(Convert.ToInt32(lbl4.Value), DDClassif4, DDTipo4, 4, conexao, clifor);
+            SalvarImagem(Convert.ToInt32(lbl5.Value), DDClassif5, DDTipo5, 5, conexao, clifor);
+
+        }
+
+
+
 
     }
 
