@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
 
 namespace TradeSpeedo.Model
@@ -19,10 +17,12 @@ namespace TradeSpeedo.Model
         public int TipoExposicaoID { get; set; }
         public int ClassificacaoID { get; set; }
         public int Sequencia { get; set; }
+        private string _stringconexao { get; set; }
 
         public Imagem(string stringConexao)
         {
             _conexao = new SqlConnection(stringConexao);
+            _stringconexao = stringConexao;
         }
 
         public void Carregar(int ID)
@@ -42,8 +42,10 @@ namespace TradeSpeedo.Model
                 this.Sequencia = Convert.ToInt32(dr["SEQUENCIA"].ToString());
                 dr.Close();
             }
-
+                        
             _conexao.Close();
+
+            
         }
 
         public void Carregar(string clifor, int sequencia)
@@ -67,6 +69,29 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
+        public List<Imagem> Lista(string clifor)
+        {
+            var imagens = new List<Imagem>();
+
+            _conexao.Open();
+            var sql = $"SELECT TOP 1 ID_IMAGEM,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO FROM TRADE_IMAGEM WHERE COD_CLIFOR = '{clifor}'";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while (dr.Read())
+            {
+                var imagem = new Imagem(_stringconexao);
+
+                imagem.Url = dr["URL"].ToString();
+
+                imagens.Add(imagem);
+            }
+
+            _conexao.Close();
+
+            return imagens;
+
+        }
+
         public void Salvar()
         {
             _conexao.Open();
@@ -77,9 +102,13 @@ namespace TradeSpeedo.Model
             {
                 sql = $"INSERT INTO TRADE_IMAGEM (COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA) VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}','{Sequencia}')";
             }
+            else if (this.Url != "")
+            {
+                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,URL = '{Url}',ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
+            }
             else
             {
-                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,URL= '{Url}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' , ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
+                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
             }
 
             new SqlCommand(sql, _conexao).ExecuteNonQuery();

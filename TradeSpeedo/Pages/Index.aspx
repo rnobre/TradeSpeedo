@@ -35,7 +35,7 @@
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
-                    <div id="imagepreview1" class="image-preview">                        
+                    <div id="imagepreview1" class="image-preview" runat="server">                        
                         <asp:HiddenField ID="lbl1" runat="server"></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel1" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload1" class="image-upload" />
@@ -44,7 +44,7 @@
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif1" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="imagepreview2" class="image-preview">
+                    <div id="imagepreview2" class="image-preview" runat="server">
                         <asp:HiddenField id="lbl2" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel2" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload2" class="image-upload" />
@@ -53,7 +53,7 @@
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif2" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="imagepreview3" class="image-preview">
+                    <div id="imagepreview3" class="image-preview" runat="server">
                         <asp:HiddenField id="lbl3" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel3" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload3" class="image-upload" />
@@ -62,7 +62,7 @@
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif3" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="imagepreview4" class="image-preview">
+                    <div id="imagepreview4" class="image-preview" runat="server">
                         <asp:HiddenField id="lbl4" runat="server" ></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel4" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload4" class="image-upload" />
@@ -71,7 +71,7 @@
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif4" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <div id="imagepreview5" class="image-preview">
+                    <div id="imagepreview5" class="image-preview" runat="server">
                         <asp:HiddenField id="lbl5" runat="server"></asp:HiddenField>
                         <label for="image-upload" runat="server" id="imagelabel5" class="image-label"></label>
                         <input type="file" runat="server" name="image" id="imageupload5" class="image-upload" />

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.SqlClient;
-using TradeSpeedo.Model;
-using System.Text;
 
 namespace TradeSpeedo.Model
 {
@@ -25,6 +21,8 @@ namespace TradeSpeedo.Model
         private string _stringconexao { get; set; }
 
         public string NomeCompleto { get; set; }
+
+        public int ID { get; set; }
 
         public Cliente(string stringConexao)
         {
@@ -62,6 +60,26 @@ namespace TradeSpeedo.Model
 
             return clientes;
 
+        }
+
+        public void Carregar(string Clifor)
+        {
+            _conexao.Open();
+            var sql = $"SELECT CLIFOR, CLIENTE, CNPJ,REPRESENTANTE,CLIFOR_REPRE FROM TRADE_CLIENTE WHERE CLIFOR = {Clifor}";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            if(dr.Read())
+            {                
+                this.Clifor = dr["CLIFOR"].ToString();
+                this.Clientes = dr["CLIENTE"].ToString();
+                this.Cnpj = Convert.ToInt64(dr["CNPJ"].ToString());
+                this.Representante = dr["REPRESENTANTE"].ToString();
+                this.Clifor_Repre = dr["CLIFOR_REPRE"].ToString();
+                dr.Close();
+
+            }
+            _conexao.Close();
+            
         }
 
     }
