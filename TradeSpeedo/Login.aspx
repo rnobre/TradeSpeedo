@@ -18,7 +18,7 @@
             <div class="form-login">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background: #Fe370F">
-                        <div class="panel-title">
+                        <div class="Dtitulo panel-title">
                             <p id="pTitulo" class="pTitulo">Sistema Trade</p>
                         </div>
                     </div>

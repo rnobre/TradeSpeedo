@@ -6,6 +6,13 @@
     padding: 5px;
 }
 
+.Dtitulo
+{
+    position:relative;
+    margin-left:-380px;
+    top:5px;
+    
+}
 
 .form-login {
     max-width: 450px;

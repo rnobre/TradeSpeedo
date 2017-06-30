@@ -227,7 +227,7 @@ namespace TradeSpeedo.Pages
             if (imagem != null && imagem.ContentLength > 0)
             {
                 string extimagem = Path.GetExtension(imagem.FileName).ToLower();
-                nomeimagem = clifor + '_' + sequencia /*+ extimagem*/;
+                nomeimagem = clifor + '_' + sequencia + extimagem;
                 imagem.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
                 //caminho = Server.MapPath(Path.Combine("~/Uploads", (nomeimagem)));
             }
@@ -327,8 +327,16 @@ namespace TradeSpeedo.Pages
             }            
 
             CarregarCliente();
+
         }
 
+        protected void BtnRelatorio_Click(object sender, EventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+            var relatorio = new Relatorio(conexao);
+            relatorio.Lista();
+                        
+        }
     }
 
 }

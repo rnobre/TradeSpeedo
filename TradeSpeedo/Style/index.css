@@ -69,7 +69,7 @@
     margin-top: 90px;
 }
 
-
+/*Inicio Botão Salvar*/
 .btn {
     display: inline-block;
     padding: 6px 12px;
@@ -77,7 +77,7 @@
     color: #ddd;
     text-decoration: none;
     font-weight: 900;
-    margin: 50px 1100px  0; /*Margin*/
+    margin: 830px; /*Margin*/
     transition: all .2s;
     min-width: 100px;
     text-align: center;
@@ -96,8 +96,8 @@
     .btn.btn-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin: 50px 1100px 0; /*Margin*/
-        margin-top: -10px;
+        margin: 50px 830px 0; /*Margin*/
+        margin-top: 0px;
     }
 
     .btn.btn-sm {
@@ -115,15 +115,15 @@
     .btn.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin: 50px 1100px 0; /*Margin*/
-        margin-top: -70px;
+        margin: 50px 830px 0; /*Margin*/
+        margin-top: 0px;
     }
 
         .btn.primary:hover, .btn.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin: 50px 1100px  0; /*Margin*/
-            margin-top: -70px;
+            margin: 50px 830px  0; /*Margin*/
+            margin-top: 0px;
         }
 
     .btn.danger {
@@ -195,6 +195,135 @@
             background: #777;
             color: #fff;
         }
+        /*FIM Botão Salvar*/
+
+
+        /*INICIO Botão Relatorio*/
+.btnRelatorio {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #FE370F;
+    color: #DDD;
+    text-decoration: none;
+    font-weight: 900;
+    margin: 0 750px 0; /*Margin*/
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 30px;
+    background: #FFFFFF;
+    width:250px;
+    height:70px;
+    font-weight:normal;
+
+
+}
+
+.btnRelatorio:hover, btn.btnRelatorio.hover{
+    background: #FFFFFF;
+    color: #777;
+}
+
+.btnRelatorio.btn-lg{
+    padding: 10px 16px;
+    font-size: 30px;
+    margin: 0 750px 0; /*Margin*/
+}
+
+.btnRelatorio.btn-sm{
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.btnRelatorio.btn-xs{
+    padding: 1px 5px;
+    font-size: 12px;    
+}
+
+.btnRelatorio.primary{
+    border-color: #FE370F;
+    color: #4F5557;
+    margin: 0 750px 0; /*Margin*/
+    text-decoration: none;
+    font-weight:normal;    
+}
+
+.btnRelatorio.primary:hover, .btnRelatorio.primary.hover{
+    background: #FE370F;
+    color: #FFF;
+    margin: 0 750px 0;
+}
+
+.btnRelatorio.danger{
+    border-color: #E74C3C;
+    color: #E74C3C
+}
+
+.btnRelatorio.danger:hover, .btnRelatorio.danger.hover{
+    border-color: #E74C3C;
+    color: #E74C3C
+}
+
+.btnRelatorio.success{
+    border-color: #27AE60;
+    color: #27AE60;
+}
+
+.btnRelatorio.success:hover, .btnRelatorio.success.hover{
+    background: #27AE60;
+    color: #FFF;
+}
+ .btnRelatorio.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnRelatorio.warning:hover, .btnRelatorio.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnRelatorio.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnRelatorio.black:hover, .btnRelatorio.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnRelatorio.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnRelatorio.black:hover, .btnRelatorio.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnRelatorio.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnRelatorio.info:hover, .btnRelatorio.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnRelatorio.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnRelatorio.clear:hover, .btnRelatorio.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+
+        /*FIM Botão Relatorio*/
 
 .DDPesquisa {
     top: -30px;

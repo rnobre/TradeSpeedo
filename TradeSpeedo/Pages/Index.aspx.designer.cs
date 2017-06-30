@@ -319,6 +319,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.DropDownList DDClassif5;
         
         /// <summary>
+        /// BtnRelatorio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRelatorio;
+        
+        /// <summary>
         /// BtnSalvar control.
         /// </summary>
         /// <remarks>

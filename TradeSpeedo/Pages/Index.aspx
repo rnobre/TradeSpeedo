@@ -79,9 +79,12 @@
                     <asp:DropDownList CssClass="DDTipo form-control" ID="DDTipo5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
-                <div class="col-md-2">
-                    <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" OnClick="BtnSalvar_Click" />
+                   </div>
+                 <div class="col-md-2" runat="server">
+                    <asp:Button ID="BtnRelatorio" Text="Relatório" runat="server" CssClass="btnRelatorio primary btn-lg" OnClick="BtnRelatorio_Click"/>
                 </div>
+                <div class="col-md-2">
+                    <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" OnClick="BtnSalvar_Click" />             
             </div>
             <script>
                 $('.DDPesquisa').selectpicker();
