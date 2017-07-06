@@ -13,7 +13,7 @@
     <link href="../Style/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../Style/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
-
+    
     <title>Sistema Trade</title>
 </head>
 <body class="body" id="body">
@@ -80,7 +80,7 @@
                     <asp:DropDownList CssClass="DDClassif form-control" ID="DDClassif5" DataTextField="Descricao" DataValueField="ID" runat="server"></asp:DropDownList>
                 </div>
                    </div>
-                 <div class="col-md-2" runat="server">
+                 <div id="Drelatorio" class="col-md-2" runat="server">
                     <asp:Button ID="BtnRelatorio" Text="Relatório" runat="server" CssClass="btnRelatorio primary btn-lg" OnClick="BtnRelatorio_Click"/>
                 </div>
                 <div class="col-md-2">

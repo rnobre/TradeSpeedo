@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Text;
 using TradeSpeedo.Model;
-using System.Runtime.InteropServices.ComTypes;
+using TradeSpeedo.Utils;
 using System.IO;
-using System.Security.AccessControl;
 
 
 namespace TradeSpeedo.Pages
@@ -74,7 +67,7 @@ namespace TradeSpeedo.Pages
 
                 Luser.Text = usuario.Nome.ToString();
 
-
+               
             }
         }
 
@@ -237,8 +230,8 @@ namespace TradeSpeedo.Pages
         private void ExcluirImagens(string conexao, string clifor)
         {
             var imagensDoCliente = new Imagem(conexao).Lista(clifor);
-            
-            foreach(var imagemDoCliente in imagensDoCliente)
+
+            foreach (var imagemDoCliente in imagensDoCliente)
             {
                 File.Delete(Server.MapPath(Path.Combine("~/Uploads", (imagemDoCliente.Url))));
             }
@@ -264,19 +257,19 @@ namespace TradeSpeedo.Pages
             var imagem4 = new Imagem(conexao);
             imagem4.Carregar(Convert.ToInt32(lbl4.Value));
             var urlVelha4 = imagem4.Url;
-            var imagem5= new Imagem(conexao);
+            var imagem5 = new Imagem(conexao);
             imagem5.Carregar(Convert.ToInt32(lbl5.Value));
             var urlVelha5 = imagem5.Url;
 
 
-                        
+
             var urlNova1 = SubirImagem("imageupload1", "1", clifor);
             var urlNova2 = SubirImagem("imageupload2", "2", clifor);
             var urlNova3 = SubirImagem("imageupload3", "3", clifor);
             var urlNova4 = SubirImagem("imageupload4", "4", clifor);
             var urlNova5 = SubirImagem("imageupload5", "5", clifor);
 
-            if(urlVelha1 != urlNova1 && urlVelha1 != null && urlNova1 == null)
+            if (urlVelha1 != urlNova1 && urlVelha1 != null && urlNova1 == null)
             {
                 File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha1))));
                 SalvarImagem(Convert.ToInt32(lbl1.Value), DDClassif1, DDTipo1, 1, clifor, Convert.ToString(cnpj), urlNova1, conexao);
@@ -324,22 +317,53 @@ namespace TradeSpeedo.Pages
             else
             {
                 SalvarImagem(Convert.ToInt32(lbl5.Value), DDClassif5, DDTipo5, 5, clifor, Convert.ToString(cnpj), urlNova5, conexao);
-            }            
+            }
 
             CarregarCliente();
 
         }
 
+
+
         protected void BtnRelatorio_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
-            var relatorio = new Relatorio(conexao);
-            relatorio.Lista();
-                        
+            var repre = (Usuario)Session["usuario"];
+            if (repre.Nome == "Vania Costa")
+            {
+                var relatorio = new Relatorio(conexao).RetornaRelatorio();
+                Response.Clear();
+                Response.AddHeader("content-disposition", "attachment; filename=relatorio.xls");
+                Response.ContentType = "application/vnd.ms-excel";
+
+                using (StreamWriter writer = new StreamWriter(Response.OutputStream))
+                {
+                    writer.WriteLine(relatorio);
+                }
+                Response.End();
+            }
+            else
+            {
+                var relatorio = new Relatorio(conexao).RetornaRelatorio(repre.Nome);
+                Response.Clear();
+                Response.AddHeader("content-disposition", "attachment; filename=relatorio.xls");
+                Response.ContentType = "application/vnd.ms-excel";
+
+                using (StreamWriter writer = new StreamWriter(Response.OutputStream))
+                {
+                    writer.WriteLine(relatorio);
+                }
+                Response.End();
+            }
+            
+            
+
         }
     }
 
 }
+
+
 
 
 
