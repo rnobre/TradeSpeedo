@@ -14,16 +14,17 @@ namespace TradeSpeedo.Utils
         {
             _conexao = new SqlConnection(stringConexao);
 
-        }
+        }        
         public string RetornaRelatorio()
         {
             _conexao.Open();
+            
             var sql = "SELECT " +
                          "D.REPRESENTANTE " +
                          ",A.COD_CLIFOR " +
                          ",D.CLIENTE " +
                          ",A.CNPJ " +
-                         ",A.URL " +
+                         ",CASE WHEN A.URL <> '' THEN A.URL ELSE 'Image/Camera_box.png' END as URL" + 
                          ",B.DESCRICAO as Tipo " +
                          ",C.DESCRICAO as Classif " +
                          "FROM TRADE_IMAGEM as A " +
@@ -65,7 +66,7 @@ namespace TradeSpeedo.Utils
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["REPRESENTANTE"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["COD_CLIFOR"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["CLIENTE"].ToString() + "</td>");
-                relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='" + HttpContext.Current.Server.MapPath(Path.Combine("~/Uploads/" + dr["URL"].ToString())) + "'" + "/></td>");
+                relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='http://sistematrade.com.br/Uploads/" + dr["URL"].ToString() + "'" + "/></td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Tipo"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td></tr>");
             }
@@ -83,7 +84,7 @@ namespace TradeSpeedo.Utils
                          ",A.COD_CLIFOR " +
                          ",D.CLIENTE " +
                          ",A.CNPJ " +
-                         ",A.URL " +
+                         ",CASE WHEN A.URL <> '' THEN A.URL ELSE 'Image/Camera_box.png' END as URL" +
                          ",B.DESCRICAO as Tipo " +
                          ",C.DESCRICAO as Classif " +
                          "FROM TRADE_IMAGEM as A " +
@@ -127,7 +128,7 @@ namespace TradeSpeedo.Utils
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["REPRESENTANTE"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["COD_CLIFOR"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["CLIENTE"].ToString() + "</td>");
-                relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='" + HttpContext.Current.Server.MapPath(Path.Combine("~/Uploads/" + dr["URL"].ToString())) + "'" + "/></td>");
+                relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='http://sistematrade.com.br/Uploads/" + dr["URL"].ToString() + "'" + "/></td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Tipo"].ToString() + "</td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td></tr>");
             }

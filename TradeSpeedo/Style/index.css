@@ -1,7 +1,7 @@
-﻿.body{
-      
+﻿.body {
     overflow-x: hidden;
 }
+
 .dIndex {
     height: auto;
     width: auto;
@@ -20,7 +20,6 @@
     position: relative;
     top: -66px;
     left: 1200px;
-    
 }
 
 .dPesquisa {
@@ -28,22 +27,18 @@
     width: 1212px;
     position: relative;
     left: 122px;
-    top:20px;
-    
+    top: 20px;
 }
 
 .busca {
     width: 1010px;
     height: 26px;
-    
 }
 
 .h2 {
-
-    position:static;    
+    position: static;
     left: -143px;
     width: 259px;
-
 }
 
 .IUpload {
@@ -54,12 +49,9 @@
 
 .DDClassif {
     margin: 20px 20px 20px 10px;
-
-
-  
 }
 
-.DDTipo{
+.DDTipo {
     margin: 20px 20px 20px 10px;
     margin-top: -40px;
 }
@@ -86,7 +78,6 @@
     width: 250px;
     height: 70px;
     margin-top: -10px;
-    
 }
 
     .btn:hover, .btn.hover {
@@ -104,7 +95,6 @@
     .btn.btn-sm {
         padding: 5px 10px;
         font-size: 12px;
-        
     }
 
     .btn.btn-xs {
@@ -117,13 +107,13 @@
         border-color: #Fe370F;
         color: #4f5557;
         margin: 50px 830px 0; /*Margin*/
-        margin-top: 0px;       
+        margin-top: 0px;
     }
 
         .btn.primary:hover, .btn.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin: 50px 830px  0; /*Margin*/
+            margin: 50px 830px 0; /*Margin*/
             margin-top: 0px;
         }
 
@@ -196,10 +186,10 @@
             background: #777;
             color: #fff;
         }
-        /*FIM Botão Salvar*/
+/*FIM Botão Salvar*/
 
 
-        /*INICIO Botão Relatorio*/
+/*INICIO Botão Relatorio*/
 .btnRelatorio {
     display: inline-block;
     padding: 6px 12px;
@@ -213,68 +203,67 @@
     text-align: center;
     font-size: 30px;
     background: #FFFFFF;
-    width:250px;
-    height:70px;
-    font-weight:normal;
-
-
+    width: 250px;
+    height: 70px;
+    font-weight: normal;
 }
 
-.btnRelatorio:hover, btn.btnRelatorio.hover{
-    background: #FFFFFF;
-    color: #777;
-}
+    .btnRelatorio:hover, btn.btnRelatorio.hover {
+        background: #FFFFFF;
+        color: #777;
+    }
 
-.btnRelatorio.btn-lg{
-    padding: 10px 16px;
-    font-size: 30px;
-    margin: 0 750px 0; /*Margin*/
-}
+    .btnRelatorio.btn-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+        margin: 0 750px 0; /*Margin*/
+    }
 
-.btnRelatorio.btn-sm{
-    padding: 5px 10px;
-    font-size: 12px;
-}
+    .btnRelatorio.btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
 
-.btnRelatorio.btn-xs{
-    padding: 1px 5px;
-    font-size: 12px;    
-}
+    .btnRelatorio.btn-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+    }
 
-.btnRelatorio.primary{
-    border-color: #FE370F;
-    color: #4F5557;
-    margin: 0 750px 0; /*Margin*/
-    text-decoration: none;
-    font-weight:normal;    
-}
+    .btnRelatorio.primary {
+        border-color: #FE370F;
+        color: #4F5557;
+        margin: 0 750px 0; /*Margin*/
+        text-decoration: none;
+        font-weight: normal;
+    }
 
-.btnRelatorio.primary:hover, .btnRelatorio.primary.hover{
-    background: #FE370F;
-    color: #FFF;
-    margin: 0 750px 0;
-}
+        .btnRelatorio.primary:hover, .btnRelatorio.primary.hover {
+            background: #FE370F;
+            color: #FFF;
+            margin: 0 750px 0;
+        }
 
-.btnRelatorio.danger{
-    border-color: #E74C3C;
-    color: #E74C3C
-}
+    .btnRelatorio.danger {
+        border-color: #E74C3C;
+        color: #E74C3C;
+    }
 
-.btnRelatorio.danger:hover, .btnRelatorio.danger.hover{
-    border-color: #E74C3C;
-    color: #E74C3C
-}
+        .btnRelatorio.danger:hover, .btnRelatorio.danger.hover {
+            border-color: #E74C3C;
+            color: #E74C3C;
+        }
 
-.btnRelatorio.success{
-    border-color: #27AE60;
-    color: #27AE60;
-}
+    .btnRelatorio.success {
+        border-color: #27AE60;
+        color: #27AE60;
+    }
 
-.btnRelatorio.success:hover, .btnRelatorio.success.hover{
-    background: #27AE60;
-    color: #FFF;
-}
- .btnRelatorio.warning {
+        .btnRelatorio.success:hover, .btnRelatorio.success.hover {
+            background: #27AE60;
+            color: #FFF;
+        }
+
+    .btnRelatorio.warning {
         border-color: #f1c40f;
         color: #f1c40f;
     }
@@ -324,70 +313,185 @@
             color: #fff;
         }
 
-        /*FIM Botão Relatorio*/
+/*FIM Botão Relatorio*/
 
 .DDPesquisa {
     top: -30px;
     height: 40px;
     Width: 1100px;
     border: none;
-    z-index:30;
-    margin:50px;
-    
+    z-index: 30;
+    margin: 50px;
 }
 
 .BtnSair, .BtnSair:hover {
     color: #Fe370F;
-    text-decoration:none;
+    text-decoration: none;
 }
+
 .image-preview {
     width: 238px;
     height: 220px;
-    top:-75px;
-    padding:10px;
-    overflow:hidden;
-    
+    top: -75px;
+    padding: 10px;
+    overflow: hidden;
 }
+
 .image-preview {
-            width: 238px;
-            height: 220px;
-            position:relative;
-            overflow: hidden;
-            background: url(../Image/Camera_box.png) no-repeat;
-            background-size: 238px 220px;
-            color: #ecf0f1;  
-            max-width:238px;
-            max-height:220px;
-            left: 0px;
+    width: 238px;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background: url(../Image/Camera_box.png) no-repeat;
+    background-size: 238px 220px;
+    color: #ecf0f1;
+    max-width: 238px;
+    max-height: 220px;
+    left: 0px;
 }
 
-.image-preview input {
-                line-height: 238px;                
-                position: absolute;
-                opacity: 0;
-                z-index: 10;
-                max-width:238px;
-                max-height:220px;
-               
-            }
+    .image-preview input {
+        line-height: 238px;
+        position: absolute;
+        opacity: 0;
+        z-index: 10;
+        max-width: 238px;
+        max-height: 220px;
+    }
 
-.image-preview label {
-                position: absolute;
-                z-index: 5;
-                opacity: 0.8;
-                cursor: pointer;                
-                width: auto;
-                height: auto;
-                font-size: 20px;              
-                text-transform: uppercase;
-                top: 0;
-                left: 0;
-                right: 2px;
-                bottom: 2px;
-                margin: auto;
-                text-align: center;
-                max-width:238px;
-                max-height:250px;
-                
-            }
+    .image-preview label {
+        position: absolute;
+        z-index: 5;
+        opacity: 0.8;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        text-transform: uppercase;
+        top: 0;
+        left: 0;
+        right: 2px;
+        bottom: 2px;
+        margin: auto;
+        text-align: center;
+        max-width: 238px;
+        max-height: 250px;
+    }
 
+.dErro {
+    position: relative;
+    left: 390px;
+    top: 63px;
+    width: 196px;
+    height: 15px;
+}
+
+.pErro {
+    color: #E74C3C;
+}
+
+.perroCliente {
+    color: white;
+    margin-top: -5px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 300px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalV {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 300px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #E74C3C;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -900px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -900px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #E74C3C;
+    color: white;
+    height: 40px;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #E74C3C;
+    color: white;
+}

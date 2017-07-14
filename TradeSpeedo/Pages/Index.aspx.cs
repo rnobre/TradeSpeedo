@@ -6,7 +6,6 @@ using TradeSpeedo.Model;
 using TradeSpeedo.Utils;
 using System.IO;
 
-
 namespace TradeSpeedo.Pages
 {
     public partial class Index : System.Web.UI.Page
@@ -18,7 +17,7 @@ namespace TradeSpeedo.Pages
             {
 
                 var conexao = Session["conexao"].ToString();
-
+                dErro.Visible = false;
                 var tipo = new Tipo(conexao);
                 var tipos = tipo.Lista();
 
@@ -67,7 +66,7 @@ namespace TradeSpeedo.Pages
 
                 Luser.Text = usuario.Nome.ToString();
 
-               
+
             }
         }
 
@@ -81,6 +80,7 @@ namespace TradeSpeedo.Pages
         protected void DDPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarCliente();
+            dErro.Visible = false;            
         }
 
         private void CarregarCliente()
@@ -211,7 +211,6 @@ namespace TradeSpeedo.Pages
         }
 
 
-
         private string SubirImagem(string imagemupload, string sequencia, string clifor)
         {
             HttpPostedFile imagem = Request.Files[imagemupload];
@@ -221,8 +220,7 @@ namespace TradeSpeedo.Pages
             {
                 string extimagem = Path.GetExtension(imagem.FileName).ToLower();
                 nomeimagem = clifor + '_' + sequencia + extimagem;
-                imagem.SaveAs(Server.MapPath(Path.Combine("~/Uploads", (nomeimagem))));
-                //caminho = Server.MapPath(Path.Combine("~/Uploads", (nomeimagem)));
+                imagem.SaveAs(Server.MapPath(Path.Combine("/Uploads", (nomeimagem)))); //OffLine         
             }
             return nomeimagem;
         }
@@ -233,96 +231,126 @@ namespace TradeSpeedo.Pages
 
             foreach (var imagemDoCliente in imagensDoCliente)
             {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (imagemDoCliente.Url))));
+                File.Delete(Server.MapPath(Path.Combine("Uploads", (imagemDoCliente.Url))));
             }
         }
-
+        public string strScript = "";
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
             var clifor = DDPesquisa.SelectedValue;
-            var cliente = new Cliente(conexao);
-            cliente.Carregar(clifor);
-            var cnpj = cliente.Cnpj;
 
-            var imagem1 = new Imagem(conexao);
-            imagem1.Carregar(Convert.ToInt32(lbl1.Value));
-            var urlVelha1 = imagem1.Url;
-            var imagem2 = new Imagem(conexao);
-            imagem2.Carregar(Convert.ToInt32(lbl2.Value));
-            var urlVelha2 = imagem2.Url;
-            var imagem3 = new Imagem(conexao);
-            imagem3.Carregar(Convert.ToInt32(lbl3.Value));
-            var urlVelha3 = imagem3.Url;
-            var imagem4 = new Imagem(conexao);
-            imagem4.Carregar(Convert.ToInt32(lbl4.Value));
-            var urlVelha4 = imagem4.Url;
-            var imagem5 = new Imagem(conexao);
-            imagem5.Carregar(Convert.ToInt32(lbl5.Value));
-            var urlVelha5 = imagem5.Url;
-
-
-
-            var urlNova1 = SubirImagem("imageupload1", "1", clifor);
-            var urlNova2 = SubirImagem("imageupload2", "2", clifor);
-            var urlNova3 = SubirImagem("imageupload3", "3", clifor);
-            var urlNova4 = SubirImagem("imageupload4", "4", clifor);
-            var urlNova5 = SubirImagem("imageupload5", "5", clifor);
-
-            if (urlVelha1 != urlNova1 && urlVelha1 != null && urlNova1 == null)
+            if (DDPesquisa.SelectedValue == "")
             {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha1))));
-                SalvarImagem(Convert.ToInt32(lbl1.Value), DDClassif1, DDTipo1, 1, clifor, Convert.ToString(cnpj), urlNova1, conexao);
+                dErro.Visible = true;
+                strScript = "alert('Por gentileza selecionar o cliente');";
             }
             else
             {
-                SalvarImagem(Convert.ToInt32(lbl1.Value), DDClassif1, DDTipo1, 1, clifor, Convert.ToString(cnpj), urlNova1, conexao);
+                dErro.Visible = false;
+                var cliente = new Cliente(conexao);
+                cliente.Carregar(clifor);
+                var cnpj = cliente.Cnpj;
+
+
+
+                var imagem1 = new Imagem(conexao);
+                imagem1.Carregar(Convert.ToInt32(lbl1.Value));
+                var urlVelha1 = imagem1.Url;
+                var imagem2 = new Imagem(conexao);
+                imagem2.Carregar(Convert.ToInt32(lbl2.Value));
+                var urlVelha2 = imagem2.Url;
+                var imagem3 = new Imagem(conexao);
+                imagem3.Carregar(Convert.ToInt32(lbl3.Value));
+                var urlVelha3 = imagem3.Url;
+                var imagem4 = new Imagem(conexao);
+                imagem4.Carregar(Convert.ToInt32(lbl4.Value));
+                var urlVelha4 = imagem4.Url;
+                var imagem5 = new Imagem(conexao);
+                imagem5.Carregar(Convert.ToInt32(lbl5.Value));
+                var urlVelha5 = imagem5.Url;
+
+
+                var urlNova1 = SubirImagem("imageupload1", "1", clifor);
+                var urlNova2 = SubirImagem("imageupload2", "2", clifor);
+                var urlNova3 = SubirImagem("imageupload3", "3", clifor);
+                var urlNova4 = SubirImagem("imageupload4", "4", clifor);
+                var urlNova5 = SubirImagem("imageupload5", "5", clifor);
+
+
+                if ((DDClassif1.SelectedValue == "" && (urlNova1 != "" || urlVelha1 != null)) ||
+                        (DDClassif2.SelectedValue == "" && (urlNova2 != "" || urlVelha2 != null)) ||
+                        (DDClassif3.SelectedValue == "" && (urlNova3 != "" || urlVelha3 != null)) ||
+                        (DDClassif3.SelectedValue == "" && (urlNova3 != "" || urlVelha3 != null)) ||
+                        (DDClassif4.SelectedValue == "" && (urlNova4 != "" || urlVelha4 != null)) ||
+                        (DDClassif5.SelectedValue == "" && (urlNova5 != "" || urlVelha5 != null)) ||
+                        (DDTipo1.SelectedValue == "" && (urlNova1 != "" || urlVelha1 != null)) ||
+                        (DDTipo2.SelectedValue == "" && (urlNova2 != "" || urlVelha2 != null)) ||
+                        (DDTipo3.SelectedValue == "" && (urlNova3 != "" || urlVelha3 != null)) ||
+                        (DDTipo4.SelectedValue == "" && (urlNova4 != "" || urlVelha4 != null)) ||
+                        (DDTipo5.SelectedValue == "" && (urlNova5 != "" || urlVelha5 != null)))
+                {
+                    strScript = "alert('Por gentileza verificar se a foto selecionada possui tipo de exposição e classificação.');";
+                }
+
+                else
+                {
+
+                    if (urlNova1 != "" && urlVelha1 != null)
+                    {
+                        var arquivo = Server.MapPath(Path.Combine("~/Uploads", (urlVelha1)));
+                        if (File.Exists(arquivo))
+                            File.Delete(arquivo);
+                    }
+
+                    SalvarImagem(Convert.ToInt32(lbl1.Value), DDClassif1, DDTipo1, 1, clifor, Convert.ToString(cnpj), urlNova1, conexao);
+
+                    if (urlNova2 != "" && urlVelha2 != null)
+                    {
+                        var arquivo = Server.MapPath(Path.Combine("~/Uploads", (urlVelha2)));
+                        if (File.Exists(arquivo))
+                            File.Delete(arquivo);
+                    }
+
+                    SalvarImagem(Convert.ToInt32(lbl2.Value), DDClassif2, DDTipo2, 2, clifor, Convert.ToString(cnpj), urlNova2, conexao);
+
+
+                    if (urlNova3 != "" && urlVelha3 != null)
+                    {
+                        var arquivo = Server.MapPath(Path.Combine("~/Uploads", (urlVelha3)));
+                        if (File.Exists(arquivo))
+                            File.Delete(arquivo);
+                    }
+
+                    SalvarImagem(Convert.ToInt32(lbl3.Value), DDClassif3, DDTipo3, 3, clifor, Convert.ToString(cnpj), urlNova3, conexao);
+
+                    if (urlNova4 != "" && urlVelha4 != null)
+                    {
+                        var arquivo = Server.MapPath(Path.Combine("~/Uploads", (urlVelha4)));
+                        if (File.Exists(arquivo))
+                            File.Delete(arquivo);
+                    }
+
+                    SalvarImagem(Convert.ToInt32(lbl4.Value), DDClassif4, DDTipo4, 4, clifor, Convert.ToString(cnpj), urlNova4, conexao);
+
+                    if (urlNova5 != "" && urlVelha5 != null)
+                    {
+                        var arquivo = Server.MapPath(Path.Combine("~/Uploads", (urlVelha5)));
+                        if (File.Exists(arquivo))
+                            File.Delete(arquivo);
+                    }
+
+                    SalvarImagem(Convert.ToInt32(lbl5.Value), DDClassif5, DDTipo5, 5, clifor, Convert.ToString(cnpj), urlNova5, conexao);
+
+
+                    CarregarCliente();
+                    strScript = "alert('Foto enviada com sucesso!');";
+                }
+
             }
 
-            if (urlVelha2 != urlNova2 && urlVelha2 != null && urlNova2 == null)
-            {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha2))));
-                SalvarImagem(Convert.ToInt32(lbl2.Value), DDClassif2, DDTipo2, 2, clifor, Convert.ToString(cnpj), urlNova2, conexao);
-            }
-            else
-            {
-                SalvarImagem(Convert.ToInt32(lbl2.Value), DDClassif2, DDTipo2, 2, clifor, Convert.ToString(cnpj), urlNova2, conexao);
-            }
-
-            if (urlVelha3 != urlNova3 && urlVelha3 != null && urlNova3 == null)
-            {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha3))));
-                SalvarImagem(Convert.ToInt32(lbl3.Value), DDClassif3, DDTipo3, 3, clifor, Convert.ToString(cnpj), urlNova3, conexao);
-            }
-            else
-            {
-                SalvarImagem(Convert.ToInt32(lbl3.Value), DDClassif3, DDTipo3, 3, clifor, Convert.ToString(cnpj), urlNova3, conexao);
-            }
-
-            if (urlVelha4 != urlNova4 && urlVelha4 != null && urlNova4 == null)
-            {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha4))));
-                SalvarImagem(Convert.ToInt32(lbl4.Value), DDClassif4, DDTipo4, 4, clifor, Convert.ToString(cnpj), urlNova4, conexao);
-            }
-            else
-            {
-                SalvarImagem(Convert.ToInt32(lbl4.Value), DDClassif4, DDTipo4, 4, clifor, Convert.ToString(cnpj), urlNova4, conexao);
-            }
-
-            if (urlVelha5 != urlNova5 && urlVelha5 != null && urlNova5 == null)
-            {
-                File.Delete(Server.MapPath(Path.Combine("~/Uploads", (urlVelha5))));
-                SalvarImagem(Convert.ToInt32(lbl5.Value), DDClassif5, DDTipo5, 5, clifor, Convert.ToString(cnpj), urlNova5, conexao);
-            }
-            else
-            {
-                SalvarImagem(Convert.ToInt32(lbl5.Value), DDClassif5, DDTipo5, 5, clifor, Convert.ToString(cnpj), urlNova5, conexao);
-            }
-
-            CarregarCliente();
 
         }
-
 
 
         protected void BtnRelatorio_Click(object sender, EventArgs e)
@@ -355,8 +383,6 @@ namespace TradeSpeedo.Pages
                 }
                 Response.End();
             }
-            
-            
 
         }
     }

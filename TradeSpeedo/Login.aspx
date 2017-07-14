@@ -8,6 +8,7 @@
     <title>Sistema Trade</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Style/login_estilo.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="Image/bumerangue.ico" />
     <script src="Scripts/jquery-3.1.1.min.js"></script>
 
 </head>

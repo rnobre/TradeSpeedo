@@ -42,10 +42,10 @@ namespace TradeSpeedo.Model
                 this.Sequencia = Convert.ToInt32(dr["SEQUENCIA"].ToString());
                 dr.Close();
             }
-                        
+
             _conexao.Close();
 
-            
+
         }
 
         public void Carregar(string clifor, int sequencia)

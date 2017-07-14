@@ -40,6 +40,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.LinkButton BtnSair;
         
         /// <summary>
+        /// dErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dErro;
+        
+        /// <summary>
         /// DDPesquisa control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField lbl1;
+        
+        /// <summary>
+        /// NovaImagem1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NovaImagem1;
         
         /// <summary>
         /// imagelabel1 control.
@@ -121,6 +139,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.HiddenField lbl2;
         
         /// <summary>
+        /// NovaImagem2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NovaImagem2;
+        
+        /// <summary>
         /// imagelabel2 control.
         /// </summary>
         /// <remarks>
@@ -173,6 +200,15 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField lbl3;
+        
+        /// <summary>
+        /// NovaImagem3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NovaImagem3;
         
         /// <summary>
         /// imagelabel3 control.
@@ -229,6 +265,15 @@ namespace TradeSpeedo.Pages {
         protected global::System.Web.UI.WebControls.HiddenField lbl4;
         
         /// <summary>
+        /// NovaImagem4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NovaImagem4;
+        
+        /// <summary>
         /// imagelabel4 control.
         /// </summary>
         /// <remarks>
@@ -281,6 +326,15 @@ namespace TradeSpeedo.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField lbl5;
+        
+        /// <summary>
+        /// NovaImagem5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NovaImagem5;
         
         /// <summary>
         /// imagelabel5 control.

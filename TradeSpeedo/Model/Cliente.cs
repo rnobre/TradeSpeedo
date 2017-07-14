@@ -68,8 +68,8 @@ namespace TradeSpeedo.Model
             var sql = $"SELECT CLIFOR, CLIENTE, CNPJ,REPRESENTANTE,CLIFOR_REPRE FROM TRADE_CLIENTE WHERE CLIFOR = {Clifor}";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
-            if(dr.Read())
-            {                
+            if (dr.Read())
+            {
                 this.Clifor = dr["CLIFOR"].ToString();
                 this.Clientes = dr["CLIENTE"].ToString();
                 this.Cnpj = Convert.ToInt64(dr["CNPJ"].ToString());
@@ -79,7 +79,7 @@ namespace TradeSpeedo.Model
 
             }
             _conexao.Close();
-            
+
         }
 
     }

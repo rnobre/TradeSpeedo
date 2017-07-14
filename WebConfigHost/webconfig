@@ -1,0 +1,17 @@
+      protected void Acessar_Click(object sender, EventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+            var usuario = Usuario.RetornaUsuario(txtUsuario.Text, txtSenha.Text, conexao);
+
+            if (usuario != null)
+            {
+                // Loga
+                Session["usuario"] = usuario;
+                Response.Redirect("Pages/Index.aspx");
+
+            }
+            else
+            {
+                dErro.Visible = true;
+            }
+        }
