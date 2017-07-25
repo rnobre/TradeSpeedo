@@ -370,7 +370,20 @@ namespace TradeSpeedo.Pages
                 }
                 Response.End();
             }
-            else
+            else if (repre.Nome == "Jean")
+                {
+                    var relatorio = new Relatorio(conexao).RetornaRelatorio();
+                    Response.Clear();
+                    Response.AddHeader("content-disposition", "attachment; filename=relatorio.xls");
+                    Response.ContentType = "application/vnd.ms-excel";
+
+                    using (StreamWriter writer = new StreamWriter(Response.OutputStream))
+                    {
+                        writer.WriteLine(relatorio);
+                    }
+                    Response.End();
+                }
+                else
             {
                 var relatorio = new Relatorio(conexao).RetornaRelatorio(repre.Nome);
                 Response.Clear();
