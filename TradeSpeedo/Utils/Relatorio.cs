@@ -14,19 +14,20 @@ namespace TradeSpeedo.Utils
         {
             _conexao = new SqlConnection(stringConexao);
 
-        }        
+        }
         public string RetornaRelatorio()
         {
             _conexao.Open();
-            
+
             var sql = "SELECT " +
                          "D.REPRESENTANTE " +
                          ",A.COD_CLIFOR " +
                          ",D.CLIENTE " +
                          ",A.CNPJ " +
-                         ",CASE WHEN A.URL <> '' THEN A.URL ELSE 'Image/Camera_box.png' END as URL" + 
+                         ",CASE WHEN A.URL <> '' THEN A.URL ELSE 'Image/Camera_box.png' END as URL" +
                          ",B.DESCRICAO as Tipo " +
                          ",C.DESCRICAO as Classif " +
+                         ",CONVERT (VARCHAR (10), A.DATA,103) AS Data " +
                          "FROM TRADE_IMAGEM as A " +
                          "JOIN TRADE_TIPO_EXPOSICAO as B ON A.ID_TIPO_EXPOSICAO = B.ID_TIPO " +
                          "JOIN TRADE_CLASSIFICACAO C ON A.ID_CLASSIFICACAO = C.ID_CLASSIFICACAO " +
@@ -40,13 +41,14 @@ namespace TradeSpeedo.Utils
 
 
             dr = comando.ExecuteReader();
-            relatorio.Append("<table cellpadding = '0' cellspacing ='0' border = '1' width = '500px' style= 'border - width:1px; border-style:solid; '>");
+            relatorio.Append("<table cellpadding = '0' cellspacing ='0' border = '1' width = '800px' style= 'border - width:1px; border-style:solid; '>");
             relatorio.Append("<tr style='font-weight:bold;'><td align = 'center' style='color:#FFFFFF; font-weight: bold;background-color:#D2232A;'>Representante</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Clifor</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Cliente</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Foto</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Tipo</td>");
-            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Classifica&ccedil;&atilde;o</td></tr>");
+            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Classifica&ccedil;&atilde;o</td>");
+            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Data</td></tr>");
 
 
             int clinha = 0;
@@ -68,7 +70,8 @@ namespace TradeSpeedo.Utils
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["CLIENTE"].ToString() + "</td>");
                 relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='http://sistematrade.com.br/Uploads/" + dr["URL"].ToString() + "'" + "/></td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Tipo"].ToString() + "</td>");
-                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td></tr>");
+                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td>");
+                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Data"].ToString() + "</td></tr>");
             }
             relatorio.AppendLine("</table>");
             dr.Close();
@@ -87,6 +90,7 @@ namespace TradeSpeedo.Utils
                          ",CASE WHEN A.URL <> '' THEN A.URL ELSE 'Image/Camera_box.png' END as URL" +
                          ",B.DESCRICAO as Tipo " +
                          ",C.DESCRICAO as Classif " +
+                         ",CONVERT (VARCHAR (10), A.DATA,103) AS Data " +
                          "FROM TRADE_IMAGEM as A " +
                          "JOIN TRADE_TIPO_EXPOSICAO as B ON A.ID_TIPO_EXPOSICAO = B.ID_TIPO " +
                          "JOIN TRADE_CLASSIFICACAO C ON A.ID_CLASSIFICACAO = C.ID_CLASSIFICACAO " +
@@ -102,13 +106,14 @@ namespace TradeSpeedo.Utils
 
 
             dr = comando.ExecuteReader();
-            relatorio.Append("<table cellpadding = '0' cellspacing ='0' border = '1' width = '500px' style= 'border - width:1px; border-style:solid; '>");
+            relatorio.Append("<table cellpadding = '0' cellspacing ='0' border = '1' width = '800px' style= 'border - width:1px; border-style:solid; '>");
             relatorio.Append("<tr style='font-weight:bold;'><td align = 'center' style='color:#FFFFFF; font-weight: bold;background-color:#D2232A;'>Representante</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Clifor</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Cliente</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Foto</td>");
             relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Tipo</td>");
-            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Classifica&ccedil;&atilde;o</td></tr>");
+            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Classifica&ccedil;&atilde;o</td>");
+            relatorio.Append("<td align = 'center' style='color:#FFFFFF; font-weight: bold; background-color:#D2232A;'>Data</td></tr>");
 
 
             int clinha = 0;
@@ -130,7 +135,8 @@ namespace TradeSpeedo.Utils
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["CLIENTE"].ToString() + "</td>");
                 relatorio.AppendLine("<td width='60' height='60' " + color + "><img align = 'middle' border'0' width='60' height='59' style='margin: 2px; padding: 2; ' src='http://sistematrade.com.br/Uploads/" + dr["URL"].ToString() + "'" + "/></td>");
                 relatorio.AppendLine("<td height='60' " + color + ">" + dr["Tipo"].ToString() + "</td>");
-                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td></tr>");
+                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Classif"].ToString() + "</td>");
+                relatorio.AppendLine("<td height='60' " + color + ">" + dr["Data"].ToString() + "</td></tr>");
             }
             relatorio.AppendLine("</table>");
             dr.Close();

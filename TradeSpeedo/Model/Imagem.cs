@@ -17,6 +17,7 @@ namespace TradeSpeedo.Model
         public int TipoExposicaoID { get; set; }
         public int ClassificacaoID { get; set; }
         public int Sequencia { get; set; }
+        public DateTime Data { get; set; }
         private string _stringconexao { get; set; }
 
         public Imagem(string stringConexao)
@@ -29,7 +30,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"SELECT TOP 1 COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA FROM TRADE_IMAGEM WHERE ID_IMAGEM = {ID}";
+            var sql = $"SELECT TOP 1 COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA, DATA FROM TRADE_IMAGEM WHERE ID_IMAGEM = {ID}";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader(); // Executa query e retorna consulta
             if (dr.Read())
             {
@@ -40,6 +41,7 @@ namespace TradeSpeedo.Model
                 this.TipoExposicaoID = Convert.ToInt32(dr["ID_TIPO_EXPOSICAO"].ToString());
                 this.ClassificacaoID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
                 this.Sequencia = Convert.ToInt32(dr["SEQUENCIA"].ToString());
+                this.Data = Convert.ToDateTime(dr["DATA"].ToString());
                 dr.Close();
             }
 
@@ -100,15 +102,15 @@ namespace TradeSpeedo.Model
 
             if (this.ID == 0)
             {
-                sql = $"INSERT INTO TRADE_IMAGEM (COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA) VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}','{Sequencia}')";
+                sql = $"INSERT INTO TRADE_IMAGEM (COD_CLIFOR,CNPJ,URL,ID_TIPO_EXPOSICAO,ID_CLASSIFICACAO, SEQUENCIA, DATA) VALUES ('{Clifor}', '{Cnpj}', '{Url}', '{TipoExposicaoID}', '{ClassificacaoID}','{Sequencia}', getdate())";
             }
             else if (this.Url != "")
             {
-                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,URL = '{Url}',ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
+                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,URL = '{Url}',ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}', DATA = getdate() WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
             }
             else
             {
-                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}' WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
+                sql = $"UPDATE TRADE_IMAGEM SET COD_CLIFOR= '{Clifor}' ,CNPJ= '{Cnpj}' ,ID_TIPO_EXPOSICAO = '{TipoExposicaoID}' ,ID_CLASSIFICACAO = '{ClassificacaoID}', SEQUENCIA = '{Sequencia}', DATA = getdate() WHERE COD_CLIFOR = '{Clifor}' AND ID_IMAGEM = '{ID}' ";
             }
 
             new SqlCommand(sql, _conexao).ExecuteNonQuery();

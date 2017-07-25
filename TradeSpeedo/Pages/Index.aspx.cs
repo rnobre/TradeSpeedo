@@ -80,7 +80,7 @@ namespace TradeSpeedo.Pages
         protected void DDPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarCliente();
-            dErro.Visible = false;            
+            dErro.Visible = false;
         }
 
         private void CarregarCliente()

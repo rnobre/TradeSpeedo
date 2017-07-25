@@ -21,9 +21,7 @@ namespace TradeSpeedo
             }
 
         }
-
-
-
+        
 
         protected void Acessar_Click(object sender, EventArgs e)
         {
