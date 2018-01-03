@@ -41,5 +41,23 @@ namespace TradeSpeedo.Model
             return null;
 
         }
+
+        public static Usuario RetornaUsuarioV(string login, string senha, string stringConexao)
+        {
+
+            var conexao = new SqlConnection(stringConexao);
+            conexao.Open();
+
+            var sql = $"SELECT TOP 1 ID, USUARIO, NOME, PASSW, EMAIL, INATIVO FROM VISITA_USUARIO WHERE USUARIO = '{login}' AND PASSW = '{senha}' ";
+            var dr = new SqlCommand(sql, conexao).ExecuteReader();
+            if (dr.Read())
+            {
+                var nome = dr["NOME"].ToString();
+                var usuario = dr["USUARIO"].ToString();
+                return new Usuario(login, nome, usuario);
+
+            }
+            return null;
+        }
     }
 }

@@ -1385,9 +1385,9 @@ figure {
 }
 
 img {
-    vertical-align: middle;
-    margin-right: 0px;
-    margin-top: 176px;
+    
+    margin-left: 1%;
+    
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {

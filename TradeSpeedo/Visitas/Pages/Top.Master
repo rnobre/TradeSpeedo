@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Top.master.cs" Inherits="TradeSpeedo.Visitas.Pages.Top" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Visitas</title>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../Image/bumerangue.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="../../Style/master.css" rel="stylesheet" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body style="height: 130px; width:1200px">
+    <form id="form2" runat="server" style="height: 120px">
+        <div>
+            
+                <div id="dLogo" class="dLogo">
+                    <img id="iLogo" class="iLogo" src="../../Image/logo.png" />
+                </div>
+               <%-- <div id="dLogin" class="dLogin">
+                    <span id="sWelcome" class="sWelcome">Bem vindo,
+                    <asp:Label runat="server" ID="Label1"></asp:Label>!</span>
+                    <asp:LinkButton ID="BtnSair" class="BtnSair" runat="server" OnClick="BtnSair_Click">Sair</asp:LinkButton>
+                </div>--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

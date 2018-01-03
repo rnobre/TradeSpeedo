@@ -1,0 +1,23 @@
+﻿.dLogo{
+    width: 321px;
+    height: 107px;
+    position:absolute;
+    top:10%;
+    left:5%;
+}
+.iLogo{
+    position:absolute;
+     top:10%;
+}
+
+.dLogin {
+    width: 165px;
+    position: fixed;   
+    left: 1150px;
+}
+
+.BtnSair, .BtnSair:hover {
+    color: #Fe370F;
+    text-decoration: none;
+    position:absolute;
+}

@@ -54,6 +54,8 @@ namespace TradeSpeedo.Model
                 var sql = $"UPDATE TRADE_CLASSIFICACAO SET ID_CLASSIFICACAO = '{ID}', DESCRICAO ='{Descricao}' WHERE ID_CLASSIFICACAO = '{ID}'";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
             }
+
+            _conexao.Close();
         }
 
         public void Excluir()
