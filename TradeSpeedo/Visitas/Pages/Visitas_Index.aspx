@@ -12,13 +12,14 @@
     <link href="../../Style/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../Style/visitas_index.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .form-control {}
+        .form-control {
+        }
     </style>
-    </asp:Content>
-    
+</asp:Content>
+
 <asp:Content ID="body" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div id="dMain" class="dMain">
-      <%--   <div id="dLogin" class="dLogin">
+        <%--   <div id="dLogin" class="dLogin">
                     <span id="sWelcome" class="sWelcome">Bem vindo,
                     <asp:Label runat="server" ID="Luser"></asp:Label>!</span>
                     <asp:LinkButton ID="BtnSair" class="BtnSair" runat="server" OnClick="BtnSair_Click">Sair</asp:LinkButton>
@@ -27,7 +28,11 @@
             <h1 id="hTitulo" class="hTitulo">Visitas</h1>
         </div>
         <div id="dPesquisa" class="dPesquisa">
-            <asp:DropDownList ID="ddPesquisa" CssClass="ddPesquisa form-control" runat="server" DataTextField="" DataValueField="" OnSelectedIndexChanged="ddPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>          
+            <asp:DropDownList ID="ddPesquisa" CssClass="ddPesquisa form-control" runat="server" DataTextField="" DataValueField="" OnSelectedIndexChanged="ddPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>
+        </div>
+        <div class="col-md-2">
+            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btn primary btn-lg" OnClick="BtnSalvar_Click" />
+            <asp:TextBox ID="txtvitor" runat="server"></asp:TextBox>
         </div>
     </div>
 </asp:Content>

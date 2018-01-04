@@ -14,7 +14,8 @@ namespace TradeSpeedo.Visitas.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             var usuario = (Usuario)Session["usuario"];
-            
+            ddPesquisa.Items.Insert(0, new ListItem("Pesquisar", ""));
+
         }
 
         protected void ddPesquisa_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,9 +28,7 @@ namespace TradeSpeedo.Visitas.Pages
             Session["conexao"] = null;
             Response.Redirect("Visitas_Login.aspx");
 
-            ddPesquisa.Items.Insert(0, new ListItem("Selecione um cliente", ""));
         }
 
-        
     }
 }

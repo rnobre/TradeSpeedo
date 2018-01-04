@@ -65,8 +65,6 @@ namespace TradeSpeedo.Pages
                 DDPesquisa.Items.Insert(0, new ListItem("Selecione um cliente", ""));
 
                 Luser.Text = usuario.Nome.ToString();
-
-
             }
         }
 
@@ -106,9 +104,6 @@ namespace TradeSpeedo.Pages
                 lbl1.Value = "0";
                 imagepreview1.Style["background-image"] = Page.ResolveUrl(".." + "/Image/Camera_box.png");
                 imagepreview1.Style["background-size"] = "238px 220px";
-
-
-
             }
 
             var imagem2 = new Imagem(conexao);
@@ -234,6 +229,7 @@ namespace TradeSpeedo.Pages
                 File.Delete(Server.MapPath(Path.Combine("Uploads", (imagemDoCliente.Url))));
             }
         }
+
         public string strScript = "";
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
@@ -346,13 +342,9 @@ namespace TradeSpeedo.Pages
                     CarregarCliente();
                     strScript = "alert('Foto enviada com sucesso!');";
                 }
-
             }
-
-
         }
-
-
+        
         protected void BtnRelatorio_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
@@ -396,10 +388,8 @@ namespace TradeSpeedo.Pages
                 }
                 Response.End();
             }
-
         }
     }
-
 }
 
 
