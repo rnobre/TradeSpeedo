@@ -155,10 +155,12 @@
 .hTitulo {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
-    font-size:400%;
+    font-size:300%;
 }
-    
-body {
+
+.body {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .dLogin{
     width: 165px;
@@ -168,7 +170,7 @@ body {
 
 .dTitulo{
     position:absolute;
-    left:755px;
+    left:600px;
 }
 .dPesquisa{
     position:absolute;
@@ -176,26 +178,29 @@ body {
     left:10%;
 }
 
-.ddPesquisa{
-    Height:120px;
-     Width:1300px;
+.ddPesquisa {
+    Height: 76px;
+    Width: 1113px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 200%;
 }
 
-/*Inicio Botão Salvar*/
+/*Inicio Botão Incluir*/
 .btn {
     display: inline-block;
     padding: 6px 12px;
     border: 2px solid #FE370f;
     color: #ddd;
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 700;
     margin: 830px; /*Margin*/
     transition: all .2s;
     min-width: 100px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     background: #ffffff;
-    width: 250px;
+    width: 200px;
     height: 70px;
     margin-top: -10px;
 }
@@ -208,7 +213,7 @@ body {
     .btn.btn-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin: 50px 830px 0; /*Margin*/
+        margin: 50px 1039px 0; /*Margin*/
         margin-top: 0px;
     }
 
@@ -226,15 +231,15 @@ body {
     .btn.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin: 50px 830px 0; /*Margin*/
-        margin-top: 0px;
+        margin: 50px 1039px 0; /*Margin*/
+        margin-top: 345px;
     }
 
         .btn.primary:hover, .btn.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin: 50px 830px 0; /*Margin*/
-            margin-top: 0px;
+            margin: 50px 1039px 0; /*Margin*/
+            margin-top: 345px;
         }
 
     .btn.danger {
@@ -303,6 +308,134 @@ body {
     }
 
         .btn.clear:hover, .btn.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+/*FIM Botão Incluir*/
+
+
+/*Inicio Botão Salvar*/
+.btnSalvar {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 900;
+    margin: 830px; /*Margin*/
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 30px;
+    background: #ffffff;
+    width: 250px;
+    height: 70px;
+    margin-top: -10px;
+}
+
+    .btnSalvar:hover, .btnSalvar.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btnSalvar.btnSalvar-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+        margin: 50px 1006px 0; /*Margin*/
+        margin-top: 0px;
+    }
+
+    .btnSalvar.btnSalvar-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btnSalvar.btnSalvar-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btnSalvar.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+        margin: 50px 1006px 0; /*Margin*/
+        margin-top: 445px;
+    }
+
+        .btnSalvar.primary:hover, .btnSalvar.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+            margin: 50px 1006px 0; /*Margin*/
+            margin-top: 445px;
+        }
+
+    .btnSalvar.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btnSalvar.danger:hover, .btnSalvar.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btnSalvar.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btnSalvar.success:hover, .btnSalvar.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btnSalvar.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnSalvar.warning:hover, .btnSalvar.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnSalvar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnSalvar.black:hover, .btnSalvar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnSalvar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnSalvar.black:hover, .btnSalvar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnSalvar.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnSalvar.info:hover, .btnSalvar.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnSalvar.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnSalvar.clear:hover, .btnSalvar.clear.hover {
             background: #777;
             color: #fff;
         }

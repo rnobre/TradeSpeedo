@@ -35,7 +35,8 @@
                 <div id="dTexto" class="dTexto">
                     <h2 id="h2" class="h2">Pesquise o cliente:</h2>
                 </div>
-                <asp:DropDownList runat="server" CssClass="DDPesquisa form-control" DataTextField="NomeCompleto" DataValueField="Clifor" ID="DDPesquisa" OnSelectedIndexChanged="DDPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="DDPesquisa form-control" DataTextField="NomeCompleto" DataValueField="Clifor" 
+                    ID="DDPesquisa" OnSelectedIndexChanged="DDPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">

@@ -13,8 +13,17 @@ namespace TradeSpeedo.Visitas.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var conexao = Session["conexao"].ToString();
             var usuario = (Usuario)Session["usuario"];
-            ddPesquisa.Items.Insert(0, new ListItem("Pesquisar", ""));
+            //txtVisita.Visible = false;
+            BtnSalvar.Visible = false;
+            
+
+            var visita = new Visita(conexao);
+
+            ddPesquisa.DataSource = visita.Lista();
+            ddPesquisa.DataBind();
+            ddPesquisa.Items.Insert(0, new ListItem("Pesquisar", ""));            
 
         }
 
@@ -24,11 +33,17 @@ namespace TradeSpeedo.Visitas.Pages
         }
 
         protected void BtnSair_Click(object sender, EventArgs e)
-        {
-            Session["conexao"] = null;
+        {            
             Response.Redirect("Visitas_Login.aspx");
-
         }
 
+        protected void BtnIncluir_Click(object sender, EventArgs e)
+        {
+            //txtVisita.Visible = true;
+            //ddPesquisa.Visible = false;
+            //BtnIncluir.Visible = false;
+            //BtnSalvar.Visible = true;
+            Response.Redirect("Visitas_Capa.aspx");
+        }
     }
 }

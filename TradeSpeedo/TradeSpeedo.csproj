@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -121,6 +122,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
+    <Content Include="Scripts\Check\CHANGES.md" />
+    <Content Include="Scripts\Check\LICENSE.md" />
+    <Content Include="Scripts\Check\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Image\bumerangue.ico" />
     <Content Include="Image\Camera_box.png" />
@@ -132,10 +136,17 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\Check\build-config.js" />
+    <Content Include="Scripts\Check\ckeditor.js" />
+    <Content Include="Scripts\Check\config.js" />
+    <Content Include="Scripts\Check\contents.css" />
+    <Content Include="Scripts\Check\styles.js" />
+    <Content Include="Scripts\ckeditor.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.uploadPreview.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -171,6 +182,9 @@
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
     <Content Include="Style\master.css" />
+    <Content Include="Visitas\Pages\Visitas_Capa.aspx" />
+    <Content Include="Visitas\Script\jquery.mask.js" />
+    <Content Include="Visitas\Style\visitas_capa.css" />
     <Content Include="Visitas\Style\visitas_index.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Visitas\Pages\Visitas_Index.aspx" />
@@ -215,6 +229,8 @@
     <Compile Include="Model\Imagem.cs" />
     <Compile Include="Model\Tipo.cs" />
     <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Model\Visita.cs" />
+    <Compile Include="Model\Visita_Capa.cs" />
     <Compile Include="Pages\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +253,13 @@
     </Compile>
     <Compile Include="Visitas\Pages\Top.Master.designer.cs">
       <DependentUpon>Top.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Capa.aspx.cs">
+      <DependentUpon>Visitas_Capa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Capa.aspx.designer.cs">
+      <DependentUpon>Visitas_Capa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Index.aspx.cs">
       <DependentUpon>Visitas_Index.aspx</DependentUpon>
