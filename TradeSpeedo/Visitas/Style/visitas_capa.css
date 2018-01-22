@@ -152,9 +152,10 @@
     all: unset;
 }
 
-.body {
-    overflow-x: hidden;
+.body{
     overflow-y: hidden;
+    overflow-x:hidden;    
+
 }
 
 .hTitulo {
@@ -166,73 +167,14 @@
     top: 100px;
 }
 
-.dVisita {
+.lbl {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
-    font-size: 180%;
-    position: fixed;
-    margin-left: 5%;
-    top: 30%;
+    font-size: 165%;
 }
-.txtVisita {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 400px;
-    font-weight: normal;
-    font-size: 15px;
-    height: 30px;
-    color: #666666;
-}
-.dPeriodo {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 180%;
-    position: fixed;
-    margin-left: 5%;
-    top: 44%;
-}
-
-.txtPeriodo {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 377px;
-    font-weight: normal;
-    font-size: 15px;
-    height: 30px;
-    color: #666666;
-}
-
-.dRepre {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 180%;
-    position: fixed;
-    margin-left: 5%;
-    top: 57%;
-}
-
-.txtRepre {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 311px;
-    font-weight: normal;
-    font-size: 15px;
-    height: 30px;
-    color: #666666;
-}
-
-.dRegiao {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 180%;
-    position: fixed;
-    margin-left: 5%;
-    top: 70.7%;
-}
-
-.txtRegiao {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 384px;
-    font-weight: normal;
-    font-size: 15px;
-    height: 30px;
+.txtinput {
+    font-family: Arial, Helvetica, sans-serif;      
+    font-size: 15px;   
     color: #666666;
 }
 
@@ -247,8 +189,8 @@
 .lblObj {
     color: #666666;
     position: fixed;
-    left: 46%;
-    top: 200px;
+    left: 53.6%;
+    top: 149px;
 }
 .txObj {
     width: 173%;
@@ -256,29 +198,29 @@
     margin-left: 120px;
     font-size: 22px;
 }
-.ddObj {
+.dtObj {
     width: 612px;
     height: 188px;
-    top: 194px;
+    top: 189px;
     position: fixed;
     right: 20px;
 }
+
+
 /*Inicio Botão Salvar*/
 .btnSalvar {
     display: inline-block;
     padding: 6px 3px;
     border: 2px solid #FE370f;
     color: #ddd;
-    text-decoration: none;
-    margin: 830px; /*Margin*/
+    text-decoration: none;    
     transition: all .2s;
     min-width: 100px;
     text-align: center;
     font-size: 25px;
     background: #ffffff;
     width: 180px;
-    height: 50px;
-    margin-top: -10px;
+    height: 50px;    
 }
 
     .btnSalvar:hover, .btnSalvar.hover {
@@ -289,8 +231,8 @@
     .btnSalvar.btnSalvar-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin: 50px 1276px 0; /*Margin*/
-        margin-top: 0px;
+        margin-left: 1143px; /*Magin*/
+        margin-top: 70px;
     }
 
     .btnSalvar.btnSalvar-sm {
@@ -307,15 +249,15 @@
     .btnSalvar.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin: 0px 1147px 0px; /*Margin*/
-        margin-top: 395px;
+        margin-left: 1143px; /*Magin*/
+        margin-top: 70px;
     }
 
         .btnSalvar.primary:hover, .btnSalvar.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin: 0px 1147px 0px; /*Margin*/
-            margin-top: 395px;
+            margin-left: 1143px; /*Magin*/
+            margin-top: 70px;
         }
 
     .btnSalvar.danger {

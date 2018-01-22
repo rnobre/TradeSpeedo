@@ -12,26 +12,38 @@ namespace TradeSpeedo.Visitas.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BtnAltera.Visible = false;
             var conexao = Session["conexao"].ToString();
         }
 
-        private void SalvaCapa(string visita, DateTime periodo, string repre, string regiao, string obj, string conexao)
+        private void SalvaCapa(string visita, string periodo, string repre, string regiao, string obj, string conexao)
         {
             var salva = new Visita_Capa(conexao)
             {
                 Visita = visita,
                 Periodo = periodo,
                 Representante = repre,
+                Regiao = regiao,
                 Objetivo = obj
             };
             salva.Salvar();
         }
 
+        public string strScript = "";
+
+
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
 
-            SalvaCapa(txtVisita.Text, Convert.ToDateTime(txtPeriodo.Text) , txtRepre.Text, txtRegiao.Text, txObj.InnerText, conexao);
+            SalvaCapa(txtVisita.Text, txtPeriodo.Text , txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
+            strScript = "alert('Informações salvas com sucesso.');";
+
+        }
+
+        protected void BtnAltera_Click(object sender, EventArgs e)
+        {
+            
 
         }
     }

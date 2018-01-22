@@ -143,41 +143,7 @@
 
                 <%=strScript%>
 
-                //// Get the modal
-                //var mFoto = document.getElementById('erroFoto');
-                //var mCliente = document.getElementById('erroCliente');
-                //var mAlert= document.getElementById('alertup');
-                //var span = document.getElementsByClassName("close")[0];
-
-                //span.onclick = function () {
-                //    mFoto.style.display = "none";
-                //}
-
-                //window.onclick = function (event) {
-                //    if (event.target == mFoto) {
-                //        mFoto.style.display = "none";
-                //    }
-                //}
-
-                //span.onclick = function () {
-                //    mCliente.style.display = "none";
-                //}
-                //window.onclick = function (event) {
-                //    if (event.target == mCliente) {
-                //        mCliente.style.display = "none";
-                //    }
-                //}
-                //span.onclick = function () {
-                //    mAlert.style.display = "none";
-                //}
-
-                //window.onclick = function (event) {
-                //    if (event.target == mAlert) {
-                //        mAlert.style.display = "none";
-                //    }
-                //}        
-
-
+             
             </script>
         </div>
     </form>

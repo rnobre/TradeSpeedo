@@ -5,14 +5,18 @@
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <meta charset="utf-8" />
     <title>Visitas</title>
-    <script src="../../Scripts/jquery-3.1.1.min.js"></script>
-    <script src="../../Scripts/bootstrap-select.min.js"></script>
-    <script src="../../Scripts/bootstrap.js"></script>
-    
-    <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />
-    <link href="../../Style/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../Style/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../Scripts/jquery-3.1.1.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <script src="../Script/chosen.jquery.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <link href="../../Style/bootstrap1.min.css" rel="stylesheet" />
+    <link href="../Style/chosen.css" rel="stylesheet" />
+    <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />  
     <link href="../Style/visitas_index.css" rel="stylesheet" type="text/css" />    
+    <%--<link href="../Style/bootstrap-select.min.css" rel="stylesheet" />--%>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </asp:Content>
 
@@ -27,18 +31,24 @@
             <h1 id="hTitulo" class="hTitulo">Visitas</h1>
         </div>
         <div id="dPesquisa" class="dPesquisa">
-            <asp:DropDownList ID="ddPesquisa" CssClass="ddPesquisa form-control" runat="server" DataTextField="" DataValueField=""
-                OnSelectedIndexChanged="ddPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>
+            <%--<asp:DropDownList ID="ddPesquisa" CssClass="ddPesquisa" runat="server" DataTextField="visita" DataValueField="visita"
+                OnSelectedIndexChanged="ddPesquisa_SelectedIndexChanged" AutoPostBack="true" data-live-search="true" data-size="10"></asp:DropDownList>--%>
             
+            <select id="SPesquisa" class="sPesquisa form-control chosen-select" data-live-search="true" data-placeholder="Pesquisar" tabindex="-1"  DataTextField="visita" DataValueField="visita" runat="server">
+                <option value=""></option>              
+            </select>
+            
+
         </div>
-        <div class="col-md-2">
-            <asp:Button ID="BtnIncluir" Text="Incluir" runat="server" CssClass="btn primary btn-lg" OnClick="BtnIncluir_Click" />            
+        <div>
+            <asp:Button ID="BtnIncluir" Text="Incluir" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="BtnIncluir_Click" />
         </div>
-         <div class="col-md-2">
-            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnIncluir_Click" />            
+        <div>
+            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnIncluir_Click" />
         </div>
     </div>
-        <script>
-            $('#DDPesquisa').selectpicker();
-        </script>          
+    <script>                              
+        
+        $(".chosen-select").chosen();
+    </script>
 </asp:Content>

@@ -13,15 +13,6 @@ namespace TradeSpeedo.Visitas.Pages {
     public partial class Visitas_Capa {
         
         /// <summary>
-        /// Controle lblVisita.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVisita;
-        
-        /// <summary>
         /// Controle txtVisita.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace TradeSpeedo.Visitas.Pages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVisita;
-        
-        /// <summary>
-        /// Controle lblPeriodo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPeriodo;
         
         /// <summary>
         /// Controle txtPeriodo.
@@ -49,15 +31,6 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtPeriodo;
         
         /// <summary>
-        /// Controle lblRepre.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepre;
-        
-        /// <summary>
         /// Controle txtRepre.
         /// </summary>
         /// <remarks>
@@ -65,15 +38,6 @@ namespace TradeSpeedo.Visitas.Pages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRepre;
-        
-        /// <summary>
-        /// Controle lblRegiao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRegiao;
         
         /// <summary>
         /// Controle txtRegiao.
@@ -85,13 +49,13 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtRegiao;
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle dtObj.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dtObj;
         
         /// <summary>
         /// Controle txObj.
@@ -110,5 +74,14 @@ namespace TradeSpeedo.Visitas.Pages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnSalvar;
+        
+        /// <summary>
+        /// Controle BtnAltera.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAltera;
     }
 }

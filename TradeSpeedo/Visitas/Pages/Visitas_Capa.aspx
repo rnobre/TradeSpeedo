@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <title>Visitas</title>       
     <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
-    <!--<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>-->
     <script src="../../Scripts/jquery-3.1.1.min.js"></script>
-    <%--<script src="../Script/jquery.mask.js"></script>--%>
     <script src="../../Scripts/jquery.maskedinput.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Style/bootstrap1.min.css" rel="stylesheet" />
     <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />        
     <link href="../Style/visitas_capa.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/Check/contents.css" rel="stylesheet" type="text/css" />
@@ -21,44 +22,57 @@
             <h1 id="hTitulo" class="hTitulo">
                 Capa</h1>
         </div>
-    <div id="dFormulario" class="dFormulario">
-        <div id="dVisita" class="dVisita">
-            <asp:Label ID="lblVisita" CssClass="lblVisita" runat="server">Visita: </asp:Label>
-            <asp:TextBox ID="txtVisita" CssClass="txtVisita" runat="server"></asp:TextBox>
-        </div>
-        <div id="dPeriodo" class="dPeriodo">
-            <asp:Label ID="lblPeriodo" CssClass="lblPeriodo" runat="server">Período: </asp:Label>
-            <asp:TextBox ID="txtPeriodo" CssClass="txtPeriodo" runat="server"  ClientIDMode="Static" data-mask="00/00/0000"></asp:TextBox>
-        </div>
-        <div id="dRepre" class="dRepre">
-            <asp:Label ID="lblRepre" CssClass="lblRepre" runat="server">Representante: </asp:Label>
-            <asp:TextBox ID="txtRepre" CssClass="txtRepre" runat="server"></asp:TextBox>
-        </div>
-        <div id="dRegiao" class="dRegiao" >
-            <asp:Label ID="lblRegiao" CssClass="lblRegiao" runat="server">Região: </asp:Label>
-            <asp:TextBox ID="txtRegiao" CssClass="txtRegiao" runat="server"></asp:TextBox>
-        </div>
-        <div id="dObj" class="dObj">
-            <asp:Label ID="Label1" CssClass="lblObj" runat="server">Objetivo: </asp:Label> 
-        </div>
-        <div id="ddObj" class="ddObj">
-        <div id="dtObj" class="dtObj">            
-            <textarea id="txObj" class ="txObj" runat="server"></textarea>            
-        </div>
+    <div id="dFormulario" class="row">
+        
+        <!-- Coluna da esquerda -->
+        <div class="col-md-6">
+            <div id="dVisita" class="form-group">
+                <label ID="lblVisita" class="lbl" for="txtVisita">Visita: </label>
+                <asp:TextBox ID="txtVisita" CssClass="txtinput form-control" runat="server"></asp:TextBox>
             </div>
-        <div class="col-md-2">
-            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click"/>            
+            <div id="dPeriodo" class="form-group">
+                <label ID="lblPeriodo" class="lbl" for="txtPeriodo">Período: </label>
+                <asp:TextBox ID="txtPeriodo" CssClass="txtinput form-control" runat="server"
+                    ClientIDMode="Static" data-mask="00/00/0000"></asp:TextBox>
+            </div>
+            <div id="dRepre" class="form-group">
+                <label ID="lblRepre" class="lbl" for="txtRepre">Representante: </label>
+                <asp:TextBox ID="txtRepre" CssClass="txtinput form-control" runat="server"></asp:TextBox>
+            </div>
+            <div id="dRegiao" class="form-group" >
+                <label ID="lblRegiao" class="lbl" for="txtRegiao">Região: </label>
+                <asp:TextBox ID="txtRegiao" CssClass="txtinput form-control" runat="server"></asp:TextBox>
+            </div>
         </div>
-    </div>
+
+        <!-- Coluna da direita -->
+        <div class="col-md-6">
+            <div id="dObj" class="dObj">
+                <Label ID="lblObj" Class="lblObj">Objetivo: </Label> 
+            </div>
+            
+            <div id="dtObj" class="dtObj" runat="server">            
+                <textarea id="txObj" class ="txtinput" runat="server"></textarea>            
+            </div>
+                </div>
+            <div class="col-md-4">
+                <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click"/>            
+            </div>
+        <div class="col-md-4">
+                <asp:Button ID="BtnAltera" Text="Altera" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnAltera_Click"/>            
+            </div>
+        </div>
+   
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
-            CKEDITOR.replace('dtObj');
+            CKEDITOR.replace('txObj');
         }, true);      
      
         $(document).ready(function () {
-            $("#txtPeriodo").mask("99/9999");
+            $("#txtPeriodo").mask("99/99/9999 à 99/99/9999");
         });
-    
+
+    <%=strScript%>
     </script>
 </asp:Content>

@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
-using TradeSpeedo.Utils;
 
 namespace TradeSpeedo.Visitas.Pages
 {
@@ -13,27 +12,20 @@ namespace TradeSpeedo.Visitas.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BtnSalvar.Visible = false;
             var conexao = Session["conexao"].ToString();
             var usuario = (Usuario)Session["usuario"];
-            //txtVisita.Visible = false;
-            BtnSalvar.Visible = false;
+
+            var pesquisa = new Visita(conexao);            
+            SPesquisa.DataSource = pesquisa.Lista();
+            SPesquisa.DataBind();
+
             
-
-            var visita = new Visita(conexao);
-
-            ddPesquisa.DataSource = visita.Lista();
-            ddPesquisa.DataBind();
-            ddPesquisa.Items.Insert(0, new ListItem("Pesquisar", ""));            
-
-        }
-
-        protected void ddPesquisa_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
         protected void BtnSair_Click(object sender, EventArgs e)
-        {            
+        {
             Response.Redirect("Visitas_Login.aspx");
         }
 
@@ -44,6 +36,13 @@ namespace TradeSpeedo.Visitas.Pages
             //BtnIncluir.Visible = false;
             //BtnSalvar.Visible = true;
             Response.Redirect("Visitas_Capa.aspx");
+        }
+
+        protected void SPesquisa_click(object sender, EventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+
+            
         }
     }
 }

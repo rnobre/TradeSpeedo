@@ -12,7 +12,7 @@ namespace TradeSpeedo.Model
 
         public string Visita { get; set; }
 
-        public DateTime Periodo { get; set; }
+        public string Periodo { get; set; }
 
         public string Representante { get; set; }
 
@@ -34,12 +34,21 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            if(ID == null)
+            
             {
                 var sql = $"INSERT INTO VISITA (VISITA,PERIODO,REPRESENTANTE,REGIAO,OBJETIVO) VALUES ('{Visita}','{Periodo}','{Representante}','{Regiao}','{Objetivo}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();            
             }
-            else
+            
+
+            _conexao.Close();
+        }
+
+        public void Altera()
+        {
+            _conexao.Open();
+
+            
             {
                 var sql = $"UPDATE VISITA SET VISITA = '{Visita}', PERIODO = '{Periodo}',REPRESENTANTE='{Representante}', REGIAO ='{Regiao}', OBJETIVO = '{Objetivo}' WHERE ID = '{ID}' ";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
@@ -47,6 +56,7 @@ namespace TradeSpeedo.Model
 
             _conexao.Close();
         }
+
 
     }
 }

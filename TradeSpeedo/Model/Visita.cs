@@ -20,6 +20,7 @@ namespace TradeSpeedo.Model
             _stringconexao = stringConexao;
         }
 
+
         public List<Visita> Lista()
         {
             var visitas = new List<Visita>();
@@ -41,6 +42,14 @@ namespace TradeSpeedo.Model
             _conexao.Close();
 
             return visitas;
+        }
+
+        public void Carrega()
+
+        {
+            _conexao.Open();
+
+            var sql = $"";
         }
     }
 }
