@@ -12,7 +12,9 @@ namespace TradeSpeedo.Model
 
         private string _stringconexao { get; set; }
 
-        public string visita { get; set; }
+        public int ID { get; set; }
+
+        public string Descricao { get; set; }
 
         public Visita(string stringConexao)
         {
@@ -28,14 +30,16 @@ namespace TradeSpeedo.Model
 
             _conexao.Open();
 
-            var sql = $"select VISITA from VISITA";
+            var sql = $"SELECT ID,VISITA FROM VISITA";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while (dr.Read())
             {
                 var visita = new Visita(_stringconexao);
 
-                visita.visita = dr["VISITA"].ToString();
+                visita.ID = Convert.ToInt32(dr["ID"].ToString());
+                visita.Descricao = dr["VISITA"].ToString();
+
 
                 visitas.Add(visita);
             }

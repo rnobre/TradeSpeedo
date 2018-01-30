@@ -13,13 +13,13 @@ namespace TradeSpeedo.Visitas.Pages {
     public partial class Visitas_Index {
         
         /// <summary>
-        /// Controle SPesquisa.
+        /// Controle ddPesquisa.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SPesquisa;
+        protected global::System.Web.UI.WebControls.DropDownList ddPesquisa;
         
         /// <summary>
         /// Controle BtnIncluir.

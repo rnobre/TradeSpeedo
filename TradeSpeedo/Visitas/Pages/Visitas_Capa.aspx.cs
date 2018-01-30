@@ -14,6 +14,7 @@ namespace TradeSpeedo.Visitas.Pages
         {
             BtnAltera.Visible = false;
             var conexao = Session["conexao"].ToString();
+
         }
 
         private void SalvaCapa(string visita, string periodo, string repre, string regiao, string obj, string conexao)
@@ -29,6 +30,8 @@ namespace TradeSpeedo.Visitas.Pages
             salva.Salvar();
         }
 
+
+
         public string strScript = "";
 
 
@@ -36,14 +39,17 @@ namespace TradeSpeedo.Visitas.Pages
         {
             var conexao = Session["conexao"].ToString();
 
-            SalvaCapa(txtVisita.Text, txtPeriodo.Text , txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
+            SalvaCapa(txtVisita.Text, txtPeriodo.Text, txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
             strScript = "alert('Informações salvas com sucesso.');";
 
+            var recupera = new Visita_Capa(conexao);
+            recupera.IdRec();            
+            Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID);
         }
 
         protected void BtnAltera_Click(object sender, EventArgs e)
         {
-            
+
 
         }
     }

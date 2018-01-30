@@ -22,7 +22,7 @@ namespace TradeSpeedo.Model
 
         private string _stringconexao { get; set; }
 
-        public int? ID { get; set; }
+        public int ID { get; set; }
 
         public Visita_Capa(string stringConexao)
         {
@@ -52,6 +52,21 @@ namespace TradeSpeedo.Model
             {
                 var sql = $"UPDATE VISITA SET VISITA = '{Visita}', PERIODO = '{Periodo}',REPRESENTANTE='{Representante}', REGIAO ='{Regiao}', OBJETIVO = '{Objetivo}' WHERE ID = '{ID}' ";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();
+            }
+
+            _conexao.Close();
+        }
+
+        public void IdRec()
+        {
+            _conexao.Open();
+
+            var sql = $"SELECT MAX(ID) AS ID from VISITA";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while (dr.Read())
+            {
+                this.ID = Convert.ToInt32(dr["ID"].ToString());
             }
 
             _conexao.Close();

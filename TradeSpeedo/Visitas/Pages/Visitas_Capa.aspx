@@ -2,12 +2,11 @@
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <meta charset="utf-8" />
-    <title>Visitas</title>       
+    <title>Visitas_Capa</title>       
     <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
     <script src="../../Scripts/jquery-3.1.1.min.js"></script>
     <script src="../../Scripts/jquery.maskedinput.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/bootstrap.min.js"></script>    
     <link href="../../Style/bootstrap1.min.css" rel="stylesheet" />
     <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />        
     <link href="../Style/visitas_capa.css" rel="stylesheet" type="text/css" />

@@ -168,20 +168,25 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Style\bootstrap-select.min.css" />
-    <Content Include="Style\bootstrap.min.css" />
+    <Content Include="Style\bootstrap-select.css" />
     <Content Include="Style\bootstrap1.min.css" />
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
     <Content Include="Style\master.css" />
     <Content Include="Visitas\Pages\Visitas_Capa.aspx" />
+    <Content Include="Visitas\Pages\Visitas_Detalhe.aspx" />
+    <Content Include="Visitas\Pages\Visitas_Imagem.aspx" />
     <Content Include="Visitas\Pages\Visitas_Index.aspx" />
-    <Content Include="Visitas\Script\bootstrap-select.min.js" />
+    <Content Include="Visitas\Script\bootstrap-select.js" />
     <Content Include="Visitas\Script\chosen.jquery.js" />
     <Content Include="Visitas\Script\jquery.mask.js" />
     <Content Include="Visitas\Style\bootstrap-select.css" />
+    <Content Include="Visitas\Style\bootstrap-select-detalhe.min.css" />
+    <Content Include="Visitas\Style\bootstrap-select.min.css" />
+    <Content Include="Visitas\Style\bootstrap.min.css" />
     <Content Include="Visitas\Style\chosen.css" />
     <Content Include="Visitas\Style\visitas_capa.css" />
+    <Content Include="Visitas\Style\visitas_detalhe.css" />
     <Content Include="Visitas\Style\visitas_index.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Visitas\Pages\Visitas_Login.aspx" />
@@ -227,6 +232,7 @@
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Model\Visita.cs" />
     <Compile Include="Model\Visita_Capa.cs" />
+    <Compile Include="Model\Visita_Detalhe.cs" />
     <Compile Include="Pages\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +262,20 @@
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Capa.aspx.designer.cs">
       <DependentUpon>Visitas_Capa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Detalhe.aspx.cs">
+      <DependentUpon>Visitas_Detalhe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Detalhe.aspx.designer.cs">
+      <DependentUpon>Visitas_Detalhe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Imagem.aspx.cs">
+      <DependentUpon>Visitas_Imagem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Imagem.aspx.designer.cs">
+      <DependentUpon>Visitas_Imagem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Index.aspx.cs">
       <DependentUpon>Visitas_Index.aspx</DependentUpon>

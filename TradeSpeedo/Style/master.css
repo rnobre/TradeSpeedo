@@ -1,13 +1,14 @@
-﻿.dLogo{
+﻿.dLogo {
     width: 321px;
     height: 107px;
-    position:absolute;
-    top:10%;
-    left:5%;
+    position: absolute;
+    top: 10%;
+    left: 7%;
 }
-.iLogo{
-    position:absolute;
-     top:10%;
+.iLogo {
+    position: absolute;
+    top: 10%;
+    left: 7%;
 }
 
 .dLogin {

@@ -24,21 +24,18 @@
 
 
 .ddPesquisa {
-    Height: 76px;
-    Width: 1113px;
+    position:fixed;
+   
+    Width: 100px;
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
     font-size: 200%;
-    
 }
 
-.sPesquisa
-{
-    background-color:white;
-    width:400%;    
-    
-    
+.ddPesquisa-select.form-control {
+    width: 81%;
 }
+
 /*Inicio Botão Incluir*/
 .btnIncluir {
     display: inline-block;
