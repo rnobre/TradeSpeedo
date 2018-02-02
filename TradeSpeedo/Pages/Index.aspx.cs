@@ -344,7 +344,7 @@ namespace TradeSpeedo.Pages
                 }
             }
         }
-        
+
         protected void BtnRelatorio_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
@@ -363,19 +363,19 @@ namespace TradeSpeedo.Pages
                 Response.End();
             }
             else if (repre.Nome == "Jean")
-                {
-                    var relatorio = new Relatorio(conexao).RetornaRelatorio();
-                    Response.Clear();
-                    Response.AddHeader("content-disposition", "attachment; filename=relatorio.xls");
-                    Response.ContentType = "application/vnd.ms-excel";
+            {
+                var relatorio = new Relatorio(conexao).RetornaRelatorio();
+                Response.Clear();
+                Response.AddHeader("content-disposition", "attachment; filename=relatorio.xls");
+                Response.ContentType = "application/vnd.ms-excel";
 
-                    using (StreamWriter writer = new StreamWriter(Response.OutputStream))
-                    {
-                        writer.WriteLine(relatorio);
-                    }
-                    Response.End();
+                using (StreamWriter writer = new StreamWriter(Response.OutputStream))
+                {
+                    writer.WriteLine(relatorio);
                 }
-                else
+                Response.End();
+            }
+            else
             {
                 var relatorio = new Relatorio(conexao).RetornaRelatorio(repre.Nome);
                 Response.Clear();

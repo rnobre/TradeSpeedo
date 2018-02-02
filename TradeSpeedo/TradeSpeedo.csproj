@@ -105,6 +105,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Visitas\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -124,6 +125,7 @@
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Image\bumerangue.ico" />
+    <Content Include="Image\camera.png" />
     <Content Include="Image\Camera_box.png" />
     <Content Include="Image\large_processing.gif" />
     <Content Include="Image\logo.png" />
@@ -173,6 +175,7 @@
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
     <Content Include="Style\master.css" />
+    <Content Include="Visitas\Imagem\transparente.png" />
     <Content Include="Visitas\Pages\Visitas_Capa.aspx" />
     <Content Include="Visitas\Pages\Visitas_Detalhe.aspx" />
     <Content Include="Visitas\Pages\Visitas_Imagem.aspx" />
@@ -180,6 +183,8 @@
     <Content Include="Visitas\Script\bootstrap-select.js" />
     <Content Include="Visitas\Script\chosen.jquery.js" />
     <Content Include="Visitas\Script\jquery.mask.js" />
+    <Content Include="Visitas\Script\jquery.uploadPreview.js" />
+    <Content Include="Visitas\Script\jquery.uploadPreview.min.js" />
     <Content Include="Visitas\Style\bootstrap-select.css" />
     <Content Include="Visitas\Style\bootstrap-select-detalhe.min.css" />
     <Content Include="Visitas\Style\bootstrap-select.min.css" />
@@ -187,6 +192,7 @@
     <Content Include="Visitas\Style\chosen.css" />
     <Content Include="Visitas\Style\visitas_capa.css" />
     <Content Include="Visitas\Style\visitas_detalhe.css" />
+    <Content Include="Visitas\Style\visitas_imagen.css" />
     <Content Include="Visitas\Style\visitas_index.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Visitas\Pages\Visitas_Login.aspx" />
@@ -233,6 +239,7 @@
     <Compile Include="Model\Visita.cs" />
     <Compile Include="Model\Visita_Capa.cs" />
     <Compile Include="Model\Visita_Detalhe.cs" />
+    <Compile Include="Model\Visita_Imagem.cs" />
     <Compile Include="Pages\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

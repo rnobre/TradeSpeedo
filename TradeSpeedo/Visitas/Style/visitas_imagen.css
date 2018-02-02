@@ -1,0 +1,376 @@
+﻿.reset-this {
+    animation: none;
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-duration: 0;
+    animation-fill-mode: none;
+    animation-iteration-count: 1;
+    animation-name: none;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    backface-visibility: visible;
+    background: 0;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border: 0;
+    border-style: none;
+    border-width: medium;
+    border-color: inherit;
+    border-bottom: 0;
+    border-bottom-color: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-collapse: separate;
+    border-image: none;
+    border-left: 0;
+    border-left-color: inherit;
+    border-left-style: none;
+    border-left-width: medium;
+    border-radius: 0;
+    border-right: 0;
+    border-right-color: inherit;
+    border-right-style: none;
+    border-right-width: medium;
+    border-spacing: 0;
+    border-top: 0;
+    border-top-color: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-top-width: medium;
+    bottom: auto;
+    box-shadow: none;
+    box-sizing: content-box;
+    caption-side: top;
+    clear: none;
+    clip: auto;
+    color: inherit;
+    columns: auto;
+    column-count: auto;
+    column-fill: balance;
+    column-gap: normal;
+    column-rule: medium none currentColor;
+    column-rule-color: currentColor;
+    column-rule-style: none;
+    column-rule-width: none;
+    column-span: 1;
+    column-width: auto;
+    content: normal;
+    counter-increment: none;
+    counter-reset: none;
+    cursor: auto;
+    direction: ltr;
+    display: inline;
+    empty-cells: show;
+    float: none;
+    font: normal;
+    font-family: inherit;
+    font-size: medium;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    hyphens: none;
+    left: auto;
+    letter-spacing: normal;
+    line-height: normal;
+    list-style: none;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: disc;
+    margin: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    opacity: 1;
+    orphans: 0;
+    outline: 0;
+    outline-color: invert;
+    outline-style: none;
+    outline-width: medium;
+    overflow: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    page-break-after: auto;
+    page-break-before: auto;
+    page-break-inside: auto;
+    perspective: none;
+    perspective-origin: 50% 50%;
+    position: static;
+    /* May need to alter quotes for different locales (e.g fr) */
+    quotes: '\201C' '\201D' '\2018' '\2019';
+    right: auto;
+    tab-size: 8;
+    table-layout: auto;
+    text-align: inherit;
+    text-align-last: auto;
+    text-decoration: none;
+    text-decoration-color: inherit;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-indent: 0;
+    text-shadow: none;
+    text-transform: none;
+    top: auto;
+    transform: none;
+    transform-style: flat;
+    transition: none;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    transition-property: none;
+    transition-timing-function: ease;
+    unicode-bidi: normal;
+    vertical-align: baseline;
+    visibility: visible;
+    white-space: normal;
+    widows: 0;
+    width: auto;
+    word-spacing: normal;
+    z-index: auto;
+    /* basic modern patch */
+    all: initial;
+    all: unset;
+}
+
+.hTitulo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 250%;
+    right: 48.8%;
+    position: fixed;
+    top: 80px;
+}
+.dMain {
+    margin-left: 40px;
+    overflow: hidden;
+}
+.dImg1 {
+    margin-left: 75px;
+}
+.dImg2 {
+    margin-left: 30px;
+}
+.dImg3 {
+    margin-left: 30px;
+}
+
+.dImg4 {
+    margin-left: 30px;
+}
+
+.dImg5 {
+    margin-left: 30px;
+}
+.dImg6 {
+    margin-left: 75px;
+    top: 20px;
+}
+
+.dImg7 {
+    margin-left: 30px;
+    top: 20px;
+}
+
+.dImg8 {
+    margin-left: 30px;
+    top: 20px;
+}
+
+.dImg9 {
+    margin-left: 30px;
+    top: 20px;
+}
+
+.dImg10 {
+    margin-left: 30px;
+    top: 20px;
+}
+
+.image-preview {
+    top: 40px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.image-preview {
+    width: 200px;
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    background: url(../../Image/camera.png) no-repeat;
+    background-size: 180px 170px;
+    color: #ecf0f1;
+    max-width: 200px;
+    max-height: 190px;
+    left: 0px;
+}
+
+    .image-preview input {
+        line-height: 190px;
+        position: absolute;
+        opacity: 0;
+        z-index: 10;
+        max-width: 200px;
+        max-height: 190px;
+    }
+
+    .image-preview label {
+        position: absolute;
+        z-index: 5;
+        opacity: 0.8;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        text-transform: uppercase;
+        top: 0;
+        left: 0;
+        right: 2px;
+        bottom: 2px;
+        margin: auto;
+        text-align: center;
+        max-width: 200px;
+        max-height: 190px;
+    }
+
+.Botao {
+    left: 83.3%;
+    margin-top: 6%;
+}
+/*Inicio Botão Salvar*/
+.btnSalvar {
+    display: inline-block;
+    padding: 6px 3px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 25px;
+    background: #ffffff;
+    width: 180px;
+    height: 50px;
+}
+
+    .btnSalvar:hover, .btnSalvar.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btnSalvar.btnSalvar-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+    }
+
+    .btnSalvar.btnSalvar-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btnSalvar.btnSalvar-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btnSalvar.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+    }
+
+        .btnSalvar.primary:hover, .btnSalvar.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+        }
+
+    .btnSalvar.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btnSalvar.danger:hover, .btnSalvar.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btnSalvar.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btnSalvar.success:hover, .btnSalvar.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btnSalvar.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnSalvar.warning:hover, .btnSalvar.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnSalvar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnSalvar.black:hover, .btnSalvar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnSalvar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnSalvar.black:hover, .btnSalvar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnSalvar.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnSalvar.info:hover, .btnSalvar.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnSalvar.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnSalvar.clear:hover, .btnSalvar.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+/*FIM Botão Salvar*/

@@ -188,22 +188,7 @@ namespace TradeSpeedo.Model
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();
-
         }
 
-        public void IdRec()
-        {
-            _conexao.Open();
-
-            var sql = $"SELECT MAX(ID) AS ID from VISITA";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                this.ID = Convert.ToInt32(dr["ID"].ToString());
-            }
-
-            _conexao.Close();
-        }
     }
 }
