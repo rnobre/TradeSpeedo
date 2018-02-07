@@ -95,7 +95,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"SELECT ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}'";
+            var sql = $"SELECT TOP 1 ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while(dr.Read())

@@ -13,6 +13,15 @@ namespace TradeSpeedo.Visitas.Pages {
     public partial class Visitas_Imagem {
         
         /// <summary>
+        /// Controle dMain.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dMain;
+        
+        /// <summary>
         /// Controle imagepreview1.
         /// </summary>
         /// <remarks>

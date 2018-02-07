@@ -27,14 +27,17 @@
         </div>
         <div id="dPesquisa" class="dPesquisa">          
             <asp:DropDownList ID="ddPesquisa" CssClass="ddPesquisa selectpicker show-tick form-control" data-live-search="true" OnSelectedIndexChanged="ddPesquisa_SelectedIndexChanged"  DataValueField="ID" 
-                DataTextField="Descricao" runat="server"></asp:DropDownList>            
+                DataTextField="Descricao" AutoPostBack="true" runat="server"></asp:DropDownList>            
 
         </div>
-        <div>
+        <div id="dIncluir" class="dIncluir">
             <asp:Button ID="BtnIncluir" Text="Incluir" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="BtnIncluir_Click" />
         </div>
-        <div>
-            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnIncluir_Click" />
+        <div id="dAlterar" class="dAlterar">
+            <asp:Button ID="BtnAlterar" Text="Alterar" runat="server" CssClass="btnAlterar primary btn-lg" OnClick="BtnAlterar_Click" />
+        </div>
+        <div id="dRelatorio" class="dRelatorio">
+            <asp:Button ID="BtnRelatorio" Text="Relatório" runat="server" CssClass="btnRelatorio primary btn-lg" />
         </div>
     </div>
     <script>  

@@ -205,22 +205,41 @@
     position: fixed;
     right: 20px;
 }
-
-
+.dDias {
+    position: fixed;
+    top: 80%;
+}
+.iDIa {
+    position: fixed;
+    width: 1.9%;
+    top: 85%;
+    left: 2%;
+}
+.dConclusao {
+    position: fixed;
+    top: 80%;
+    left: 16%;
+}
+.iConclusao {
+    position: fixed;
+    width: 27px;    
+    top: 85%;
+    left: 19.6%;
+}
 /*Inicio Botão Salvar*/
 .btnSalvar {
     display: inline-block;
     padding: 6px 3px;
     border: 2px solid #FE370f;
     color: #ddd;
-    text-decoration: none;    
+    text-decoration: none;
     transition: all .2s;
     min-width: 100px;
     text-align: center;
     font-size: 25px;
     background: #ffffff;
     width: 180px;
-    height: 50px;    
+    height: 50px;
 }
 
     .btnSalvar:hover, .btnSalvar.hover {
@@ -231,7 +250,7 @@
     .btnSalvar.btnSalvar-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin-left: 1143px; /*Magin*/
+        margin-left: 1150px; /*Magin*/
         margin-top: 70px;
     }
 
@@ -249,14 +268,14 @@
     .btnSalvar.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin-left: 1143px; /*Magin*/
+        margin-left: 1150px; /*Magin*/
         margin-top: 70px;
     }
 
         .btnSalvar.primary:hover, .btnSalvar.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin-left: 1143px; /*Magin*/
+            margin-left: 1150px; /*Magin*/
             margin-top: 70px;
         }
 

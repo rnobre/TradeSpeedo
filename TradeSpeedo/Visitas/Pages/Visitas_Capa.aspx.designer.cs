@@ -67,6 +67,24 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txObj;
         
         /// <summary>
+        /// Controle iDIa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image iDIa;
+        
+        /// <summary>
+        /// Controle iConclusao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image iConclusao;
+        
+        /// <summary>
         /// Controle BtnSalvar.
         /// </summary>
         /// <remarks>

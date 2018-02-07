@@ -15,6 +15,7 @@ namespace TradeSpeedo.Visitas.Pages
             BtnAltera.Visible = false;
             var conexao = Session["conexao"].ToString();
             var pesquisa = new Visita_Detalhe(conexao);
+
             if (!Page.IsPostBack)
             {
 

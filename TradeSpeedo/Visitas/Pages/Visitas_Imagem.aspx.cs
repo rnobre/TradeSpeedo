@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
 
@@ -67,15 +68,8 @@ namespace TradeSpeedo.Visitas.Pages
 
         }
 
-        //private void ExcluirImagens (int idVisita,int idVisitadet, string imagem, string conexao)
-        //{
-        //    var imagensDosClientes = new Visita_Imagem(conexao).Lista(idVisita, idVisitadet, imagem);
-
-        //    foreach(var imagemDoCliente in imagensDosClientes)
-        //    {
-        //        File.Delete(Server.MapPath(Path.Combine("../Upload", (imagemDoCliente.imagem))));
-        //    }
-        //}
+        public string strScript = "";
+      
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
@@ -87,41 +81,45 @@ namespace TradeSpeedo.Visitas.Pages
             idvisitadet.idVisitaDetalhe();
             var load = new Visita_Imagem(conexao);
             load.Carrega(idvisita.ID, idvisitadet.ID);
+            
+
 
             for (int i = 0; i <= 9; i++)
-            {
-                var urlNova = "urlNova" + i.ToString();
-                var urlVelha = "urlVelha" + i.ToString();
-                var imageupload = "imageupload" + i.ToString();
-
-                urlNova = SubirImagem(Convert.ToInt32(i.ToString()), idvisita.ID, idvisitadet.ID);
-
-                if (urlNova != "")
-                {
-
-                    urlVelha = load.imagem;
-
-                    if (urlNova != "" && urlVelha != null)
-                    {
-                        var arquivo = Server.MapPath(Path.Combine("../Upload", (urlVelha)));
-                        if (File.Exists(arquivo))
-                            File.Delete(arquivo);
-                    }
-
-                    SalvaImagem(idvisita.ID, idvisitadet.ID, urlNova, conexao);
-
-                }
-            }
-            for (int x = 0; x <= 9; x++)
-            {
-                var imagepreview = "imagepreview" + x.ToString();
-
                 
-                Convert.
-                imagepreview1.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + "cego.jpg");
-                imagepreview1.Style["background-size"] = "contain";
+                {
+               
+                
+                    string imagepreview = "imagepreview" + (i+1).ToString();
+                    var div = (HtmlControl)dMain.FindControl(imagepreview);
+                    var urlNova = "urlNova" + i.ToString();
+                    var urlVelha = "urlVelha" + i.ToString();
+                    var imageupload = "imageupload" + i.ToString();
 
-            }
+                    urlNova = SubirImagem(Convert.ToInt32(i.ToString()), idvisita.ID, idvisitadet.ID);
+
+                    if (urlNova != "")
+                    {
+
+                        urlVelha = load.imagem;
+
+                        if (urlNova != "" && urlVelha != null)
+                        {
+                            var arquivo = Server.MapPath(Path.Combine("../Upload", (urlVelha)));
+                            if (File.Exists(arquivo))
+                                File.Delete(arquivo);
+                        }
+
+                        SalvaImagem(idvisita.ID, idvisitadet.ID, urlNova, conexao);
+                        div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + urlNova);
+
+                    }
+                }
+
+            strScript = "alert('Dia salvo com sucesso.');";
+
+            Response.Redirect("Visitas_Capa.aspx");
+
+        }
         }
     }
-}
+

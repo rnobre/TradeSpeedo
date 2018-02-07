@@ -22,7 +22,6 @@
     color: #ccc;
 }
 
-
 .ddPesquisa {
     position:fixed;
    
@@ -35,6 +34,19 @@
 .ddPesquisa-select.form-control {
     width: 81%;
 }
+
+.dAlterar {
+    position: fixed;
+    top: 135px;
+    left: -287px;
+}
+
+.dRelatorio {
+    position: fixed;
+    top: 130px;
+    left: -589px;
+}
+
 
 /*Inicio Botão Incluir*/
 .btnIncluir {
@@ -63,8 +75,8 @@
         padding: 10px 16px;
         font-size: 30px;
         /*margin: 50px 1039px 0; /*Margin*/
-        margin-left: 1023px;
-        margin-top: 0px;
+        margin-left: 1030px;
+        margin-top: 350px;
     }
 
     .btnIncluir.btnIncluir-sm {
@@ -81,16 +93,16 @@
     .btnIncluir.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin-left: 1023px;
-        margin-top: 345px;
+        margin-left: 1030px;
+        margin-top: 350px;
     }
 
         .btnIncluir.primary:hover, .btnIncluir.primary.hover {
             background: #Fe370F;
             color: #fff;
             /*margin: 50px 1039px 0; /*Margin*/
-            margin-left: 1023px;
-            margin-top: 345px;
+            margin-left: 1030px;
+            margin-top: 350px;
         }
 
     .btnIncluir.danger {
@@ -165,129 +177,260 @@
 /*FIM Botão Incluir*/
 
 
-/*Inicio Botão Salvar*/
-.btnSalvar {
+/*Inicio Botão Alterar*/
+.btnAlterar {
     display: inline-block;
     padding: 6px 12px;
     border: 2px solid #FE370f;
     color: #ddd;
     text-decoration: none;
-    font-weight: 900;
-    margin: 830px; /*Margin*/
+    font-weight: 700;
     transition: all .2s;
     min-width: 100px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     background: #ffffff;
-    width: 250px;
+    width: 200px;
     height: 70px;
     margin-top: -10px;
 }
 
-    .btnSalvar:hover, .btnSalvar.hover {
+    .btnAlterar:hover, .btnAlterar.hover {
         background: #ffffff;
         color: #777;
     }
 
-    .btnSalvar.btnSalvar-lg {
+    .btnAlterar.btnAlterar-lg {
         padding: 10px 16px;
         font-size: 30px;
-        /*margin: 50px 1006px 0; /*Margin*/
+        /*margin: 50px 1039px 0; /*Margin*/
+        margin-left: 1023px;
         margin-top: 0px;
     }
 
-    .btnSalvar.btnSalvar-sm {
+    .btnAlterar.btnAlterar-sm {
         padding: 5px 10px;
         font-size: 12px;
     }
 
-    .btnSalvar.btnSalvar-xs {
+    .btnAlterar.btnAlterar-xs {
         padding: 1px 5px;
         font-size: 12px;
         padding: 1px 5px;
     }
 
-    .btnSalvar.primary {
+    .btnAlterar.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        /*margin: 50px 1006px 0; /*Margin*/
-        margin-top: 445px;
+        margin-left: 1023px;
+        margin-top: 345px;
     }
 
-        .btnSalvar.primary:hover, .btnSalvar.primary.hover {
+        .btnAlterar.primary:hover, .btnAlterar.primary.hover {
             background: #Fe370F;
             color: #fff;
-            /*margin: 50px 1006px 0; /*Margin*/
-            margin-top: 445px;
+            /*margin: 50px 1039px 0; /*Margin*/
+            margin-left: 1023px;
+            margin-top: 345px;
         }
 
-    .btnSalvar.danger {
+    .btnAlterar.danger {
         border-color: #e74c3c;
         color: #e74c3c;
     }
 
-        .btnSalvar.danger:hover, .btnSalvar.danger.hover {
+        .btnAlterar.danger:hover, .btnAlterar.danger.hover {
             background: #e74c3c;
             color: #fff;
         }
 
-    .btnSalvar.success {
+    .btnAlterar.success {
         border-color: #27ae60;
         color: #27ae60;
     }
 
-        .btnSalvar.success:hover, .btnSalvar.success.hover {
+        .btnAlterar.success:hover, .btnAlterar.success.hover {
             background: #27ae60;
             color: #fff;
         }
 
-    .btnSalvar.warning {
+    .btnAlterar.warning {
         border-color: #f1c40f;
         color: #f1c40f;
     }
 
-        .btnSalvar.warning:hover, .btnSalvar.warning.hover {
+        .btnAlterar.warning:hover, .btnAlterar.warning.hover {
             background: #f1c40f;
             color: #fff;
         }
 
-    .btnSalvar.black {
+    .btnAlterar.black {
         border-color: #34495e;
         color: #34495e;
     }
 
-        .btnSalvar.black:hover, .btnSalvar.black.hover {
+        .btnAlterar.black:hover, .btnAlterar.black.hover {
             background: #34495e;
             color: #fff;
         }
 
-    .btnSalvar.black {
+    .btnAlterar.black {
         border-color: #34495e;
         color: #34495e;
     }
 
-        .btnSalvar.black:hover, .btnSalvar.black.hover {
+        .btnIncluir.black:hover, .btnIncluir.black.hover {
             background: #34495e;
             color: #fff;
         }
 
-    .btnSalvar.info {
+    .btnIncluir.info {
         border-color: #5bc0de;
         color: #5bc0de;
     }
 
-        .btnSalvar.info:hover, .btnSalvar.info.hover {
+        .btnIncluir.info:hover, .btnIncluir.info.hover {
             background: #5bc0de;
             color: #fff;
         }
 
-    .btnSalvar.clear {
+    .btnIncluir.clear {
         border-color: #777;
         color: #777;
     }
 
-        .btnSalvar.clear:hover, .btnSalvar.clear.hover {
+        .btnIncluir.clear:hover, .btnIncluir.clear.hover {
             background: #777;
             color: #fff;
         }
-/*FIM Botão Salvar*/
+/*FIM Botão Alterar*/
+
+
+
+/*Inicio Botão Relatorio*/
+.btnRelatorio {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 25px;
+    background: #ffffff;
+    width: 200px;
+    height: 70px;
+    margin-top: -10px;
+}
+
+    .btnRelatorio:hover, .btnRelatorio.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btnRelatorio.btnRelatorio-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+        /*margin: 50px 1039px 0; /*Margin*/
+        margin-left: 1030px;
+        margin-top: 350px;
+    }
+
+    .btnRelatorio.btnRelatorio-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btnRelatorio.btnRelatorio-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btnRelatorio.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+        margin-left: 1030px;
+        margin-top: 350px;
+    }
+
+        .btnRelatorio.primary:hover, .btnRelatorio.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+            /*margin: 50px 1039px 0; /*Margin*/
+            margin-left: 1030px;
+            margin-top: 350px;
+        }
+
+    .btnRelatorio.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btnRelatorio.danger:hover, .btnRelatorio.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btnRelatorio.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btnRelatorio.success:hover, .btnRelatorio.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btnRelatorio.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnRelatorio.warning:hover, .btnRelatorio.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnRelatorio.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnRelatorio.black:hover, .btnRelatorio.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnRelatorio.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnRelatorio.black:hover, .btnRelatorio.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnRelatorio.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnRelatorio.info:hover, .btnRelatorio.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnRelatorio.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnRelatorio.clear:hover, .btnRelatorio.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+/*FIM Botão Relatorio*/

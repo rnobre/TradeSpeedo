@@ -175,6 +175,9 @@
     <Content Include="Style\index.css" />
     <Content Include="Style\login_estilo.css" />
     <Content Include="Style\master.css" />
+    <Content Include="Visitas\Imagem\checkpreto.jpg" />
+    <Content Include="Visitas\Imagem\checkverde.jpg" />
+    <Content Include="Visitas\Imagem\mais.jpg" />
     <Content Include="Visitas\Imagem\transparente.png" />
     <Content Include="Visitas\Pages\Visitas_Capa.aspx" />
     <Content Include="Visitas\Pages\Visitas_Detalhe.aspx" />

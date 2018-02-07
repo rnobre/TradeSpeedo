@@ -54,6 +54,14 @@
                 <textarea id="txObj" class ="txtinput" runat="server"></textarea>            
             </div>
                 </div>
+        <div id="dDias" class="dDias col-md-4">
+            <label id="lblDia" class="lbl">Dias:</label>
+            <asp:Image ID="iDIa" CssClass="iDIa" ImageUrl="~/Visitas/Imagem/mais.jpg" runat="server" />
+        </div>
+        <div id="dConclusao" class="dConclusao col-md-4">
+            <label id="lblConclusao" class="lbl">Conclusão:</label>
+            <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
+        </div>
             <div class="col-md-4">
                 <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click"/>            
             </div>

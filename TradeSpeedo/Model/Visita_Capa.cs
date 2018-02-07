@@ -72,6 +72,29 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
+  
+
+        public void Carrega(int id)
+        {
+            _conexao.Open();
+            
+                var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
+                var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+            
+
+            while(dr.Read())
+            {
+                ID = Convert.ToInt32(dr["ID"].ToString());
+                Visita = dr["VISITA"].ToString();
+                Periodo = dr["PERIODO"].ToString();
+                Representante = dr["REPRESENTANTE"].ToString();
+                Regiao = dr["REGIAO"].ToString();
+                Objetivo = dr["OBJETIVO"].ToString();
+            }
+
+            _conexao.Close();
+        }
+
 
     }
 }

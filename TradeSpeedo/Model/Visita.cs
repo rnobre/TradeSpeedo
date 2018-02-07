@@ -48,12 +48,21 @@ namespace TradeSpeedo.Model
             return visitas;
         }
 
-        public void Carrega()
 
+
+        public void Recupera(int id)
         {
             _conexao.Open();
 
-            var sql = $"";
+            var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while (dr.Read())
+            {
+                this.ID = Convert.ToInt32(dr["ID"].ToString());
+            }
+
+            _conexao.Close();
         }
     }
 }

@@ -21,7 +21,7 @@
     <div id="dTitulo" class="dTitulo">
         <h1 id="hTitulo" class="hTitulo">Imagens</h1>
     </div>
-    <div class="dMain row">
+    <div id="dMain" class="dMain row" runat="server">
         <div class="dImg1 col-md-2 col-md-offset-1">
             <div id="imagepreview1" class="image-preview" runat="server">
                 <asp:HiddenField ID="lbl1" runat="server"></asp:HiddenField>
@@ -184,5 +184,7 @@
 
             });
         });
+
+         <%=strScript%>
     </script>
 </asp:Content>

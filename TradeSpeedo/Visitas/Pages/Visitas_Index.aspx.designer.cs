@@ -31,12 +31,21 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.Button BtnIncluir;
         
         /// <summary>
-        /// Controle BtnSalvar.
+        /// Controle BtnAlterar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSalvar;
+        protected global::System.Web.UI.WebControls.Button BtnAlterar;
+        
+        /// <summary>
+        /// Controle BtnRelatorio.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRelatorio;
     }
 }
