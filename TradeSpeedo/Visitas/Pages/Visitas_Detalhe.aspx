@@ -97,7 +97,7 @@
                 <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
             </div>
             <div class="Botao col-md-4">
-                <asp:Button ID="BtnAltera" Text="Altera" runat="server" CssClass="btnSalvar primary btn-lg" />
+                <asp:Button ID="BtnAltera" Text="Alterar" runat="server" CssClass="btnAlterar primary btn-lg" OnClick="BtnAltera_Click" />
             </div>
         </div>
     </div>

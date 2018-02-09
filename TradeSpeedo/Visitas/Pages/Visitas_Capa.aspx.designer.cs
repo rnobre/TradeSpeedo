@@ -67,13 +67,22 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txObj;
         
         /// <summary>
-        /// Controle iDIa.
+        /// Controle iDia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image iDIa;
+        protected global::System.Web.UI.WebControls.ImageButton iDia;
+        
+        /// <summary>
+        /// Controle rDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rDia;
         
         /// <summary>
         /// Controle iConclusao.
@@ -83,6 +92,15 @@ namespace TradeSpeedo.Visitas.Pages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image iConclusao;
+        
+        /// <summary>
+        /// Controle dteste.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dteste;
         
         /// <summary>
         /// Controle BtnSalvar.

@@ -22,8 +22,6 @@
                 Capa</h1>
         </div>
     <div id="dFormulario" class="row">
-        
-        <!-- Coluna da esquerda -->
         <div class="col-md-6">
             <div id="dVisita" class="form-group">
                 <label ID="lblVisita" class="lbl" for="txtVisita">Visita: </label>
@@ -42,9 +40,7 @@
                 <label ID="lblRegiao" class="lbl" for="txtRegiao">Região: </label>
                 <asp:TextBox ID="txtRegiao" CssClass="txtinput form-control" runat="server"></asp:TextBox>
             </div>
-        </div>
-
-        <!-- Coluna da direita -->
+        </div>        
         <div class="col-md-6">
             <div id="dObj" class="dObj">
                 <Label ID="lblObj" Class="lblObj">Objetivo: </Label> 
@@ -54,18 +50,22 @@
                 <textarea id="txObj" class ="txtinput" runat="server"></textarea>            
             </div>
                 </div>
-        <div id="dDias" class="dDias col-md-4">
-            <label id="lblDia" class="lbl">Dias:</label>
-            <asp:Image ID="iDIa" CssClass="iDIa" ImageUrl="~/Visitas/Imagem/mais.jpg" runat="server" />
+        <div id="dDias" class="dDias">
+            <label id="lblDia" class="lbl">Dias:</label> 
+           <asp:ImageButton ID="iDia" CssClass="iDia" ImageUrl="~/Visitas/Imagem/maisp.jpg" OnClick="iDia_Click"  runat="server"/>   
+            <asp:Repeater ID="rDia" runat="server"></asp:Repeater>
         </div>
         <div id="dConclusao" class="dConclusao col-md-4">
             <label id="lblConclusao" class="lbl">Conclusão:</label>
             <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
         </div>
-            <div class="col-md-4">
+        <div>
+            <asp:DropDownList ID="dteste" runat="server" DataTextField="Dia" DataValueField="ID" ></asp:DropDownList>
+        </div>
+            <div>
                 <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click"/>            
             </div>
-        <div class="col-md-4">
+        <div>
                 <asp:Button ID="BtnAltera" Text="Altera" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnAltera_Click"/>            
             </div>
         </div>

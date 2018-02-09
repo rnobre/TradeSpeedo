@@ -208,13 +208,26 @@
 .dDias {
     position: fixed;
     top: 80%;
+    left: 1.5%;
 }
-.iDIa {
+/*.aAdicao {
     position: fixed;
-    width: 1.9%;
-    top: 85%;
+    top: 84.5%;
+    left: 1.9%;
+}*/
+.iDia {
+    top: 84.8%;
+    position: fixed;
+    width: 26px;
     left: 2%;
 }
+
+.btnAdicao 
+{
+    background-image: url("../Imagem/mais.jpg");
+    background-size:10%
+}
+
 .dConclusao {
     position: fixed;
     top: 80%;

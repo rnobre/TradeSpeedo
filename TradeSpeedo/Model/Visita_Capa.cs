@@ -22,6 +22,8 @@ namespace TradeSpeedo.Model
 
         private string _stringconexao { get; set; }
 
+        public string Dia { get; set; }
+
         public int ID { get; set; }
 
         public Visita_Capa(string stringConexao)
@@ -95,6 +97,31 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
+        public List<Visita_Capa> Lista(int Id)
+        {
+            
+            var dias = new List<Visita_Capa>(); ;
+
+            _conexao.Open();
+
+            var sql = $"SELECT ID_VISITA, DIA FROM VISITA_DETALHE WHERE ID = '{Id}'";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while (dr.Read())
+            {
+                var dia = new Visita_Capa(_stringconexao);
+
+                dia.ID = Convert.ToInt32(dr["ID_VISITA"].ToString());
+                dia.Dia = dr["DIA"].ToString();
+
+                dias.Add(dia);
+
+            }
+
+            _conexao.Close();
+
+            return dias;
+        }
 
     }
 }

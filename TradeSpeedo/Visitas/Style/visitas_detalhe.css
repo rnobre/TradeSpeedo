@@ -521,3 +521,125 @@
             color: #fff;
         }
 /*FIM Botão Salvar*/
+
+
+
+
+
+/*Inicio Botão Alterar*/
+.btnAlterar {
+    display: inline-block;
+    padding: 6px 3px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 25px;
+    background: #ffffff;
+    width: 180px;
+    height: 50px;
+}
+
+    .btnAlterar:hover, .btnAlterar.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btnAlterar.btnAlterar-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+    }
+
+    .btnAlterar.btnAlterar-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btnAlterar.btnAlterar-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btnAlterar.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+    }
+
+        .btnAlterar.primary:hover, .btnAlterar.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+        }
+
+    .btnAlterar.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btnAlterar.danger:hover, .btnAlterar.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btnAlterar.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btnAlterar.success:hover, .btnAlterar.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btnAlterar.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnAlterar.warning:hover, .btnAlterar.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnAlterar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnAlterar.black:hover, .btnAlterar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnAlterar.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnAlterar.black:hover, .btnAlterar.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnAlterar.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnAlterar.info:hover, .btnAlterar.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnAlterar.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnAlterar.clear:hover, .btnAlterar.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+/*FIM Botão Alterar*/
