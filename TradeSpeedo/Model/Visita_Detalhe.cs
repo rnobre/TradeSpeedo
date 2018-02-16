@@ -184,7 +184,7 @@ namespace TradeSpeedo.Model
             _conexao.Open();
 
             
-            var sql = $"INSERT INTO VISITA_DETALHE(ID_VISITA,DIA,DATA,ID_CLIFOR,LOCAL,COMPRADOR,ID_PERFIL,ID_SORTIMENTO,ID_EXPOSICAO,CONCORRENTE,COMENTARIOS,H1,H2,H3,H4,HT1,HT2,HT3,HT4) VALUES('{ID_VISITA}','{Dia}','{Data}','{idClifor}','{Local}','{Comprador}','{Id_Perfil}','{Id_Sortimento}','{Id_Exposicao}','{Concorrente}',{Comentarios},'{H1}','{H2}','{H3}','{H4}','{Ht1}','{Ht2}','{Ht3}','{Ht4}')";
+            var sql = $"INSERT INTO VISITA_DETALHE(ID_VISITA,DIA,DATA,ID_CLIFOR,LOCAL,COMPRADOR,ID_PERFIL,ID_SORTIMENTO,ID_EXPOSICAO,CONCORRENTE,COMENTARIOS,H1,H2,H3,H4,HT1,HT2,HT3,HT4) VALUES('{ID_VISITA}','{Dia}','{Data}','{idClifor}','{Local}','{Comprador}','{Id_Perfil}','{Id_Sortimento}','{Id_Exposicao}','{Concorrente}','{Comentarios}','{H1}','{H2}','{H3}','{H4}','{Ht1}','{Ht2}','{Ht3}','{Ht4}')";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();   
@@ -209,12 +209,12 @@ namespace TradeSpeedo.Model
                        ",A.ID_VISITA " +
                        ",A.DIA " +
                        ",A.DATA " +
-                       ",E.CLIENTE " +
+                       ",A.ID_CLIFOR " +
                        ",A.LOCAL " +
                        ",A.COMPRADOR  " +
-                       ",B.DESCRICAO AS PERFIL " +
-                       ",C.DESCRICAO AS SORTIMENTO " +
-                       ",D.DESCRICAO AS EXPOSICAO " +
+                       ",B.ID AS PERFIL " +
+                       ",C.ID AS SORTIMENTO " +
+                       ",D.ID AS EXPOSICAO " +
                        ",A.CONCORRENTE " +
                        ",A.COMENTARIOS " +
                        ",A.H1 " +
@@ -240,12 +240,12 @@ namespace TradeSpeedo.Model
                 ID_VISITA = Convert.ToInt32(dr["ID_VISITA"].ToString());
                 Dia = dr["DIA"].ToString();
                 Data = dr["DATA"].ToString();
-                Cliente = dr["CLIENTE"].ToString();
+                idClifor = Convert.ToInt32(dr["ID_CLIFOR"].ToString());
                 Local = dr["LOCAL"].ToString();
                 Comprador = dr["COMPRADOR"].ToString();
-                Perfil = dr["PERFIL"].ToString();
-                Sortimento = dr["SORTIMENTO"].ToString();
-                Exposicao = dr["EXPOSICAO"].ToString();
+                Id_Perfil = Convert.ToInt32(dr["PERFIL"].ToString());
+                Id_Sortimento = Convert.ToInt32(dr["SORTIMENTO"].ToString());
+                Id_Exposicao = Convert.ToInt32(dr["EXPOSICAO"].ToString());
                 Concorrente = dr["CONCORRENTE"].ToString();
                 Comentarios = dr["COMENTARIOS"].ToString();
                 H1 = dr["H1"].ToString();

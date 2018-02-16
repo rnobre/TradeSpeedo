@@ -46,12 +46,12 @@ namespace TradeSpeedo.Visitas.Pages
                 {
                     txDia.Text = load.Dia;
                     txData.Text = load.Data;
-                    ddCliente.Text = load.Cliente;
+                    ddCliente.SelectedValue = Convert.ToString(load.idClifor);
                     txLocal.Text = load.Local;
                     txComprador.Text = load.Comprador;
-                    ddPerfil.Text = load.Perfil;
-                    ddSortimento.Text = load.Sortimento;
-                    ddExpo.Text = load.Exposicao;
+                    ddPerfil.SelectedValue = Convert.ToString(load.Id_Perfil);
+                    ddSortimento.SelectedValue = Convert.ToString(load.Id_Sortimento);
+                    ddExpo.SelectedValue = Convert.ToString(load.Id_Exposicao);
                     txConcorrentes.InnerText = load.Concorrente;
                     txComentario.InnerText = load.Comentarios;
                     txAno1.Text = load.H1;
@@ -155,7 +155,7 @@ namespace TradeSpeedo.Visitas.Pages
             load.Carrega(Convert.ToInt32(recId), recDia);
 
             AlteraForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText, txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
-            Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + load.ID_VISITA + "?IdVisitaDetalhe=" + load.ID + "?Dia=" + load.Dia);
+            Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + load.ID_VISITA + "&IdVisitaDetalhe=" + load.ID + "&Dia=" + load.Dia);
 
         }
     }

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
+using System.Web.Services;
+using System.Web.UI.HtmlControls;
 
 namespace TradeSpeedo.Visitas.Pages
 {
@@ -13,13 +15,12 @@ namespace TradeSpeedo.Visitas.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             BtnAltera.Visible = false;
-            var conexao = Session["conexao"].ToString();            
+            var conexao = Session["conexao"].ToString();
             var dia = new Visita_Capa(conexao);
             var id = Request.QueryString["ID"];
 
-            dteste.DataSource = dia.Lista(Convert.ToInt32(id));
-            dteste.DataBind();
-
+            rDia.DataSource = dia.Lista(Convert.ToInt32(id));
+            rDia.DataBind();
 
             if (!Page.IsPostBack)
             {
@@ -57,6 +58,15 @@ namespace TradeSpeedo.Visitas.Pages
             salva.Salvar();
         }
 
+        public void PegaDia()
+        {
+            var teste = (HtmlControl)dFormulario.FindControl("lbDireciona");
+            var teste1 = (HtmlControl)rDia.FindControl("lbDireciona");
+
+
+
+        }
+
 
 
         public string strScript = "";
@@ -92,6 +102,37 @@ namespace TradeSpeedo.Visitas.Pages
             recupera.IdRec();
 
             Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID);
+        }
+
+        protected void botao_Click(object sender, EventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+            var recupera = new Visita_Capa(conexao);
+            recupera.IdRec();
+
+            PegaDia();
+
+            Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID + "?dia=");
+        }
+
+        protected void rDia_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+            var recupera = new Visita_Capa(conexao);
+            recupera.idVisita(txtVisita.Text);
+            var id = recupera.ID;
+
+            switch (e.CommandName.ToString())
+            {
+                case "lbDireciona":
+                    ;
+
+                    var dia = (e.Item.FindControl("lbDireciona") as LinkButton).CommandArgument;
+                    Response.Redirect("Visitas_Detalhe.aspx?id=" + id + "&dia=" + dia);
+                    break;
+
+            }
+
         }
     }
 }

@@ -13,6 +13,15 @@ namespace TradeSpeedo.Visitas.Pages {
     public partial class Visitas_Capa {
         
         /// <summary>
+        /// Controle dFormulario.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dFormulario;
+        
+        /// <summary>
         /// Controle txtVisita.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.ImageButton iDia;
         
         /// <summary>
+        /// Controle ddDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddDia;
+        
+        /// <summary>
         /// Controle rDia.
         /// </summary>
         /// <remarks>
@@ -92,15 +110,6 @@ namespace TradeSpeedo.Visitas.Pages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image iConclusao;
-        
-        /// <summary>
-        /// Controle dteste.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dteste;
         
         /// <summary>
         /// Controle BtnSalvar.

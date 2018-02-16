@@ -216,13 +216,12 @@
     left: 1.9%;
 }*/
 .iDia {
-    top: 84.8%;
-    position: fixed;
-    width: 26px;
-    left: 2%;
+    top: 4px;
+    position: relative;
+    width: 22px;
+    left: 2px;
 }
-
-.btnAdicao 
+    .btnAdicao 
 {
     background-image: url("../Imagem/mais.jpg");
     background-size:10%
@@ -235,25 +234,48 @@
 }
 .iConclusao {
     position: fixed;
-    width: 27px;    
-    top: 85%;
-    left: 19.6%;
+    width: 24px;
+    top: 80.3%;
+    left: 24.7%;
 }
-/*Inicio Botão Salvar*/
-.btnSalvar {
-    display: inline-block;
-    padding: 6px 3px;
-    border: 2px solid #FE370f;
-    color: #ddd;
-    text-decoration: none;
-    transition: all .2s;
-    min-width: 100px;
-    text-align: center;
-    font-size: 25px;
-    background: #ffffff;
-    width: 180px;
-    height: 50px;
+.ddDia {
+    position: relative;
+    top: -14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    color: red;
+    font-weight: bold;
 }
+
+.aDireciona {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    padding: 5px;
+}
+
+    .aDireciona:hover, .aDireciona.hover {
+        color: red;
+        text-decoration: none;
+    }
+    .aDireciona:visited {
+        color: red;
+        text-decoration: none;
+    }
+    /*Inicio Botão Salvar*/
+    .btnSalvar {
+        display: inline-block;
+        padding: 6px 3px;
+        border: 2px solid #FE370f;
+        color: #ddd;
+        text-decoration: none;
+        transition: all .2s;
+        min-width: 100px;
+        text-align: center;
+        font-size: 25px;
+        background: #ffffff;
+        width: 180px;
+        height: 50px;
+    }
 
     .btnSalvar:hover, .btnSalvar.hover {
         background: #ffffff;

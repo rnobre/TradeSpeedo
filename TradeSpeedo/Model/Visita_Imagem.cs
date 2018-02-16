@@ -18,6 +18,8 @@ namespace TradeSpeedo.Model
 
         public string imagem { get; set; }
 
+        public int Dia { get; set; }
+
         private string _stringconexao { get; set; }
 
         public Visita_Imagem(string stringConexao)
@@ -61,7 +63,13 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"INSERT INTO VISITA_IMAGEM (ID_VISITA, ID_VISITA_DETALHE, IMAGEM) VALUES ('{Id_Visita}','{Id_Visita_Detalhe}','{imagem}')";
+            var sql = $"INSERT INTO VISITA_IMAGEM (ID_VISITA, ID_VISITA_DETALHE, IMAGEM, DIA) VALUES ('{Id_Visita}','{Id_Visita_Detalhe}','{imagem}','{Dia}')";
+            new SqlCommand(sql, _conexao).ExecuteNonQuery();
+        }
+
+        public void Altera()
+        {
+            var sql = $"UPDATE VISITA_IMAGEM SET IMAGEM = '{imagem}' WHERE ID_VISITA = '{Id_Visita}' AND ID_VISITA_DETALHE = '{Id_Visita_Detalhe}' AND DIA = '{Dia}' AND ID = '{Dia}'";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
         }
 
@@ -91,19 +99,20 @@ namespace TradeSpeedo.Model
             return imagens;
         }
 
-        public void Carrega(int IdVisita, int idVisitaDet)
+        public void Carrega(int IdVisita, int idVisitaDet, int Dia)
         {
             _conexao.Open();
 
-            var sql = $"SELECT TOP 1 ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}'";
+            var sql = $"SELECT TOP 1 ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}' and DIA = '{Dia}'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while(dr.Read())
             {
-                this.ID = Convert.ToInt32(dr["ID"].ToString());
-                this.Id_Visita = Convert.ToInt32(dr["ID_VISITA"].ToString());
-                this.Id_Visita_Detalhe = Convert.ToInt32(dr["ID_VISITA_DETALHE"].ToString());
-                this.imagem = dr["IMAGEM"].ToString();
+                ID = Convert.ToInt32(dr["ID"].ToString());
+                Id_Visita = Convert.ToInt32(dr["ID_VISITA"].ToString());
+                Id_Visita_Detalhe = Convert.ToInt32(dr["ID_VISITA_DETALHE"].ToString());
+                imagem = dr["IMAGEM"].ToString();
+                Dia = Convert.ToInt32(dr["DIA"].ToString());
 
                 dr.Close();
             }

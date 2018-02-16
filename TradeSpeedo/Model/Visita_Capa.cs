@@ -74,7 +74,25 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
-  
+
+        public void idVisita(string visita)
+        {
+            _conexao.Open();
+
+            var sql = $"SELECT ID, VISITA FROM VISITA WHERE VISITA = '{visita}'";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
+
+            while (dr.Read())
+            {
+                ID = Convert.ToInt32(dr["ID"].ToString());
+                visita = dr["VISITA"].ToString();
+            }
+
+            _conexao.Close();
+        }
+
+
+
 
         public void Carrega(int id)
         {
@@ -104,7 +122,7 @@ namespace TradeSpeedo.Model
 
             _conexao.Open();
 
-            var sql = $"SELECT ID_VISITA, DIA FROM VISITA_DETALHE WHERE ID = '{Id}'";
+            var sql = $"SELECT ID_VISITA, DIA FROM VISITA_DETALHE WHERE ID_VISITA = '{Id}'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while (dr.Read())
