@@ -71,7 +71,7 @@ namespace TradeSpeedo.Visitas.Pages
 
 
 
-        private void SalvaForm(int idVisita, string Dia, string Data, int Clifor, string Local, string comprador, int idPerfil, int idSort, int idExpo, string concorrente, string h1, string h2, string h3, string h4, string ht1, string ht2, string ht3, string ht4)
+        private void SalvaForm(int idVisita, string Dia, string Data, int Clifor, string Local, string comprador, int idPerfil, int idSort, int idExpo, string concorrente,string comentario ,string h1, string h2, string h3, string h4, string ht1, string ht2, string ht3, string ht4)
         {
             var conexao = Session["conexao"].ToString();
 
@@ -86,6 +86,7 @@ namespace TradeSpeedo.Visitas.Pages
                 Id_Sortimento = idSort,
                 Id_Exposicao = idExpo,
                 Concorrente = concorrente,
+                Comentarios = comentario,
                 H1 = h1,
                 H2 = h2,
                 H3 = h3,
@@ -99,7 +100,7 @@ namespace TradeSpeedo.Visitas.Pages
             campo.Salva();
         }
 
-        private void AlteraForm(int idVisita, string Dia, string Data, int Clifor, string Local, string comprador, int idPerfil, int idSort, int idExpo, string concorrente, string h1, string h2, string h3, string h4, string ht1, string ht2, string ht3, string ht4)
+        private void AlteraForm(int idVisita, string Dia, string Data, int Clifor, string Local, string comprador, int idPerfil, int idSort, int idExpo, string concorrente, string comentario ,string h1, string h2, string h3, string h4, string ht1, string ht2, string ht3, string ht4)
         {
             var conexao = Session["conexao"].ToString();
 
@@ -114,6 +115,7 @@ namespace TradeSpeedo.Visitas.Pages
                 Id_Sortimento = idSort,
                 Id_Exposicao = idExpo,
                 Concorrente = concorrente,
+                Comentarios = comentario,
                 H1 = h1,
                 H2 = h2,
                 H3 = h3,
@@ -133,15 +135,15 @@ namespace TradeSpeedo.Visitas.Pages
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
-            var valor = Request.QueryString["ID"];            
+            var valor = Request.QueryString["ID"];
 
-            SalvaForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText, txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
+            SalvaForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText,txComentario.InnerText ,txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
             strScript = "alert('Informações salvas com sucesso.');";
 
             var recupera = new Visita_Detalhe(conexao);
             recupera.IdDetalheRec();
 
-            Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + recupera.ID_VISITA + "?IdVisitaDetalhe=" + recupera.ID + "?Dia=" + recupera.Dia);
+            Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + recupera.ID_VISITA + "&IdVisitaDetalhe=" + recupera.ID + "&Dia=" + recupera.Dia);
         }
 
         protected void BtnAltera_Click(object sender, EventArgs e)
@@ -153,8 +155,9 @@ namespace TradeSpeedo.Visitas.Pages
             var recDia = Request.QueryString["DIA"];
             var load = new Visita_Detalhe(conexao);
             load.Carrega(Convert.ToInt32(recId), recDia);
+            
 
-            AlteraForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText, txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
+            AlteraForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText,txComentario.InnerText , txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
             Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + load.ID_VISITA + "&IdVisitaDetalhe=" + load.ID + "&Dia=" + load.Dia);
 
         }

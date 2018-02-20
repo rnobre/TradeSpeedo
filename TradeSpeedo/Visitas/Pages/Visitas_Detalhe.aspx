@@ -26,17 +26,21 @@
             <div id="dDatas" class="dDatas row">
                 <div id="dDia" class="dDia col-sm-3">
                     <label id="lDia" class="lDia">Dia: </label>
-                    <asp:TextBox ID="txDia" CssClass="txDia form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txDia" CssClass="txDia form-control" MaxLength="1"  runat="server"></asp:TextBox>
                 </div>
                 <div id="dData" class="dData col-sm-3">
                     <label id="lData" class="lData">Data: </label>
                     <asp:TextBox ID="txData" CssClass="txData form-control" runat="server"></asp:TextBox>
                 </div>
+                <div id="dICliente" class="dICliente col-sm-3">
+                    <label id="lICliente" class="lICliente">Cliente: </label>
+                    <asp:TextBox ID="txICliente" CssClass="txICliente form-control" MaxLength="1" runat="server"></asp:TextBox>
+                </div>
             </div>
             <div id="dInformacao" class="dInformacao1 row">
                 <div id="dCliente" class="dCliente col-sm-3">
                     <label id="lCliente" class="lCliente">Cliente: </label>
-                    <asp:DropDownList ID="ddCliente" CssClass="ddCliente selectpicker show-tick form-control" data-live-search="true" TabIndex="-1" runat="server" DataValueField="idClifor" DataTextField="ClienteCompleto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddCliente" CssClass="ddCliente selectpicker show-tick form-control" data-live-search="true" TabIndex="-1" runat="server" DataValueField="ID" DataTextField="ClienteCompleto"></asp:DropDownList>
                 </div>
                 <div id="dPerfil" class="dPerfil col-sm-3">
                     <label id="lPerfil" class="lPerfil">Perfil: </label>

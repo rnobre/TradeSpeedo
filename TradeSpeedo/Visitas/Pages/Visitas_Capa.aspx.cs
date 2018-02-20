@@ -58,30 +58,28 @@ namespace TradeSpeedo.Visitas.Pages
             salva.Salvar();
         }
 
-        public void PegaDia()
-        {
-            var teste = (HtmlControl)dFormulario.FindControl("lbDireciona");
-            var teste1 = (HtmlControl)rDia.FindControl("lbDireciona");
-
-
-
-        }
-
-
-
         public string strScript = "";
 
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
+            //If validação
             var conexao = Session["conexao"].ToString();
 
-            SalvaCapa(txtVisita.Text, txtPeriodo.Text, txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
-            strScript = "alert('Informações salvas com sucesso.');";
+            var valida = new Visita_Capa(conexao);
+            valida.Valida(txtVisita.Text);
+
+            if(valida.Visita == txtVisita.Text)
+            {
+                strScript = "alert('Nome da Visita já existe, por gentileza verificar!');";
+            }
+            else
+            {
+                SalvaCapa(txtVisita.Text, txtPeriodo.Text, txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
+                strScript = "alert('Informações salvas com sucesso.');";
+            }           
 
         }
-
-
 
         protected void BtnAltera_Click(object sender, EventArgs e)
         {
@@ -91,7 +89,6 @@ namespace TradeSpeedo.Visitas.Pages
             recupera.Carrega(Convert.ToInt32(valor));
 
             Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID + "?dia=");
-
         }
 
 
@@ -102,17 +99,6 @@ namespace TradeSpeedo.Visitas.Pages
             recupera.IdRec();
 
             Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID);
-        }
-
-        protected void botao_Click(object sender, EventArgs e)
-        {
-            var conexao = Session["conexao"].ToString();
-            var recupera = new Visita_Capa(conexao);
-            recupera.IdRec();
-
-            PegaDia();
-
-            Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID + "?dia=");
         }
 
         protected void rDia_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -130,7 +116,6 @@ namespace TradeSpeedo.Visitas.Pages
                     var dia = (e.Item.FindControl("lbDireciona") as LinkButton).CommandArgument;
                     Response.Redirect("Visitas_Detalhe.aspx?id=" + id + "&dia=" + dia);
                     break;
-
             }
 
         }

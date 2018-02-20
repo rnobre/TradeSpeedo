@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using Dapper;
 
 namespace TradeSpeedo.Model
 {
@@ -20,12 +20,20 @@ namespace TradeSpeedo.Model
 
         public int Dia { get; set; }
 
+        public string Sequencia { get; set; }
+
         private string _stringconexao { get; set; }
+
 
         public Visita_Imagem(string stringConexao)
         {
             _conexao = new SqlConnection(stringConexao);
             _stringconexao = stringConexao;
+        }
+
+        public Visita_Imagem()
+        {
+
         }
 
 
@@ -63,61 +71,50 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"INSERT INTO VISITA_IMAGEM (ID_VISITA, ID_VISITA_DETALHE, IMAGEM, DIA) VALUES ('{Id_Visita}','{Id_Visita_Detalhe}','{imagem}','{Dia}')";
+            var sql = $"INSERT INTO VISITA_IMAGEM (ID_VISITA, ID_VISITA_DETALHE, DIA, IMAGEM, SEQUENCIA) VALUES ('{Id_Visita}','{Id_Visita_Detalhe}','{Dia}','{imagem}', '{Sequencia}')";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
+
+            _conexao.Close();
         }
 
         public void Altera()
         {
-            var sql = $"UPDATE VISITA_IMAGEM SET IMAGEM = '{imagem}' WHERE ID_VISITA = '{Id_Visita}' AND ID_VISITA_DETALHE = '{Id_Visita_Detalhe}' AND DIA = '{Dia}' AND ID = '{Dia}'";
+            _conexao.Open();
+
+            var sql = $"UPDATE VISITA_IMAGEM SET IMAGEM = '{imagem}' WHERE ID_VISITA = '{Id_Visita}' AND ID_VISITA_DETALHE = '{Id_Visita_Detalhe}' AND DIA = '{Dia}' AND SEQUENCIA = '{Sequencia}' AND ID = '{ID}'";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
-        }
-
-        public List<Visita_Imagem> Lista(int IdVisita, int idVisitaDet, string simagem)
-        {
-            var imagens = new List<Visita_Imagem>();
-
-            _conexao.Open();
-
-            var sql = $"SELECT ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}' and IMAGEM = '{simagem}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while(dr.Read())
-            {
-                var imagem = new Visita_Imagem(_stringconexao);
-
-                imagem.ID = Convert.ToInt32(dr["ID"].ToString());
-                imagem.Id_Visita = Convert.ToInt32(dr["ID_VISITA"].ToString());
-                imagem.Id_Visita_Detalhe = Convert.ToInt32(dr["ID_VISITA_DETALHE"].ToString());
-                imagem.imagem = dr["IMAGEM"].ToString();
-
-                imagens.Add(imagem);
-            }
 
             _conexao.Close();
-
-            return imagens;
         }
 
-        public void Carrega(int IdVisita, int idVisitaDet, int Dia)
+
+        public List<Visita_Imagem> Lista(int IdVisita, int idVisitaDet, int dia) =>
+            _conexao
+                .Query<Visita_Imagem>("SELECT ID, Id_Visita, Id_Visita_Detalhe, imagem, Sequencia " +
+                                        "FROM VISITA_IMAGEM  " +
+                                        "WHERE ID_VISITA ='" + IdVisita + "' and ID_VISITA_DETALHE = '" + idVisitaDet + "' and DIA = '" + dia + "'")
+            .ToList();
+
+
+        public string ExisteImagem(int IdVisita, int idVisitaDet, int Dia, string Sequencia)
         {
-            _conexao.Open();
-
-            var sql = $"SELECT TOP 1 ID, ID_VISITA, ID_VISITA_DETALHE, IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}' and DIA = '{Dia}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while(dr.Read())
+            using (var conexao = new SqlConnection(_stringconexao))
             {
-                ID = Convert.ToInt32(dr["ID"].ToString());
-                Id_Visita = Convert.ToInt32(dr["ID_VISITA"].ToString());
-                Id_Visita_Detalhe = Convert.ToInt32(dr["ID_VISITA_DETALHE"].ToString());
-                imagem = dr["IMAGEM"].ToString();
-                Dia = Convert.ToInt32(dr["DIA"].ToString());
+                conexao.Open();
 
-                dr.Close();
+                var sql = $"SELECT TOP 1 IMAGEM FROM VISITA_IMAGEM WHERE ID_VISITA ='{IdVisita}' and ID_VISITA_DETALHE = '{idVisitaDet}' and DIA = '{Dia}' and SEQUENCIA = '{Sequencia}'";
+                var dr = new SqlCommand(sql, conexao).ExecuteReader();
+
+                if (dr.Read())
+                {
+                    return dr["IMAGEM"].ToString();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            _conexao.Close();
-        }
 
+        }
     }
 }

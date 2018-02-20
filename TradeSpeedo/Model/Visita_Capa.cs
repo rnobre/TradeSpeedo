@@ -35,13 +35,11 @@ namespace TradeSpeedo.Model
         public void Salvar()
         {
             _conexao.Open();
-
-            
+                        
             {
                 var sql = $"INSERT INTO VISITA (VISITA,PERIODO,REPRESENTANTE,REGIAO,OBJETIVO) VALUES ('{Visita}','{Periodo}','{Representante}','{Regiao}','{Objetivo}')";
                 new SqlCommand(sql, _conexao).ExecuteNonQuery();            
-            }
-            
+            }            
 
             _conexao.Close();
         }
@@ -49,7 +47,6 @@ namespace TradeSpeedo.Model
         public void Altera()
         {
             _conexao.Open();
-
             
             {
                 var sql = $"UPDATE VISITA SET VISITA = '{Visita}', PERIODO = '{Periodo}',REPRESENTANTE='{Representante}', REGIAO ='{Regiao}', OBJETIVO = '{Objetivo}' WHERE ID = '{ID}' ";
@@ -101,6 +98,26 @@ namespace TradeSpeedo.Model
                 var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
                 var dr = new SqlCommand(sql, _conexao).ExecuteReader();
             
+
+            while(dr.Read())
+            {
+                ID = Convert.ToInt32(dr["ID"].ToString());
+                Visita = dr["VISITA"].ToString();
+                Periodo = dr["PERIODO"].ToString();
+                Representante = dr["REPRESENTANTE"].ToString();
+                Regiao = dr["REGIAO"].ToString();
+                Objetivo = dr["OBJETIVO"].ToString();
+            }
+
+            _conexao.Close();
+        }
+
+        public void Valida(string visita)
+        {
+            _conexao.Open();
+
+            var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE VISITA = '{visita}'";
+            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while(dr.Read())
             {

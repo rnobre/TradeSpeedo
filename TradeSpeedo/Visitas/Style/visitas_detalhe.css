@@ -171,6 +171,7 @@
     position: relative;
     top: -19%;
 }
+
 .txDia {
     position: fixed;
     width: 43px;
@@ -178,6 +179,28 @@
     left: 117px;
     font-size: 25px;
     height: 40px;
+}
+
+.dICliente {
+    left: 110%;
+    width: 209px
+}
+
+.lICliente {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 150%;
+    position: relative;
+    top: -19%;
+}
+
+.txICliente {
+    top: 167px;
+    left: 532px;
+    width: 42px;
+    height: 40px;
+    font-size: 25px;
+    POSITION: fixed;
 }
 .dData {
     position: fixed;
@@ -188,7 +211,7 @@
     color: #666666;
     font-size: 150%;
     position: relative;
-    top: -9px;
+    top: -1px
 }
 .txData {
     position: fixed;
@@ -198,6 +221,7 @@
     height: 40px;
     font-size: 25px;
 }
+
 .dInformacao1 {
     position: static;
     margin-top: 20px;

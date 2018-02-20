@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
 
 namespace TradeSpeedo.Visitas.Pages
@@ -18,12 +17,26 @@ namespace TradeSpeedo.Visitas.Pages
 
             if (!Page.IsPostBack)
             {
-                //imagepreview1.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + "cego.jpg");
-                //imagepreview1.Style["background-size"] = "contain";
+                var idVisita = Request.QueryString["IdVisita"];
+                var idVisitaDetalhe = Request.QueryString["IdVisitaDetalhe"];
+                var dia = Request.QueryString["Dia"];
+                var load = new Visita_Imagem(conexao);
+
+                for (int i = 0; i <= 9; i++)
+
+                {
+                    string imagepreview = "imagepreview" + (i + 1).ToString();
+
+                    var valida = load.ExisteImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), Convert.ToInt32(dia), imagepreview);
+
+
+                    if (valida != null)
+                    {
+                        var div = (HtmlControl)dMain.FindControl(imagepreview);
+                        div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + valida);
+                    }
+                }
             }
-
-
-
         }
 
         private string SubirImagem(int imagemupload, int id_visita, int id_visita_detalhe)
@@ -39,28 +52,31 @@ namespace TradeSpeedo.Visitas.Pages
             return nomeimagem;
         }
 
-        private void SalvaImagem(int visita, int idVisitaDet, string Imagem,int Dia, string conexao)
+        private void SalvaImagem(int visita, int idVisitaDet, int Dia, string Imagem, string Sequencia, string conexao)
         {
             var imagem = new Visita_Imagem(conexao)
             {
                 Id_Visita = visita,
                 Id_Visita_Detalhe = idVisitaDet,
+                Dia = Dia,
                 imagem = Imagem,
-                Dia =  Dia
+                Sequencia = Sequencia
+
             };
 
             imagem.Salva();
 
         }
 
-        private void AlteraImagem(int visita, int idVisitaDet, string Imagem, int Dia, string conexao)
+        private void AlteraImagem(int visita, int idVisitaDet, int Dia, string Imagem, string Sequencia, string conexao)
         {
             var imagem = new Visita_Imagem(conexao)
             {
                 Id_Visita = visita,
                 Id_Visita_Detalhe = idVisitaDet,
+                Dia = Dia,
                 imagem = Imagem,
-                Dia = Dia
+                Sequencia = Sequencia
             };
 
             imagem.Altera();
@@ -68,59 +84,54 @@ namespace TradeSpeedo.Visitas.Pages
         }
 
         public string strScript = "";
-      
+
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
             var conexao = Session["conexao"].ToString();
 
-            var idVisita = Request.QueryString["IdVisita"];            
+            var idVisita = Request.QueryString["IdVisita"];
             var idVisitaDetalhe = Request.QueryString["IdVisitaDetalhe"];
             var dia = Request.QueryString["Dia"];
-            
             var load = new Visita_Imagem(conexao);
-            load.Carrega(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), Convert.ToInt32(dia));
-            
-
 
             for (int i = 0; i <= 9; i++)
-                
+
+            {
+                string imagepreview = "imagepreview" + (i + 1).ToString();
+                var div = (HtmlControl)dMain.FindControl(imagepreview);
+                var urlNova = "urlNova" + i.ToString();
+
+                var imageupload = "imageupload" + i.ToString();
+
+                urlNova = SubirImagem(Convert.ToInt32(i.ToString()), Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe));
+
+                if (urlNova != "")
                 {
-               
-                
-                    string imagepreview = "imagepreview" + (i+1).ToString();
-                    var div = (HtmlControl)dMain.FindControl(imagepreview);
-                    var urlNova = "urlNova" + i.ToString();
-                    var urlVelha = "urlVelha" + i.ToString();
-                    var imageupload = "imageupload" + i.ToString();
+                    var urlVelha = load.ExisteImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), Convert.ToInt32(dia), imagepreview);
 
-                    urlNova = SubirImagem(Convert.ToInt32(i.ToString()), Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe));
-
-                    if (urlNova != "")
+                    if (urlNova != "" && urlVelha != null)
                     {
-
-                        urlVelha = load.imagem;
-
-                        if (urlNova != "" && urlVelha != null)
+                        if (urlNova != urlVelha)
                         {
                             var arquivo = Server.MapPath(Path.Combine("../Upload", (urlVelha)));
                             if (File.Exists(arquivo))
                                 File.Delete(arquivo);
-                        AlteraImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), urlNova, Convert.ToInt32(dia), conexao);
+                        }
+                        AlteraImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), Convert.ToInt32(dia), urlNova, imagepreview, conexao);
                         div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + urlNova);
                     }
-
-                        SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), urlNova, Convert.ToInt32(dia), conexao);
+                    else
+                    {
+                        SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(idVisitaDetalhe), Convert.ToInt32(dia), urlNova, imagepreview, conexao);
                         div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload/" + urlNova);
-
                     }
                 }
-
-            strScript = "alert('Dia salvo com sucesso.');";
+            }
 
             Response.Redirect("Visitas_Capa.aspx?IdVisita=" + idVisita);
-            
-        }
+
         }
     }
+}
 

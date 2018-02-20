@@ -2,9 +2,7 @@
 
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <meta charset="utf-8" />
-    <title>Visitas_Detalhe</title>
-
-    <%--<script src="../../Scripts/jquery-3.1.1.js"></script>--%>    
+    <title>Visitas_Detalhe</title>    
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="../Script/jquery.uploadPreview.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
@@ -30,7 +28,7 @@
                 <input type="file" runat="server" name="image" id="imageupload1" class="image-upload" />
             </div>
         </div>
-       <div class="dImg2 col-md-2">
+        <div class="dImg2 col-md-2">
             <div id="imagepreview2" class="image-preview" runat="server">
                 <asp:HiddenField ID="lbl2" runat="server"></asp:HiddenField>
                 <asp:HiddenField ID="NovaImagem2" runat="server" Value="false" />
@@ -103,8 +101,8 @@
             </div>
         </div>
         <div class="Botao col-md-4">
-                <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
-            </div>
+            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
+        </div>
 
     </div>
     <script>  
@@ -119,7 +117,7 @@
                 label_field: "#imagelabel1",
 
             });
-       
+
 
             $.uploadPreview({
                 input_field: "#imageupload2",
@@ -186,5 +184,5 @@
         });
 
          <%=strScript%>
-    </script>
+</script>
 </asp:Content>
