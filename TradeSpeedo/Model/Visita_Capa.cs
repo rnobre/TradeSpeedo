@@ -1,7 +1,9 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace TradeSpeedo.Model
 {
@@ -67,7 +69,7 @@ namespace TradeSpeedo.Model
                         Regiao = dr["REGIAO"].ToString();
                         Objetivo = dr["OBJETIVO"].ToString();
                     }
-                    else throw new Exception("Visita não encontrada");
+                    
                 }
             }
         }
@@ -89,8 +91,7 @@ namespace TradeSpeedo.Model
                         Representante = dr["REPRESENTANTE"].ToString();
                         Regiao = dr["REGIAO"].ToString();
                         Objetivo = dr["OBJETIVO"].ToString();
-                    }
-                    else throw new Exception("Visita não encontrada");
+                    }                    
                 }
             }
         }
@@ -102,5 +103,49 @@ namespace TradeSpeedo.Model
             using (var conexao = new SqlConnection(stringConexao))
                 return conexao.Query<Visita_Capa>(sql).AsList();
         }
+
+
+        public void GeraTabela(int idVisita, Table tb, string stringconexao)
+        {
+            var i = 0;
+            var j = 0;
+
+            var sql = $"SELECT  A.DIA " +
+                            ",B.CLIENTE " +
+                            ",CONVERT (VARCHAR (10), A.DATA,103) AS DATA  " +
+                        "FROM VISITA_DETALHE A " +
+                        "JOIN VISITA_CLIENTE B ON A.ID_CLIFOR = B.ID " +
+                        "WHERE A.ID_VISITA = '" + idVisita + "'";
+
+            using (var conexao = new SqlConnection(stringconexao))
+            {
+                conexao.Open();
+                using (var sda = new SqlDataAdapter(sql, stringconexao))
+                {   
+                    using (var ds = new DataSet())
+                    {
+                        sda.Fill(ds, "Visitas");
+
+                        foreach (DataRow dsRow in ds.Tables["Visitas"].Rows)
+                        {
+                            var tRow = new TableRow();
+                            foreach (DataColumn dsCol in ds.Tables["Visitas"].Columns)
+                            {
+                                var tCell = new TableCell();
+                                tCell.Text = ds.Tables[0].Rows[i].ItemArray[j].ToString();                                
+                                tRow.Cells.Add(tCell);
+
+                                j++;
+                            }
+
+                            tb.Rows.Add(tRow);
+                            i++;
+                        }
+                    }
+                }
+            }
+
+        }
+
     }
 }

@@ -45,48 +45,19 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div id="dCliente" class="form-group">
-                <label id="lblCliente" class="lblcliente">Visitas: </label>
-                <table class="tbVisitas table">
-                    <thead>
-                        <tr>                           
-                            <th scope="col">Dia</th>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Data</th>
-                        </tr>
-                    </thead>
-   <%--                 <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>14/01/2018</td>                            
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Jacob</td>
-                            <td>14/01/2018</td>
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Larry</td>
-                            <td>15/01/2018</td>
-                        </tr>
-                    </tbody>--%>
-                    <tfoot>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td>
-                                 <asp:ImageButton ID="iDia" CssClass="iDia" ImageUrl="~/Visitas/Imagem/maisp.jpg" OnClick="iDia_Click" runat="server" />
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div id="dCliente" class="form-group">                
+                <div>
+                    <asp:Button ID="btnIncluir" Text="Nova Visita" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="btnIncluir_Click" />
+                </div> 
+                <asp:table id="tbVisitas" class="tbVisitas table" runat="server">                    
+                        <asp:TableHeaderRow runat="server">
+                            <asp:TableHeaderCell Scope="Column" runat="server">Dia </asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">Cliente</asp:TableHeaderCell>
+                            <asp:TableHeaderCell Scope="Column">Data </asp:TableHeaderCell>                     
+                        </asp:TableHeaderRow>
+                </asp:table>
             </div>
-        </div>
-                      
-        
+        </div>     
 <%--        <div id="dDias" class="dDias">
             <label id="lblDia" class="lbl">Dias:</label>
             <asp:ImageButton ID="iDia" CssClass="iDia" ImageUrl="~/Visitas/Imagem/maisp.jpg" OnClick="iDia_Click" runat="server" />
@@ -112,8 +83,7 @@
                     </table>
                     </FooterTemplate>
                 </asp:Repeater>
-            </div>--%>
-        
+            </div>--%>        
         <div id="dConclusao" class="dConclusao col-md-4">
             <label id="lblConclusao" class="lblConclusao">Conclusão:</label>
             <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
@@ -127,7 +97,7 @@
     </div>
 
     <script>
-
+        
         //document.addEventListener('DOMContentLoaded', function () {
         //    CKEDITOR.replace('txObj');
         //}, true);
@@ -135,5 +105,7 @@
         $(document).ready(function () {
             $("#txtPeriodo").mask("99/99/9999 à 99/99/9999");
         });    
+
+        <%=strScript%>
 </script>
 </asp:Content>

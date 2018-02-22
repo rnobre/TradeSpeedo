@@ -21,10 +21,13 @@ namespace TradeSpeedo.Visitas.Pages
                 var valor = Request.QueryString["ID"];
                 var load = new Visita_Capa(conexao);
                 load.Carrega(Convert.ToInt32(valor));
+                var gera = new Visita_Capa(conexao);
+                
 
                 if (load.ID != 0)
                 {
                     CarregaPagina(load.Visita, load.Periodo, load.Representante, load.Regiao, load.Objetivo);
+                    gera.GeraTabela(Convert.ToInt32(valor), tbVisitas, conexao);
                 }
             }
         }
@@ -111,6 +114,16 @@ namespace TradeSpeedo.Visitas.Pages
                     break;
             }
 
+        }
+
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+            var conexao = Session["conexao"].ToString();
+            var recupera = new Visita_Capa(conexao);
+            recupera.Carrega(txtVisita.Text);
+            var id = recupera.ID;
+
+            Response.Redirect("Visitas_Detalhe.aspx?id=" + id);
         }
     }
 }

@@ -172,9 +172,9 @@
 .lbl {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
-    font-size: 160%;
+    font-size: 156%;
     position: relative;
-    top: -19px;
+    top: -12px;
 }
 
 .lblcliente {
@@ -188,11 +188,11 @@
 
 .txtinput {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     color: #666666;
     width: 590px;
     height: 29px;
-    margin-top: -28px;
+    margin-top: -22px;
 }
 
 .dObj {
@@ -205,14 +205,15 @@
 }
 
 .tbVisitas {
-    width: 300px;
+    width: 387px;
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
     font-size: 15px;
     margin-left: 62px;
-    margin-top: -7px;
+    margin-top: 10px;
     border-top: 4px solid transparent;
     border-bottom: 1px solid #eceeef;
+    text-align:left;
 }    
     
 .lblObj {
@@ -227,9 +228,10 @@
 .txaObj {
     width: 590px;
     position: fixed;
-    top: 370px;
+    top: 402px;
     left: 20px;
-    height: 227px;
+    height: 199px;
+    font-size: 14px;
 }
 
 .dDias {
@@ -300,7 +302,7 @@
 /*Inicio Botão Salvar*/
 .btnSalvar {
     display: inline-block;
-    padding: 6px 3px;
+    padding: 3px 3px;
     border: 2px solid #FE370f;
     color: #ddd;
     text-decoration: none;
@@ -322,7 +324,7 @@
         padding: 10px 16px;
         font-size: 30px;
         margin-left: 1150px;
-        margin-top: 134px;
+        margin-top: 112px;
     }
 
     .btnSalvar.btnSalvar-sm {
@@ -340,14 +342,14 @@
         border-color: #Fe370F;
         color: #4f5557;
         margin-left: 1150px;
-        margin-top: 134px;
+        margin-top: 112px;
     }
 
         .btnSalvar.primary:hover, .btnSalvar.primary.hover {
             background: #Fe370F;
             color: #fff;
             margin-left: 1150px;
-            margin-top: 134px;
+            margin-top: 112px;
         }
 
     .btnSalvar.danger {
@@ -416,6 +418,132 @@
     }
 
         .btnSalvar.clear:hover, .btnSalvar.clear.hover {
+            background: #777;
+            color: #fff;
+        }
+/*FIM Botão Salvar*/
+
+
+
+/*Inicio Botão Incluir*/
+.btnIncluir {
+    display: inline-block;
+    padding: 6px 3px;
+    border: 2px solid #FE370f;
+    color: #ddd;
+    text-decoration: none;
+    transition: all .2s;
+    min-width: 100px;
+    text-align: center;
+    font-size: 16px;
+    background: #ffffff;
+    width: 96px;
+    height: 35px;
+}
+
+    .btnIncluir:hover, .btnIncluir.hover {
+        background: #ffffff;
+        color: #777;
+    }
+
+    .btnIncluir.btnIncluir-lg {
+        padding: 10px 16px;
+        font-size: 30px;
+        margin-left: 64px;
+        margin-top: 8px;
+    }
+
+    .btnIncluir.btnIncluir-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btnIncluir.btnIncluir-xs {
+        padding: 1px 5px;
+        font-size: 12px;
+        padding: 1px 5px;
+    }
+
+    .btnIncluir.primary {
+        border-color: #Fe370F;
+        color: #4f5557;
+        margin-left: 64px;
+        margin-top: 8px;
+    }
+
+        .btnIncluir.primary:hover, .btnIncluir.primary.hover {
+            background: #Fe370F;
+            color: #fff;
+            margin-left: 64px;
+            margin-top: 8px;
+        }
+
+    .btnIncluir.danger {
+        border-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+        .btnIncluir.danger:hover, .btnIncluir.danger.hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+    .btnIncluir.success {
+        border-color: #27ae60;
+        color: #27ae60;
+    }
+
+        .btnIncluir.success:hover, .btnIncluir.success.hover {
+            background: #27ae60;
+            color: #fff;
+        }
+
+    .btnIncluir.warning {
+        border-color: #f1c40f;
+        color: #f1c40f;
+    }
+
+        .btnIncluir.warning:hover, .btnIncluir.warning.hover {
+            background: #f1c40f;
+            color: #fff;
+        }
+
+    .btnIncluir.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnIncluir.black:hover, .btnIncluir.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnIncluir.black {
+        border-color: #34495e;
+        color: #34495e;
+    }
+
+        .btnIncluir.black:hover, .btnIncluir.black.hover {
+            background: #34495e;
+            color: #fff;
+        }
+
+    .btnIncluir.info {
+        border-color: #5bc0de;
+        color: #5bc0de;
+    }
+
+        .btnIncluir.info:hover, .btnIncluir.info.hover {
+            background: #5bc0de;
+            color: #fff;
+        }
+
+    .btnIncluir.clear {
+        border-color: #777;
+        color: #777;
+    }
+
+        .btnIncluir.clear:hover, .btnIncluir.clear.hover {
             background: #777;
             color: #fff;
         }
