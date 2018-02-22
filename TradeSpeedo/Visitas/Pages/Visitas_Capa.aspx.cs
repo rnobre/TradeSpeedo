@@ -13,8 +13,8 @@ namespace TradeSpeedo.Visitas.Pages
             var conexao = Session["conexao"].ToString();
             var id = Request.QueryString["ID"];
 
-            rDia.DataSource = Visita_Capa.Lista(Convert.ToInt32(id), conexao);
-            rDia.DataBind();
+            //rDia.DataSource = Visita_Capa.Lista(Convert.ToInt32(id), conexao);
+            //rDia.DataBind();
 
             if (!Page.IsPostBack)
             {
