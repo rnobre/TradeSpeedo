@@ -1,162 +1,106 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace TradeSpeedo.Model
 {
     public class Visita_Capa
     {
-        private SqlConnection _conexao;
-
-        public string Visita { get; set; }
-
-        public string Periodo { get; set; }
-
-        public string Representante { get; set; }
-
-        public string Regiao { get; set; }
-
-        public string Objetivo { get; set; }
-
-        private string _stringconexao { get; set; }
-
-        public string Dia { get; set; }
+        private string _stringconexao;
 
         public int ID { get; set; }
+        public string Visita { get; set; }
+        public string Periodo { get; set; }
+        public string Representante { get; set; }
+        public string Regiao { get; set; }
+        public string Objetivo { get; set; }
+        public string Dia { get; set; }
 
-        public Visita_Capa(string stringConexao)
-        {
-            _conexao = new SqlConnection(stringConexao);
+        public Visita_Capa() { }
+        public Visita_Capa(string stringConexao) =>
             _stringconexao = stringConexao;
-        }
 
         public void Salvar()
         {
-            _conexao.Open();
-                        
-            {
-                var sql = $"INSERT INTO VISITA (VISITA,PERIODO,REPRESENTANTE,REGIAO,OBJETIVO) VALUES ('{Visita}','{Periodo}','{Representante}','{Regiao}','{Objetivo}')";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();            
-            }            
+            string sql;
 
-            _conexao.Close();
+            if (this.ID == 0)
+                sql = $@"INSERT INTO VISITA (VISITA, PERIODO, REPRESENTANTE, REGIAO, OBJETIVO)
+                        VALUES ('{Visita}','{Periodo}','{Representante}','{Regiao}','{Objetivo}')";
+            else
+                sql = $@"UPDATE VISITA SET 
+                        VISITA = '{Visita}',
+                        PERIODO = '{Periodo}',
+                        REPRESENTANTE = '{Representante}',
+                        REGIAO = '{Regiao}',
+                        OBJETIVO = '{Objetivo}'
+                        WHERE ID = {ID}";
+
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);
         }
-
-        public void Altera()
+        
+        public static int GetNovoIDVisita(string stringConexao)
         {
-            _conexao.Open();
-            
-            {
-                var sql = $"UPDATE VISITA SET VISITA = '{Visita}', PERIODO = '{Periodo}',REPRESENTANTE='{Representante}', REGIAO ='{Regiao}', OBJETIVO = '{Objetivo}' WHERE ID = '{ID}' ";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();
-            }
-
-            _conexao.Close();
-        }
-
-        public void IdRec()
-        {
-            _conexao.Open();
-
             var sql = $"SELECT MAX(ID) AS ID from VISITA";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
-            while (dr.Read())
-            {
-                this.ID = Convert.ToInt32(dr["ID"].ToString());
-            }
-
-            _conexao.Close();
+            using (var conexao = new SqlConnection(stringConexao))
+                return conexao.QueryFirst<int>(sql);
         }
-
-
-        public void idVisita(string visita)
-        {
-            _conexao.Open();
-
-            var sql = $"SELECT ID, VISITA FROM VISITA WHERE VISITA = '{visita}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                ID = Convert.ToInt32(dr["ID"].ToString());
-                visita = dr["VISITA"].ToString();
-            }
-
-            _conexao.Close();
-        }
-
-
-
-
+        
         public void Carrega(int id)
         {
-            _conexao.Open();
-            
-                var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
-                var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-            
-
-            while(dr.Read())
+            using (var conexao = new SqlConnection(_stringconexao))
             {
-                ID = Convert.ToInt32(dr["ID"].ToString());
-                Visita = dr["VISITA"].ToString();
-                Periodo = dr["PERIODO"].ToString();
-                Representante = dr["REPRESENTANTE"].ToString();
-                Regiao = dr["REGIAO"].ToString();
-                Objetivo = dr["OBJETIVO"].ToString();
+                conexao.Open();
+                var sql = $"SELECT TOP 1 ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
+                
+                using (var dr = new SqlCommand(sql, conexao).ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        ID = Convert.ToInt32(dr["ID"].ToString());
+                        Visita = dr["VISITA"].ToString();
+                        Periodo = dr["PERIODO"].ToString();
+                        Representante = dr["REPRESENTANTE"].ToString();
+                        Regiao = dr["REGIAO"].ToString();
+                        Objetivo = dr["OBJETIVO"].ToString();
+                    }
+                    else throw new Exception("Visita não encontrada");
+                }
             }
-
-            _conexao.Close();
         }
 
-        public void Valida(string visita)
+        public void Carrega(string visita)
         {
-            _conexao.Open();
+            var sql = $"SELECT TOP 1 ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE VISITA = '{visita}'";
 
-            var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE VISITA = '{visita}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while(dr.Read())
+            using (var conexao = new SqlConnection(_stringconexao))
             {
-                ID = Convert.ToInt32(dr["ID"].ToString());
-                Visita = dr["VISITA"].ToString();
-                Periodo = dr["PERIODO"].ToString();
-                Representante = dr["REPRESENTANTE"].ToString();
-                Regiao = dr["REGIAO"].ToString();
-                Objetivo = dr["OBJETIVO"].ToString();
+                conexao.Open();
+                using (var dr = new SqlCommand(sql, conexao).ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        ID = Convert.ToInt32(dr["ID"].ToString());
+                        Visita = dr["VISITA"].ToString();
+                        Periodo = dr["PERIODO"].ToString();
+                        Representante = dr["REPRESENTANTE"].ToString();
+                        Regiao = dr["REGIAO"].ToString();
+                        Objetivo = dr["OBJETIVO"].ToString();
+                    }
+                    else throw new Exception("Visita não encontrada");
+                }
             }
-
-            _conexao.Close();
         }
 
-        public List<Visita_Capa> Lista(int Id)
+        public static List<Visita_Capa> Lista(int Id, string stringConexao)
         {
-            
-            var dias = new List<Visita_Capa>(); ;
+            var sql = $"SELECT ID_VISITA 'ID', Dia FROM VISITA_DETALHE WHERE ID_VISITA = '{Id}'";
 
-            _conexao.Open();
-
-            var sql = $"SELECT ID_VISITA, DIA FROM VISITA_DETALHE WHERE ID_VISITA = '{Id}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                var dia = new Visita_Capa(_stringconexao);
-
-                dia.ID = Convert.ToInt32(dr["ID_VISITA"].ToString());
-                dia.Dia = dr["DIA"].ToString();
-
-                dias.Add(dia);
-
-            }
-
-            _conexao.Close();
-
-            return dias;
+            using (var conexao = new SqlConnection(stringConexao))
+                return conexao.Query<Visita_Capa>(sql).AsList();
         }
-
     }
 }

@@ -1,103 +1,77 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace TradeSpeedo.Model
 {
     public class Tipo
     {
-        private SqlConnection _conexao;
+        private string _stringconexao;
 
-        private string _stringconexao { get; set; }
-
-        public int? ID { get; set; }
-
+        public int ID { get; set; }
         public string Descricao { get; set; }
 
-        public Tipo(string stringConexao)
-        {
-            _conexao = new SqlConnection(stringConexao);
-            _stringconexao = stringConexao;
-        }
+        public Tipo() { }
+        public Tipo(string stringConexao) => _stringconexao = stringConexao;
 
         public void Carregar(int ID)
         {
-            _conexao.Open();
-
-            var sql = $"SELECT TOP 1 ID_TIPO, DESCRICAO FROM TRADE_TIPO_EXPOSICAO WHERE ID_TIPO = {ID}";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-            if (dr.Read())
+            using (var conexao = new SqlConnection(_stringconexao))
             {
-                this.ID = ID;
-                this.Descricao = dr["DESCRICAO"].ToString();
-                dr.Close();
-            }
+                var sql = $"SELECT TOP 1 ID_TIPO, DESCRICAO FROM TRADE_TIPO_EXPOSICAO WHERE ID_TIPO = {ID}";
 
-            _conexao.Close();
+                // Aqui eu fiz uma experiêcia e carreguei usando dapper, espero que funcione...
+                var tipo = conexao.QueryFirst<Tipo>(sql);
+
+                if (tipo != null)
+                {
+                    this.ID = tipo.ID;
+                    this.Descricao = tipo.Descricao;
+                }
+                else throw new Exception("Tipo não encontrado");
+            }
         }
 
         public void Salvar()
         {
-            _conexao.Open();
+            // Aqui usei um tipo compacto de IF, chama-se operador ternário.
+            // Eu deixei o código com IF comentado abaixo, pra você comparar. Os dois funcionam.
 
+            string sql = (ID == 0)
+                ? $"INSERT INTO TRADE_TIPO_EXPOSICAO ( DESCRICAO)  VALUES ('{Descricao}')"
+                : sql = $"UPDATE TRADE_TIPO_EXPOSICAO SET ID_TIPO = '{ID}', DESCRICAO = '{Descricao}' WHERE ID_TIPO = '{ID}'";
+
+            /*
+            string sql;
             if (ID == 0)
-            {
-
-
-
-                var sql = $"INSERT INTO TRADE_TIPO_EXPOSICAO ( DESCRICAO)  VALUES ('{Descricao}')";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();
-
-            }
-
+                sql = $"INSERT INTO TRADE_TIPO_EXPOSICAO ( DESCRICAO)  VALUES ('{Descricao}')";
             else
-            {
-                var sql = $"UPDATE TRADE_TIPO_EXPOSICAO SET ID_TIPO = '{ID}', DESCRICAO = '{Descricao}' WHERE ID_TIPO = '{ID}'";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();
-            }
-
-
-            _conexao.Close();
+                sql = $"UPDATE TRADE_TIPO_EXPOSICAO SET ID_TIPO = '{ID}', DESCRICAO = '{Descricao}' WHERE ID_TIPO = '{ID}'";
+            */
+            
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);
 
         }
 
         public void Excluir()
         {
-            _conexao.Open();
-
             var sql = $"DELETE FROM TRADE_TIPO_EXPOSICAO WHERE ID_TIPO = {ID}";
-            new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
-            _conexao.Close();
-
-
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);
         }
 
-        public List<Tipo> Lista()
+        // Aqui eu coloquei uma palavra chamada STATIC na construção do método
+        // Com ela, a gente não precisa dar um NEW TIPO() pra usar esse método.
+        public static List<Tipo> Lista(string stringConexao)
         {
-            var tipos = new List<Tipo>();
+            var sql = "Select ID_TIPO 'ID', Descricao From TRADE_TIPO_EXPOSICAO";
 
-            _conexao.Open();
-
-
-            var sql = $"select ID_TIPO,DESCRICAO from TRADE_TIPO_EXPOSICAO";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                var tipo = new Tipo(_stringconexao);
-
-                tipo.ID = Convert.ToInt32(dr["ID_TIPO"].ToString());
-                tipo.Descricao = dr["DESCRICAO"].ToString();
-
-                tipos.Add(tipo);
-            }
-
-
-
-            _conexao.Close();
-
-            return tipos;
+            using (var conexao = new SqlConnection(stringConexao))
+                return conexao.Query<Tipo>(sql).ToList();
         }
 
 

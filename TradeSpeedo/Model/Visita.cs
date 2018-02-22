@@ -1,68 +1,26 @@
-﻿using System;
+﻿using Dapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 
 namespace TradeSpeedo.Model
 {
     public class Visita
     {
-        private SqlConnection _conexao;
-
-        private string _stringconexao { get; set; }
+        private string _stringconexao;
 
         public int ID { get; set; }
-
         public string Descricao { get; set; }
 
-        public Visita(string stringConexao)
+        public Visita() { }
+        public Visita(string stringConexao) => _stringconexao = stringConexao;
+
+        public static List<Visita> Lista(string stringConexao)
         {
-            _conexao = new SqlConnection(stringConexao);
-            _stringconexao = stringConexao;
-        }
+            var sql = "SELECT ID, VISITA 'Descricao' FROM VISITA";
 
-
-        public List<Visita> Lista()
-        {
-            var visitas = new List<Visita>();
-
-
-            _conexao.Open();
-
-            var sql = $"SELECT ID,VISITA FROM VISITA";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                var visita = new Visita(_stringconexao);
-
-                visita.ID = Convert.ToInt32(dr["ID"].ToString());
-                visita.Descricao = dr["VISITA"].ToString();
-
-
-                visitas.Add(visita);
-            }
-            _conexao.Close();
-
-            return visitas;
-        }
-
-
-
-        public void Recupera(int id)
-        {
-            _conexao.Open();
-
-            var sql = $"SELECT ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                this.ID = Convert.ToInt32(dr["ID"].ToString());
-            }
-
-            _conexao.Close();
+            using (var conexao = new SqlConnection(stringConexao))
+                return conexao.Query<Visita>(sql).ToList();
         }
     }
 }

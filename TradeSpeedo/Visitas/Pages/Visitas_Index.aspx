@@ -34,10 +34,10 @@
             <asp:Button ID="BtnIncluir" Text="Incluir" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="BtnIncluir_Click" />
         </div>
         <div id="dAlterar" class="dAlterar">
-            <asp:Button ID="BtnAlterar" Text="Alterar" runat="server" CssClass="btnAlterar primary btn-lg" OnClick="BtnAlterar_Click" />
+            <asp:Button ID="BtnAlterar" Text="Alterar" Visible="false" runat="server" CssClass="btnAlterar primary btn-lg" OnClick="BtnAlterar_Click" />
         </div>
         <div id="dRelatorio" class="dRelatorio">
-            <asp:Button ID="BtnRelatorio" Text="Relatório" runat="server" CssClass="btnRelatorio primary btn-lg" />
+            <asp:Button ID="BtnRelatorio" Visible="false" Text="Relatório" runat="server" CssClass="btnRelatorio primary btn-lg" />
         </div>
     </div>
     <script>  

@@ -16,10 +16,9 @@ namespace TradeSpeedo.Pages
             if (!Page.IsPostBack)
             {
 
-                var conexao = Session["conexao"].ToString();
+                var stringConexao = Session["conexao"].ToString();
                 dErro.Visible = false;
-                var tipo = new Tipo(conexao);
-                var tipos = tipo.Lista();
+                var tipos = Tipo.Lista(stringConexao);
 
                 // Preenche combos de tipos
                 DDTipo1.DataSource = tipos;
@@ -38,8 +37,8 @@ namespace TradeSpeedo.Pages
                 DDTipo5.DataBind();
                 DDTipo5.Items.Insert(0, new ListItem("Tipo de Exposição", ""));
 
-                var classif = new Classificacao(conexao);
-                var classifs = classif.Lista();
+                //var classif = new Classificacao(conexao);
+                var classifs = Classificacao.Lista(stringConexao);
 
                 DDClassif1.DataSource = classifs;
                 DDClassif1.DataBind();
@@ -57,10 +56,10 @@ namespace TradeSpeedo.Pages
                 DDClassif5.DataBind();
                 DDClassif5.Items.Insert(0, new ListItem("Classificação da Exposição", ""));
 
-                var cliente = new Cliente(conexao);
+                //var cliente = new Cliente(conexao);
                 var usuario = (Usuario)Session["usuario"];
 
-                DDPesquisa.DataSource = cliente.Lista(usuario.Clifor);
+                DDPesquisa.DataSource = Cliente.Lista(usuario.Clifor, stringConexao);
                 DDPesquisa.DataBind();
                 DDPesquisa.Items.Insert(0, new ListItem("Selecione um cliente", ""));
 
@@ -220,13 +219,14 @@ namespace TradeSpeedo.Pages
             return nomeimagem;
         }
 
-        private void ExcluirImagens(string conexao, string clifor)
+        private void ExcluirImagens(string stringConexao, string clifor)
         {
-            var imagensDoCliente = new Imagem(conexao).Lista(clifor);
+            var imagensDoCliente = Imagem.Lista(clifor, stringConexao);
 
             foreach (var imagemDoCliente in imagensDoCliente)
             {
-                File.Delete(Server.MapPath(Path.Combine("Uploads", (imagemDoCliente.Url))));
+                var urlImagem = Server.MapPath(Path.Combine("Uploads", (imagemDoCliente.Url)));
+                File.Delete(urlImagem);
             }
         }
 
