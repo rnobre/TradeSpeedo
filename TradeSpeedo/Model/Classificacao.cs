@@ -1,97 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using Dapper;
 
 namespace TradeSpeedo.Model
 {
     public class Classificacao
     {
-        private SqlConnection _conexao;
+        private string _stringconexao;
 
-        private string _stringconexao { get; set; }
-
-        public int? ID { get; set; }
-
+        public int ID { get; set; }
         public string Descricao { get; set; }
 
-        public Classificacao(string stringConexao)
-        {
-            _conexao = new SqlConnection(stringConexao);
+        // Construtores
+        public Classificacao() { }
+        public Classificacao(string stringConexao) =>
             _stringconexao = stringConexao;
-        }
 
+        /// <summary>
+        /// Carrega a classificação de acordo com o ID
+        /// </summary>
         public void Carregar(int ID)
         {
-            _conexao.Open();
-
-            var sql = $"SELECT * FROM TRADE_CLASSIFICACAO WHERE ID_CLASSIFICACAO = '{ID}'";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-            if (dr.Read())
+            using (var conexao = new SqlConnection(_stringconexao))
             {
-                this.ID = ID;
-                this.Descricao = dr["DESCRICAO"].ToString();
-                dr.Close();
+                conexao.Open();
+
+                var sql = $"SELECT * FROM TRADE_CLASSIFICACAO WHERE ID_CLASSIFICACAO = '{ID}'";
+                using (var dr = new SqlCommand(sql, conexao).ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        this.ID = ID;
+                        this.Descricao = dr["DESCRICAO"].ToString();
+                    }
+                }
             }
-
-            _conexao.Close();
-
         }
 
+        /// <summary>
+        /// Salva a classificação atual no banco
+        /// </summary>
         public void Salvar()
         {
-            _conexao.Open();
+            string sql;
 
             if (this.ID == 0)
-            {
-
-
-                var sql = $"INSERT INTO TRADE_CLASSIFICACAO (DESCRICAO )VALUES ('{Descricao}')";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();
-            }
-
+                sql = $"INSERT INTO TRADE_CLASSIFICACAO (DESCRICAO) VALUES ('{Descricao}')";
             else
-            {
-                var sql = $"UPDATE TRADE_CLASSIFICACAO SET ID_CLASSIFICACAO = '{ID}', DESCRICAO ='{Descricao}' WHERE ID_CLASSIFICACAO = '{ID}'";
-                new SqlCommand(sql, _conexao).ExecuteNonQuery();
-            }
+                sql = $@"UPDATE TRADE_CLASSIFICACAO 
+                        SET  DESCRICAO ='{Descricao}' 
+                        WHERE ID_CLASSIFICACAO = '{ID}'";
 
-            _conexao.Close();
+            using (var conexao = new SqlConnection(_stringconexao))
+            {
+                conexao.Execute(sql); // Salva
+
+                if(this.ID == 0)
+                    this.ID = conexao.QueryFirst<int>("SELECT @@IDENTITY"); // Carrega novo ID
+            }
         }
 
+        /// <summary>
+        /// Exclui a classiicação do banco de dados
+        /// </summary>
         public void Excluir()
         {
-            _conexao.Open();
-
             var sql = $"DELETE FROM TRADE_CLASSIFICACAO WHERE ID_CLASSIFICACAO = '{ID}'";
-            new SqlCommand(sql, _conexao).ExecuteNonQuery();
-
-            _conexao.Close();
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);       
         }
 
-        public List<Classificacao> Lista()
+        /// <summary>
+        /// Retorna uma lista de todas as classificações do banco
+        /// </summary>
+        public static List<Classificacao> Lista(string stringConexao)
         {
+            var sql = "SELECT ID_CLASSIFICACAO 'ID', Descricao FROM TRADE_CLASSIFICACAO";
 
-            var classif = new List<Classificacao>();
-
-            _conexao.Open();
-
-            var sql = $"SELECT ID_CLASSIFICACAO, DESCRICAO FROM TRADE_CLASSIFICACAO";
-            var dr = new SqlCommand(sql, _conexao).ExecuteReader();
-
-            while (dr.Read())
-            {
-                var classificacao = new Classificacao(_stringconexao);
-
-                classificacao.ID = Convert.ToInt32(dr["ID_CLASSIFICACAO"].ToString());
-                classificacao.Descricao = dr["DESCRICAO"].ToString();
-
-                classif.Add(classificacao);
-            }
-
-            _conexao.Close();
-
-            return classif;
-
+            using (var conexao = new SqlConnection(stringConexao))
+                return conexao.Query<Classificacao>(sql).ToList();
         }
     }
 }

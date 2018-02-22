@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
-using System.Web.Services;
-using System.Web.UI.HtmlControls;
 
 namespace TradeSpeedo.Visitas.Pages
 {
@@ -16,10 +11,9 @@ namespace TradeSpeedo.Visitas.Pages
         {
             BtnAltera.Visible = false;
             var conexao = Session["conexao"].ToString();
-            var dia = new Visita_Capa(conexao);
             var id = Request.QueryString["ID"];
 
-            rDia.DataSource = dia.Lista(Convert.ToInt32(id));
+            rDia.DataSource = Visita_Capa.Lista(Convert.ToInt32(id), conexao);
             rDia.DataBind();
 
             if (!Page.IsPostBack)
@@ -67,7 +61,7 @@ namespace TradeSpeedo.Visitas.Pages
             var conexao = Session["conexao"].ToString();
 
             var valida = new Visita_Capa(conexao);
-            valida.Valida(txtVisita.Text);
+            valida.Carrega(txtVisita.Text);
 
             if(valida.Visita == txtVisita.Text)
             {
@@ -95,17 +89,16 @@ namespace TradeSpeedo.Visitas.Pages
         protected void iDia_Click(object sender, ImageClickEventArgs e)
         {
             var conexao = Session["conexao"].ToString();
-            var recupera = new Visita_Capa(conexao);
-            recupera.IdRec();
+            var novoID = Visita_Capa.GetNovoIDVisita(conexao);
 
-            Response.Redirect("Visitas_Detalhe.aspx?id=" + recupera.ID);
+            Response.Redirect("Visitas_Detalhe.aspx?id=" + novoID.ToString());
         }
 
         protected void rDia_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             var conexao = Session["conexao"].ToString();
             var recupera = new Visita_Capa(conexao);
-            recupera.idVisita(txtVisita.Text);
+            recupera.Carrega(txtVisita.Text);
             var id = recupera.ID;
 
             switch (e.CommandName.ToString())
