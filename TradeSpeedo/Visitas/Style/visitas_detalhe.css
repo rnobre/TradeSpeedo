@@ -202,6 +202,15 @@
     font-size: 25px;
     POSITION: fixed;
 }
+
+.ddICliente {
+    top: 167px;
+    left: 588px;
+    width: 42px;
+    height: 40px;
+    font-size: 25px;
+    POSITION: fixed;
+}
 .dData {
     position: fixed;
     left: 180px;

@@ -42,6 +42,11 @@ namespace TradeSpeedo.Visitas.Pages
                 var load = new Visita_Detalhe(conexao);
                 load.Carrega(Convert.ToInt32(recId), recDia);
 
+               
+               
+
+
+
                 if (load.Dia != null)
                 {
                     txDia.Text = load.Dia;
@@ -62,9 +67,11 @@ namespace TradeSpeedo.Visitas.Pages
                     txDin2.Text = load.Ht2;
                     txDin3.Text = load.Ht3;
                     txDin4.Text = load.Ht4;
+                    
 
                     BtnSalvar.Visible = false;
-                    BtnAltera.Visible = true;
+                    BtnAltera.Visible = true;                    
+
                 }
             }
         }
@@ -94,7 +101,8 @@ namespace TradeSpeedo.Visitas.Pages
                 Ht1 = ht1,
                 Ht2 = ht2,
                 Ht3 = ht3,
-                Ht4 = ht4
+                Ht4 = ht4,
+                
             };
 
             campo.Salva();
@@ -123,7 +131,8 @@ namespace TradeSpeedo.Visitas.Pages
                 Ht1 = ht1,
                 Ht2 = ht2,
                 Ht3 = ht3,
-                Ht4 = ht4
+                Ht4 = ht4,
+                
             };
 
             campo.Altera();
@@ -159,7 +168,6 @@ namespace TradeSpeedo.Visitas.Pages
 
             AlteraForm(Convert.ToInt32(valor), txDia.Text, Convert.ToString(txData.Text), Convert.ToInt32(ddCliente.SelectedValue), txLocal.Text, txComprador.Text, Convert.ToInt32(ddPerfil.SelectedValue), Convert.ToInt32(ddSortimento.SelectedValue), Convert.ToInt32(ddExpo.SelectedValue), txConcorrentes.InnerText,txComentario.InnerText , txAno1.Text, txAno2.Text, txAno3.Text, txAno4.Text, txDin1.Text, txDin2.Text, txDin3.Text, txDin4.Text);
             Response.Redirect("Visitas_Imagem.aspx?IdVisita=" + load.ID_VISITA + "&IdVisitaDetalhe=" + load.ID + "&Dia=" + load.Dia);
-
         }
     }
 }

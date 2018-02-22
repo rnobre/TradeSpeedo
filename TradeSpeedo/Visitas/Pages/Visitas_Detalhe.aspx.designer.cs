@@ -31,15 +31,6 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.TextBox txData;
         
         /// <summary>
-        /// Controle txICliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txICliente;
-        
-        /// <summary>
         /// Controle ddCliente.
         /// </summary>
         /// <remarks>

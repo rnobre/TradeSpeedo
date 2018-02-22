@@ -32,10 +32,11 @@
                     <label id="lData" class="lData">Data: </label>
                     <asp:TextBox ID="txData" CssClass="txData form-control" runat="server"></asp:TextBox>
                 </div>
-                <div id="dICliente" class="dICliente col-sm-3">
+              <%--  <div id="dICliente" class="dICliente col-sm-3">
                     <label id="lICliente" class="lICliente">Cliente: </label>
                     <asp:TextBox ID="txICliente" CssClass="txICliente form-control" MaxLength="1" runat="server"></asp:TextBox>
-                </div>
+                    <asp:DropDownList ID="ddICliente" CssClass="ddICliente" runat="server" DataValueField="" DataTextField=""></asp:DropDownList>
+                </div>--%>
             </div>
             <div id="dInformacao" class="dInformacao1 row">
                 <div id="dCliente" class="dCliente col-sm-3">

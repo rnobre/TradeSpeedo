@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using System.Linq;
-using System.Web;
+
 
 namespace TradeSpeedo.Model
 {
@@ -25,7 +25,7 @@ namespace TradeSpeedo.Model
 
         public string Clifor { get; set; }
 
-        public string Cliente { get; set; }
+        public string Cliente { get; set; }        
 
         public Int64 Cnpj { get; set; }
 
@@ -103,6 +103,11 @@ namespace TradeSpeedo.Model
             .Query<Visita_Detalhe>("SELECT ID,Descricao FROM VISITA_EXPOSICAO")
             .ToList();
 
+        public List<Visita_Detalhe> ListaIdCliente(int IdVisita, string dia) =>
+            _conexao
+            .Query<Visita_Detalhe>("SELECT ID_Cliente from VISITA_DETALHE where ID_VISITA = '" + IdVisita + "' AND DIA = '" + dia + "'")
+            .ToList();
+
 
         public void Salva()
         {
@@ -148,7 +153,7 @@ namespace TradeSpeedo.Model
                        ",A.HT1 " +
                        ",A.HT2 " +
                        ",A.HT3 " +
-                       ",A.HT4 " +
+                       ",A.HT4 " +                       
                             "FROM VISITA_DETALHE A " +
                             "JOIN VISITA_PERFIL B ON A.ID_PERFIL = B.ID " +
                             "JOIN VISITA_SORTIMENTO C ON A.ID_SORTIMENTO = C.ID " +
@@ -180,6 +185,7 @@ namespace TradeSpeedo.Model
                 Ht2 = dr["HT2"].ToString();
                 Ht3 = dr["HT3"].ToString();
                 Ht4 = dr["HT4"].ToString();
+                
             }
 
             _conexao.Close();

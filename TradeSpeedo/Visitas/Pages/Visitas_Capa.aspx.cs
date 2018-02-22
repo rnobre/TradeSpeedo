@@ -19,8 +19,8 @@ namespace TradeSpeedo.Visitas.Pages
             var dia = new Visita_Capa(conexao);
             var id = Request.QueryString["ID"];
 
-            rDia.DataSource = dia.Lista(Convert.ToInt32(id));
-            rDia.DataBind();
+            //rDia.DataSource = dia.Lista(Convert.ToInt32(id));
+            //rDia.DataBind();
 
             if (!Page.IsPostBack)
             {
