@@ -49,13 +49,15 @@
                 <div>
                     <asp:Button ID="btnIncluir" Text="Nova Visita" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="btnIncluir_Click" />
                 </div> 
-                <asp:table id="tbVisitas" class="tbVisitas table" runat="server">                    
+              <%--  <asp:table id="tbVisitas" class="tbVisitas table" runat="server">                    
                         <asp:TableHeaderRow runat="server">
                             <asp:TableHeaderCell Scope="Column" runat="server">Dia </asp:TableHeaderCell>
                             <asp:TableHeaderCell Scope="Column">Cliente</asp:TableHeaderCell>
                             <asp:TableHeaderCell Scope="Column">Data </asp:TableHeaderCell>                     
                         </asp:TableHeaderRow>
-                </asp:table>
+                </asp:table>--%>
+                <asp:GridView ID="gvVisitas" CssClass="gvVisitas table" runat="server">
+                </asp:GridView>
             </div>
         </div>     
 <%--        <div id="dDias" class="dDias">

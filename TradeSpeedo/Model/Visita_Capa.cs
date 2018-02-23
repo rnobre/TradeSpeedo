@@ -105,7 +105,7 @@ namespace TradeSpeedo.Model
         }
 
 
-        public void GeraTabela(int idVisita, Table tb, string stringconexao)
+        public void GeraTabela(int idVisita, GridView gv, string stringconexao)
         {
             var i = 0;
             var j = 0;
@@ -126,20 +126,23 @@ namespace TradeSpeedo.Model
                     {
                         sda.Fill(ds, "Visitas");
 
-                        foreach (DataRow dsRow in ds.Tables["Visitas"].Rows)
-                        {
-                            var tRow = new TableRow();
-                            foreach (DataColumn dsCol in ds.Tables["Visitas"].Columns)
-                            {
-                                var tCell = new TableCell();
-                                tCell.Text = ds.Tables[0].Rows[i].ItemArray[j].ToString();                                
-                                tRow.Cells.Add(tCell);
+                        //foreach (DataRow dsRow in ds.Tables["Visitas"].Rows)
+                        //{
+                        //    var tRow = new TableRow();
+                        //    foreach (DataColumn dsCol in ds.Tables["Visitas"].Columns)
+                        //    {
+                        //        var tCell = new TableCell();
+                        //        tCell.Text = ds.Tables[0].Rows[i].ItemArray[j].ToString();                                
+                        //        tRow.Cells.Add(tCell);
 
-                                j++;
-                            }
+                        //        j++;
+                        //    }
 
-                            tb.Rows.Add(tRow);
-                            i++;
+                        //    tb.Rows.Add(tRow);
+                        //    i++;
+
+                        gv.DataSource = ds.Tables[0];
+                        gv.DataBind();
                         }
                     }
                 }
@@ -148,4 +151,3 @@ namespace TradeSpeedo.Model
         }
 
     }
-}

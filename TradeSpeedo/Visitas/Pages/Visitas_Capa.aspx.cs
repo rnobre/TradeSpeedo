@@ -27,7 +27,7 @@ namespace TradeSpeedo.Visitas.Pages
                 if (load.ID != 0)
                 {
                     CarregaPagina(load.Visita, load.Periodo, load.Representante, load.Regiao, load.Objetivo);
-                    gera.GeraTabela(Convert.ToInt32(valor), tbVisitas, conexao);
+                    gera.GeraTabela(Convert.ToInt32(valor), gvVisitas, conexao);
                 }
             }
         }
