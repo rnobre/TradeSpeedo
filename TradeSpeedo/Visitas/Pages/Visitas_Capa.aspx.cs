@@ -13,21 +13,18 @@ namespace TradeSpeedo.Visitas.Pages
             var conexao = Session["conexao"].ToString();
             var id = Request.QueryString["ID"];
 
-            //rDia.DataSource = Visita_Capa.Lista(Convert.ToInt32(id), conexao);
-            //rDia.DataBind();
-
             if (!Page.IsPostBack)
             {
                 var valor = Request.QueryString["ID"];
                 var load = new Visita_Capa(conexao);
                 load.Carrega(Convert.ToInt32(valor));
                 var gera = new Visita_Capa(conexao);
-                
+
 
                 if (load.ID != 0)
                 {
                     CarregaPagina(load.Visita, load.Periodo, load.Representante, load.Regiao, load.Objetivo);
-                    gera.GeraTabela(Convert.ToInt32(valor), gvVisitas, conexao);
+                    gera.GeraTabela(Convert.ToInt32(valor), tbVisitas, conexao);
                 }
             }
         }
@@ -60,13 +57,12 @@ namespace TradeSpeedo.Visitas.Pages
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
-            //If validação
             var conexao = Session["conexao"].ToString();
 
             var valida = new Visita_Capa(conexao);
             valida.Carrega(txtVisita.Text);
 
-            if(valida.Visita == txtVisita.Text)
+            if (valida.Visita == txtVisita.Text)
             {
                 strScript = "alert('Nome da Visita já existe, por gentileza verificar!');";
             }
@@ -74,7 +70,7 @@ namespace TradeSpeedo.Visitas.Pages
             {
                 SalvaCapa(txtVisita.Text, txtPeriodo.Text, txtRepre.Text, txtRegiao.Text, txObj.Value, conexao);
                 strScript = "alert('Informações salvas com sucesso.');";
-            }           
+            }
 
         }
 
@@ -124,6 +120,11 @@ namespace TradeSpeedo.Visitas.Pages
             var id = recupera.ID;
 
             Response.Redirect("Visitas_Detalhe.aspx?id=" + id);
+        }
+
+        protected void btnDia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

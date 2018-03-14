@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using System.Linq;
-
+using System.Globalization;
 
 namespace TradeSpeedo.Model
 {
@@ -25,7 +25,7 @@ namespace TradeSpeedo.Model
 
         public string Clifor { get; set; }
 
-        public string Cliente { get; set; }        
+        public string Cliente { get; set; }
 
         public Int64 Cnpj { get; set; }
 
@@ -129,9 +129,10 @@ namespace TradeSpeedo.Model
             _conexao.Close();
         }
 
-        public void Carrega(int idVisita, string dia)
+        public void Carrega(int idVisita, string dia, DateTime data, string cliente)
         {
             _conexao.Open();
+
 
             var sql = $"SELECT " +
                        "A.ID " +
@@ -153,14 +154,16 @@ namespace TradeSpeedo.Model
                        ",A.HT1 " +
                        ",A.HT2 " +
                        ",A.HT3 " +
-                       ",A.HT4 " +                       
+                       ",A.HT4 " +
                             "FROM VISITA_DETALHE A " +
                             "JOIN VISITA_PERFIL B ON A.ID_PERFIL = B.ID " +
                             "JOIN VISITA_SORTIMENTO C ON A.ID_SORTIMENTO = C.ID " +
                             "JOIN VISITA_EXPOSICAO D ON A.ID_EXPOSICAO = D.ID " +
                             "JOIN VISITA_CLIENTE E ON A.ID_CLIFOR = E.ID " +
                         "WHERE A.ID_VISITA = '" + idVisita + "' " +
-                          "AND A.DIA = '" + dia + "' ";
+                          "AND A.DIA = '" + dia + "' " +
+                          "AND A. DATA ='" + data.ToString("yyyy/MM/dd") + "'" +
+                          "AND E.CLIENTE='" + cliente + "'";
             var dr = new SqlCommand(sql, _conexao).ExecuteReader();
 
             while (dr.Read())
@@ -185,7 +188,7 @@ namespace TradeSpeedo.Model
                 Ht2 = dr["HT2"].ToString();
                 Ht3 = dr["HT3"].ToString();
                 Ht4 = dr["HT4"].ToString();
-                
+
             }
 
             _conexao.Close();
@@ -207,7 +210,5 @@ namespace TradeSpeedo.Model
 
             _conexao.Close();
         }
-
-
     }
 }

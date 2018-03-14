@@ -4,7 +4,7 @@
 
     <meta charset="utf-8" />
     <title>Visitas_Capa</title>
-    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
     <script src="../../Scripts/jquery-3.1.1.min.js"></script>
     <script src="../../Scripts/jquery.maskedinput.min.js"></script>
@@ -41,72 +41,44 @@
             </div>
             <div id="dObj" class="form-group">
                 <label id="lblObj" class="lbl">Objetivo: </label>
-                <textarea ID="txObj" class="txaObj form-control" runat="server"></textarea>
+                <textarea id="txObj" class="txaObj form-control" runat="server"></textarea>
             </div>
         </div>
         <div class="col-md-6">
-            <div id="dCliente" class="form-group">                
+            <div id="dCliente" class="form-group">
                 <div>
                     <asp:Button ID="btnIncluir" Text="Nova Visita" runat="server" CssClass="btnIncluir primary btn-lg" OnClick="btnIncluir_Click" />
-                </div> 
-              <%--  <asp:table id="tbVisitas" class="tbVisitas table" runat="server">                    
-                        <asp:TableHeaderRow runat="server">
-                            <asp:TableHeaderCell Scope="Column" runat="server">Dia </asp:TableHeaderCell>
-                            <asp:TableHeaderCell Scope="Column">Cliente</asp:TableHeaderCell>
-                            <asp:TableHeaderCell Scope="Column">Data </asp:TableHeaderCell>                     
-                        </asp:TableHeaderRow>
-                </asp:table>--%>
-                <asp:GridView ID="gvVisitas" CssClass="gvVisitas table" runat="server">
-                </asp:GridView>
+                </div>
+                <asp:Table ID="tbVisitas" class="tbVisitas" runat="server">
+                    <asp:TableHeaderRow runat="server">
+                        <asp:TableHeaderCell Scope="Column" runat="server"></asp:TableHeaderCell>
+                        <asp:TableHeaderCell Scope="Column" runat="server">Dia </asp:TableHeaderCell>
+                        <asp:TableHeaderCell Scope="Column">Cliente</asp:TableHeaderCell>
+                        <asp:TableHeaderCell Scope="Column">Data </asp:TableHeaderCell>
+                    </asp:TableHeaderRow>
+                </asp:Table>
             </div>
-        </div>     
-<%--        <div id="dDias" class="dDias">
-            <label id="lblDia" class="lbl">Dias:</label>
-            <asp:ImageButton ID="iDia" CssClass="iDia" ImageUrl="~/Visitas/Imagem/maisp.jpg" OnClick="iDia_Click" runat="server" />
-            <div id="ddDia" class="ddDia" runat="server">
-                <asp:Repeater ID="rDia" runat="server" OnItemCommand="rDia_ItemCommand">
-                    <HeaderTemplate>
-                        <table>
-                            <thead>
-                                <tr>
-                                </tr>
-                            </thead>
-                            <tbody>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <asp:LinkButton ID="lbDireciona" CssClass="aDireciona" runat="server" CommandArgument='<%# Eval("DIA") %>' CommandName="lbDireciona">
-                            <%# Eval("DIA") %>
-                            </asp:LinkButton>
-                        </tr>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                        </tbody>
-                    </table>
-                    </FooterTemplate>
-                </asp:Repeater>
-            </div>--%>        
-        <div id="dConclusao" class="dConclusao col-md-4">
-            <label id="lblConclusao" class="lblConclusao">Conclusão:</label>
-            <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
         </div>
-        <div>
-            <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
-        </div>
-        <div>
-            <asp:Button ID="BtnAltera" Text="Altera" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnAltera_Click" />
-        </div>
+    </div>
+    <div id="dConclusao" class="dConclusao col-md-4">
+        <label id="lblConclusao" class="lblConclusao">Conclusão:</label>
+        <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
+    </div>
+    <div>
+        <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
+    </div>
+    <div>
+        <asp:Button ID="BtnAltera" Text="Altera" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnAltera_Click" />
     </div>
 
     <script>
-        
         //document.addEventListener('DOMContentLoaded', function () {
         //    CKEDITOR.replace('txObj');
         //}, true);
 
         $(document).ready(function () {
             $("#txtPeriodo").mask("99/99/9999 à 99/99/9999");
-        });    
+        });
 
         <%=strScript%>
 </script>

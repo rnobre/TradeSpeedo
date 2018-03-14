@@ -129,7 +129,7 @@ namespace TradeSpeedo.Visitas.Pages
                 }
             }
 
-            Response.Redirect("Visitas_Capa.aspx?IdVisita=" + idVisita);
+            Response.Redirect("Visitas_Capa.aspx?id=" + idVisita);
 
         }
     }

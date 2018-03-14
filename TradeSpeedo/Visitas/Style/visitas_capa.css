@@ -169,6 +169,37 @@
     top: 100px;
 }
 
+.gvVisitas {
+    position: fixed;
+    top: 215px;
+    width: 370px;
+    left: 698px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 14px;
+    /*border-bottom: #Fe370F;*/
+    border-bottom: #a9a9a9;
+    border-left: transparent;
+    border-top: transparent;
+    border-right: transparent;
+    text-align: left;
+}
+
+    .gvVisitas tr {
+        /*border-bottom: #Fe370F;*/
+        border-bottom: #a9a9a9;
+        font-size: 14px;
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        text-align: left;
+    }
+
+    .gvVisitas th {
+        border: none;
+        
+    }
+
 .lbl {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
@@ -205,16 +236,29 @@
 }
 
 .tbVisitas {
-    width: 387px;
+    width: 447px;
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
     font-size: 15px;
     margin-left: 62px;
-    margin-top: 10px;
-    border-top: 4px solid transparent;
-    border-bottom: 1px solid #eceeef;
-    text-align:left;
-}    
+    margin-top: 18px;
+    border-bottom: #a9a9a9;
+    border-left: transparent;
+    border-top: transparent;
+    border-right: transparent;
+    text-align: left;
+}
+
+    .tbVisitas tr {
+        /*border-bottom: #Fe370F;*/
+        border-bottom: #a9a9a9;
+        font-size: 14px;
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        text-align: left;
+    }
+
     
 .lblObj {
         font-family: Arial, Helvetica, sans-serif;
@@ -299,6 +343,14 @@
         color: red;
         text-decoration: none;
     }
+
+.btnDia {
+    background-image: url(/Image/bumerangue.ico);
+    background-repeat: no-repeat;
+    background-color: transparent;    
+    width: 37px;
+    border: none;
+}
 /*Inicio Botão Salvar*/
 .btnSalvar {
     display: inline-block;
@@ -341,14 +393,14 @@
     .btnSalvar.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin-left: 1150px;
+        margin-left: 1080px;
         margin-top: 112px;
     }
 
         .btnSalvar.primary:hover, .btnSalvar.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin-left: 1150px;
+            margin-left: 1080px;
             margin-top: 112px;
         }
 

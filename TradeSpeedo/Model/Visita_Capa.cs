@@ -42,7 +42,7 @@ namespace TradeSpeedo.Model
             using (var conexao = new SqlConnection(_stringconexao))
                 conexao.Execute(sql);
         }
-        
+
         public static int GetNovoIDVisita(string stringConexao)
         {
             var sql = $"SELECT MAX(ID) AS ID from VISITA";
@@ -50,14 +50,14 @@ namespace TradeSpeedo.Model
             using (var conexao = new SqlConnection(stringConexao))
                 return conexao.QueryFirst<int>(sql);
         }
-        
+
         public void Carrega(int id)
         {
             using (var conexao = new SqlConnection(_stringconexao))
             {
                 conexao.Open();
                 var sql = $"SELECT TOP 1 ID, VISITA, PERIODO, REPRESENTANTE,REGIAO,OBJETIVO FROM VISITA WHERE ID = '{id}'";
-                
+
                 using (var dr = new SqlCommand(sql, conexao).ExecuteReader())
                 {
                     if (dr.Read())
@@ -69,7 +69,7 @@ namespace TradeSpeedo.Model
                         Regiao = dr["REGIAO"].ToString();
                         Objetivo = dr["OBJETIVO"].ToString();
                     }
-                    
+
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace TradeSpeedo.Model
                         Representante = dr["REPRESENTANTE"].ToString();
                         Regiao = dr["REGIAO"].ToString();
                         Objetivo = dr["OBJETIVO"].ToString();
-                    }                    
+                    }
                 }
             }
         }
@@ -105,12 +105,11 @@ namespace TradeSpeedo.Model
         }
 
 
-        public void GeraTabela(int idVisita, GridView gv, string stringconexao)
+        public void GeraTabela(int idVisita, Table tb, string stringconexao)
         {
             var i = 0;
-            var j = 0;
 
-            var sql = $"SELECT  A.DIA " +
+            var sql = $"SELECT A.DATA ,A.DIA " +
                             ",B.CLIENTE " +
                             ",CONVERT (VARCHAR (10), A.DATA,103) AS DATA  " +
                         "FROM VISITA_DETALHE A " +
@@ -121,33 +120,42 @@ namespace TradeSpeedo.Model
             {
                 conexao.Open();
                 using (var sda = new SqlDataAdapter(sql, stringconexao))
-                {   
+                {
                     using (var ds = new DataSet())
                     {
                         sda.Fill(ds, "Visitas");
 
-                        //foreach (DataRow dsRow in ds.Tables["Visitas"].Rows)
-                        //{
-                        //    var tRow = new TableRow();
-                        //    foreach (DataColumn dsCol in ds.Tables["Visitas"].Columns)
-                        //    {
-                        //        var tCell = new TableCell();
-                        //        tCell.Text = ds.Tables[0].Rows[i].ItemArray[j].ToString();                                
-                        //        tRow.Cells.Add(tCell);
+                        foreach (DataRow dsRow in ds.Tables["Visitas"].Rows)
+                        {
+                            var j = 0;
+                            var tRow = new TableRow();
 
-                        //        j++;
-                        //    }
 
-                        //    tb.Rows.Add(tRow);
-                        //    i++;
+                            foreach (DataColumn dsCol in ds.Tables["Visitas"].Columns)
+                            {
+                                var tCell = new TableCell();
 
-                        gv.DataSource = ds.Tables[0];
-                        gv.DataBind();
+                                if (j == 0)
+                                {
+                                    tCell.Text = string.Format("<a style='outline:none;' href='Visitas_Detalhe.aspx?id=" + idVisita + "&dia=" + ds.Tables[0].Rows[i].ItemArray[1].ToString() + "&data=" + ds.Tables[0].Rows[i].ItemArray[3].ToString() + "&cliente=" + ds.Tables[0].Rows[i].ItemArray[2].ToString() + "'><img style='outline:none;' src='/Image/bumerangue.ico'></img></a> ");
+                                }
+
+                                else
+                                {
+                                    tCell.Text = ds.Tables[0].Rows[i].ItemArray[j].ToString();
+                                }
+
+                                tRow.Cells.Add(tCell);
+                                j++;
+                            }
+
+
+                            tb.Rows.Add(tRow);
+                            i++;
                         }
                     }
                 }
             }
-
         }
-
     }
+}
