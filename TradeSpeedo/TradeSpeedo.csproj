@@ -109,6 +109,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
     <Folder Include="Visitas\Upload\" />
+    <Folder Include="Visitas\Upload_Conclusao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -179,11 +180,12 @@
     <Content Include="Style\login_estilo.css" />
     <Content Include="Style\master.css" />
     <Content Include="Visitas\Imagem\checkpreto.jpg" />
-    <Content Include="Visitas\Imagem\checkverde.jpg" />
+    <Content Include="Visitas\Imagem\checkverde.png" />
     <Content Include="Visitas\Imagem\mais.jpg" />
     <Content Include="Visitas\Imagem\maisp.jpg" />
     <Content Include="Visitas\Imagem\transparente.png" />
     <Content Include="Visitas\Pages\Visitas_Capa.aspx" />
+    <Content Include="Visitas\Pages\Visitas_Conclusao.aspx" />
     <Content Include="Visitas\Pages\Visitas_Detalhe.aspx" />
     <Content Include="Visitas\Pages\Visitas_Imagem.aspx" />
     <Content Include="Visitas\Pages\Visitas_Index.aspx" />
@@ -198,6 +200,7 @@
     <Content Include="Visitas\Style\bootstrap.min.css" />
     <Content Include="Visitas\Style\chosen.css" />
     <Content Include="Visitas\Style\visitas_capa.css" />
+    <Content Include="Visitas\Style\visitas_conclusao.css" />
     <Content Include="Visitas\Style\visitas_detalhe.css" />
     <Content Include="Visitas\Style\visitas_imagen.css" />
     <Content Include="Visitas\Style\visitas_index.css" />
@@ -245,6 +248,7 @@
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Model\Visita.cs" />
     <Compile Include="Model\Visita_Capa.cs" />
+    <Compile Include="Model\Visita_Conclusao.cs" />
     <Compile Include="Model\Visita_Detalhe.cs" />
     <Compile Include="Model\Visita_Imagem.cs" />
     <Compile Include="Pages\Index.aspx.cs">
@@ -276,6 +280,13 @@
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Capa.aspx.designer.cs">
       <DependentUpon>Visitas_Capa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Conclusao.aspx.cs">
+      <DependentUpon>Visitas_Conclusao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Conclusao.aspx.designer.cs">
+      <DependentUpon>Visitas_Conclusao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Detalhe.aspx.cs">
       <DependentUpon>Visitas_Detalhe.aspx</DependentUpon>

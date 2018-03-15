@@ -62,7 +62,12 @@
     </div>
     <div id="dConclusao" class="dConclusao col-md-4">
         <label id="lblConclusao" class="lblConclusao">Conclusão:</label>
-        <asp:Image ID="iConclusao" CssClass="iConclusao" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" />
+        <div id="dImage" class="dImagem" runat="server">            
+            <asp:ImageButton ID="ibConclusaoPreto" CssClass="ibConclusaoPreto" ImageUrl="~/Visitas/Imagem/checkpreto.jpg" runat="server" OnClick="ibConclusaoPreto_Click" />            
+            <%--<asp:Image ID="iConclusaoVerde" CssClass="iConclusaoVerde" ImageUrl="~/Visitas/Imagem/checkverde.png"  runat="server" />--%>
+            <asp:ImageButton ID="ibConclusaoVerde" CssClass="ibConclusaoVerde" runat="server" ImageUrl="~/Visitas/Imagem/checkverde.png" OnClick="ibConclusaoVerde_Click" />
+            
+        </div>
     </div>
     <div>
         <asp:Button ID="BtnSalvar" Text="Salvar" runat="server" CssClass="btnSalvar primary btn-lg" OnClick="BtnSalvar_Click" />
@@ -72,10 +77,6 @@
     </div>
 
     <script>
-        //document.addEventListener('DOMContentLoaded', function () {
-        //    CKEDITOR.replace('txObj');
-        //}, true);
-
         $(document).ready(function () {
             $("#txtPeriodo").mask("99/99/9999 à 99/99/9999");
         });

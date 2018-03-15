@@ -20,7 +20,7 @@ namespace TradeSpeedo.Visitas.Pages
                 var idVisita = Request.QueryString["IdVisita"];
                 var idVisitaDetalhe = Request.QueryString["IdVisitaDetalhe"];
                 var dia = Request.QueryString["Dia"];
-                var load = new Visita_Imagem(conexao);
+                var load = new Model.Visitas_Conclusao(conexao);
 
                 for (int i = 0; i <= 9; i++)
 
@@ -54,7 +54,7 @@ namespace TradeSpeedo.Visitas.Pages
 
         private void SalvaImagem(int visita, int idVisitaDet, int Dia, string Imagem, string Sequencia, string conexao)
         {
-            var imagem = new Visita_Imagem(conexao)
+            var imagem = new Model.Visitas_Conclusao(conexao)
             {
                 Id_Visita = visita,
                 Id_Visita_Detalhe = idVisitaDet,
@@ -70,7 +70,7 @@ namespace TradeSpeedo.Visitas.Pages
 
         private void AlteraImagem(int visita, int idVisitaDet, int Dia, string Imagem, string Sequencia, string conexao)
         {
-            var imagem = new Visita_Imagem(conexao)
+            var imagem = new Model.Visitas_Conclusao(conexao)
             {
                 Id_Visita = visita,
                 Id_Visita_Detalhe = idVisitaDet,
@@ -93,7 +93,7 @@ namespace TradeSpeedo.Visitas.Pages
             var idVisita = Request.QueryString["IdVisita"];
             var idVisitaDetalhe = Request.QueryString["IdVisitaDetalhe"];
             var dia = Request.QueryString["Dia"];
-            var load = new Visita_Imagem(conexao);
+            var load = new Model.Visitas_Conclusao(conexao);
 
             for (int i = 0; i <= 9; i++)
 

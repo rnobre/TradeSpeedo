@@ -85,13 +85,31 @@ namespace TradeSpeedo.Visitas.Pages {
         protected global::System.Web.UI.WebControls.Table tbVisitas;
         
         /// <summary>
-        /// Controle iConclusao.
+        /// Controle dImage.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image iConclusao;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dImage;
+        
+        /// <summary>
+        /// Controle ibConclusaoPreto.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibConclusaoPreto;
+        
+        /// <summary>
+        /// Controle ibConclusaoVerde.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibConclusaoVerde;
         
         /// <summary>
         /// Controle BtnSalvar.

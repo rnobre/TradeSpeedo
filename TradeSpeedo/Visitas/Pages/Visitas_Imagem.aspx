@@ -2,7 +2,7 @@
 
 <asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <meta charset="utf-8" />
-    <title>Visitas_Detalhe</title>    
+    <title>Visitas_Imagem</title>    
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="../Script/jquery.uploadPreview.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>

@@ -152,217 +152,159 @@
     all: unset;
 }
 
-.body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
-.dFormulario {
-    margin-top: 15px;
-}
 .hTitulo {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
     font-size: 250%;
-    right: 48.8%;
+    right: 45.1%;
     position: fixed;
-    top: 100px;
+    top: 80px;
 }
 
-.gvVisitas {
-    position: fixed;
-    top: 215px;
-    width: 370px;
-    left: 698px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 14px;
-    /*border-bottom: #Fe370F;*/
-    border-bottom: #a9a9a9;
-    border-left: transparent;
-    border-top: transparent;
-    border-right: transparent;
-    text-align: left;
+
+.dMain {
+    margin-left: 40px;
+    overflow: hidden;
 }
 
-    .gvVisitas tr {
-        /*border-bottom: #Fe370F;*/
-        border-bottom: #a9a9a9;
-        font-size: 14px;
-        border-top: transparent;
-        border-left: transparent;
-        border-right: transparent;
-        text-align: left;
-    }
+.txConclusao {
+    position: fixed;
+    width: 1128px;
+    height: 210px;
+    left: 104px;
+    top: 173px;
+}
+.dImg1 {
+    margin-left: 90px;
+    margin-top: 230px;
+}
 
-    .gvVisitas th {
-        border: none;
-        
-    }
+.dImg2 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
 
-.lbl {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 156%;
+.dImg3 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
+
+.dImg4 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
+
+.dImg5 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
+
+.dImg6 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
+
+.dImg7 {
+    margin-left: 68px;
+    margin-top: 230px;
+}
+
+.image-preview {
+    top: 40px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.image-preview {
+    width: 120px;
+    height: 126px;
     position: relative;
-    top: -12px;
+    overflow: hidden;
+    background: url(../../Image/camera.png) no-repeat;
+    background-size: contain;    
+    color: #ecf0f1;
+    max-width: 200px;
+    max-height: 190px;
+    left: 0px;
 }
 
-.lblcliente {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 160%;
-    position: relative;
-    top: 8px;
-    left: 70px;
-}
-
-.txtinput {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color: #666666;
-    width: 590px;
-    height: 29px;
-    margin-top: -22px;
-}
-
-.dObj {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 180%;
-    position: fixed;
-    margin-left: 47%;
-    top: 30%;
-}
-
-.tbVisitas {
-    width: 447px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 15px;
-    margin-left: 62px;
-    margin-top: 18px;
-    border-bottom: #a9a9a9;
-    border-left: transparent;
-    border-top: transparent;
-    border-right: transparent;
-    text-align: left;
-}
-
-    .tbVisitas tr {
-        /*border-bottom: #Fe370F;*/
-        border-bottom: #a9a9a9;
-        font-size: 14px;
-        border-top: transparent;
-        border-left: transparent;
-        border-right: transparent;
-        text-align: left;
+    .image-preview input {
+        line-height: 190px;
+        position: absolute;
+        opacity: 0;
+        z-index: 10;
+        max-width: 200px;
+        max-height: 190px;
     }
 
+    .image-preview label {
+        position: absolute;
+        z-index: 5;
+        opacity: 0.8;
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        text-transform: uppercase;
+        top: 0;
+        left: 0;
+        right: 2px;
+        bottom: 2px;
+        margin: auto;
+        text-align: center;
+        max-width: 200px;
+        max-height: 190px;
+    }
+
+.txLegenda1 {
+    position: fixed;
+    width: 121px;
+    top: 538px;
+    left: 104px;
+}
+.txLegenda2 {
+    position: fixed;
+    width: 121px;
+    top: 538px;
+    left: 272px;
+}
+.txLegenda3 {
+    position: fixed;
+    width: 121px;
+    top: 538px;
+    left: 441px;
+}
+.txLegenda4 {
+    position: fixed;
+    width: 121px;
+    top: 538px;
+    left: 608px;
+}
+
+.txLegenda5 {
+    position: fixed;
+    width: 121px;
+    top: 538px;
+    left: 776px;
     
-.lblObj {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #666666;
-        font-size: 103%;
-        position: relative;
-        right: 1258px;
-        top: 143px;
-    }
-
-.txaObj {
-    width: 590px;
+}
+.txLegenda6 {
     position: fixed;
-    top: 402px;
-    left: 20px;
-    height: 199px;
-    font-size: 14px;
+    width: 121px;
+    top: 538px;
+    left: 946px;
 }
-
-.dDias {
+.txLegenda7 {
     position: fixed;
-    top: 80%;
-    left: 1.5%;
+    width: 121px;
+    top: 538px;
+    left: 1113px;
 }
 
-.lblConclusao {
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666666;
-    font-size: 20px;
-    left: 636px;
-    top: 576px;
-}
-
-
-.iDia {
-    top: 4px;
-    position: relative;
-    width: 22px;
-    left: 61px;
-}
-
-.btnAdicao {
-    background-image: url("../Imagem/mais.jpg");
-    background-size: 10%
-}
-
-.dConclusao {
-    position: fixed;
-    top: 80%;
-    left: 16%;
-}
-
-.ibConclusaoPreto {
-    position: fixed;
-    width: 24px;
-    top: 86%;
-    left: 54.5%;
-}
-
-.ibConclusaoVerde {
-    position: fixed;
-    width: 35px;
-    top: 85%;
-    left: 54%;
-}
-
-
-.ddDia {
-    position: relative;
-    top: -14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 19px;
-    color: red;
-    font-weight: bold;
-}
-
-.aDireciona {
-    font-family: Arial, Helvetica, sans-serif;
-    color: red;
-    padding: 5px;
-}
-
-    .aDireciona:hover, .aDireciona.hover {
-        color: red;
-        text-decoration: none;
-    }
-
-    .aDireciona:visited {
-        color: red;
-        text-decoration: none;
-    }
-
-.btnDia {
-    background-image: url(/Image/bumerangue.ico);
-    background-repeat: no-repeat;
-    background-color: transparent;    
-    width: 37px;
-    border: none;
-}
 /*Inicio Botão Salvar*/
 .btnSalvar {
     display: inline-block;
-    padding: 3px 3px;
+    padding: 6px 3px;
     border: 2px solid #FE370f;
     color: #ddd;
     text-decoration: none;
@@ -371,7 +313,7 @@
     text-align: center;
     font-size: 25px;
     background: #ffffff;
-    width: 180px;
+    width: 121px;
     height: 50px;
 }
 
@@ -383,8 +325,6 @@
     .btnSalvar.btnSalvar-lg {
         padding: 10px 16px;
         font-size: 30px;
-        margin-left: 1150px;
-        margin-top: 112px;
     }
 
     .btnSalvar.btnSalvar-sm {
@@ -401,15 +341,13 @@
     .btnSalvar.primary {
         border-color: #Fe370F;
         color: #4f5557;
-        margin-left: 1080px;
-        margin-top: 112px;
+        margin-left: 1113px;
+        margin-top: 108px;
     }
 
         .btnSalvar.primary:hover, .btnSalvar.primary.hover {
             background: #Fe370F;
             color: #fff;
-            margin-left: 1080px;
-            margin-top: 112px;
         }
 
     .btnSalvar.danger {
@@ -478,132 +416,6 @@
     }
 
         .btnSalvar.clear:hover, .btnSalvar.clear.hover {
-            background: #777;
-            color: #fff;
-        }
-/*FIM Botão Salvar*/
-
-
-
-/*Inicio Botão Incluir*/
-.btnIncluir {
-    display: inline-block;
-    padding: 6px 3px;
-    border: 2px solid #FE370f;
-    color: #ddd;
-    text-decoration: none;
-    transition: all .2s;
-    min-width: 100px;
-    text-align: center;
-    font-size: 16px;
-    background: #ffffff;
-    width: 96px;
-    height: 35px;
-}
-
-    .btnIncluir:hover, .btnIncluir.hover {
-        background: #ffffff;
-        color: #777;
-    }
-
-    .btnIncluir.btnIncluir-lg {
-        padding: 10px 16px;
-        font-size: 30px;
-        margin-left: 64px;
-        margin-top: 8px;
-    }
-
-    .btnIncluir.btnIncluir-sm {
-        padding: 5px 10px;
-        font-size: 12px;
-    }
-
-    .btnIncluir.btnIncluir-xs {
-        padding: 1px 5px;
-        font-size: 12px;
-        padding: 1px 5px;
-    }
-
-    .btnIncluir.primary {
-        border-color: #Fe370F;
-        color: #4f5557;
-        margin-left: 64px;
-        margin-top: 8px;
-    }
-
-        .btnIncluir.primary:hover, .btnIncluir.primary.hover {
-            background: #Fe370F;
-            color: #fff;
-            margin-left: 64px;
-            margin-top: 8px;
-        }
-
-    .btnIncluir.danger {
-        border-color: #e74c3c;
-        color: #e74c3c;
-    }
-
-        .btnIncluir.danger:hover, .btnIncluir.danger.hover {
-            background: #e74c3c;
-            color: #fff;
-        }
-
-    .btnIncluir.success {
-        border-color: #27ae60;
-        color: #27ae60;
-    }
-
-        .btnIncluir.success:hover, .btnIncluir.success.hover {
-            background: #27ae60;
-            color: #fff;
-        }
-
-    .btnIncluir.warning {
-        border-color: #f1c40f;
-        color: #f1c40f;
-    }
-
-        .btnIncluir.warning:hover, .btnIncluir.warning.hover {
-            background: #f1c40f;
-            color: #fff;
-        }
-
-    .btnIncluir.black {
-        border-color: #34495e;
-        color: #34495e;
-    }
-
-        .btnIncluir.black:hover, .btnIncluir.black.hover {
-            background: #34495e;
-            color: #fff;
-        }
-
-    .btnIncluir.black {
-        border-color: #34495e;
-        color: #34495e;
-    }
-
-        .btnIncluir.black:hover, .btnIncluir.black.hover {
-            background: #34495e;
-            color: #fff;
-        }
-
-    .btnIncluir.info {
-        border-color: #5bc0de;
-        color: #5bc0de;
-    }
-
-        .btnIncluir.info:hover, .btnIncluir.info.hover {
-            background: #5bc0de;
-            color: #fff;
-        }
-
-    .btnIncluir.clear {
-        border-color: #777;
-        color: #777;
-    }
-
-        .btnIncluir.clear:hover, .btnIncluir.clear.hover {
             background: #777;
             color: #fff;
         }

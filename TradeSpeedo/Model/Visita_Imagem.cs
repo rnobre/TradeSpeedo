@@ -6,7 +6,7 @@ using Dapper;
 
 namespace TradeSpeedo.Model
 {
-    public class Visita_Imagem
+    public class Visitas_Conclusao
     {
         private SqlConnection _conexao;
 
@@ -25,13 +25,13 @@ namespace TradeSpeedo.Model
         private string _stringconexao { get; set; }
 
 
-        public Visita_Imagem(string stringConexao)
+        public Visitas_Conclusao(string stringConexao)
         {
             _conexao = new SqlConnection(stringConexao);
             _stringconexao = stringConexao;
         }
 
-        public Visita_Imagem()
+        public Visitas_Conclusao()
         {
 
         }
@@ -88,9 +88,9 @@ namespace TradeSpeedo.Model
         }
 
 
-        public List<Visita_Imagem> Lista(int IdVisita, int idVisitaDet, int dia) =>
+        public List<Visitas_Conclusao> Lista(int IdVisita, int idVisitaDet, int dia) =>
             _conexao
-                .Query<Visita_Imagem>("SELECT ID, Id_Visita, Id_Visita_Detalhe, imagem, Sequencia " +
+                .Query<Visitas_Conclusao>("SELECT ID, Id_Visita, Id_Visita_Detalhe, imagem, Sequencia " +
                                         "FROM VISITA_IMAGEM  " +
                                         "WHERE ID_VISITA ='" + IdVisita + "' and ID_VISITA_DETALHE = '" + idVisitaDet + "' and DIA = '" + dia + "'")
             .ToList();
