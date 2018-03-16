@@ -20,22 +20,26 @@ namespace TradeSpeedo.Visitas.Pages
             {
                 var idVisita = Request.QueryString["IdVisita"];
                 var load = new Visita_Conclusao(conexao);
-                load.
+                var valida = new Visita_Conclusao(conexao);
+                valida.Valida(Convert.ToInt32(idVisita));
 
-                for (int i = 0; i <= 6; i++)
-
+                if (valida.ID != 0)
                 {
-                    string imagepreview = "imagepreview" + (i + 1).ToString();
+                    for (int i = 0; i <= 6; i++)
 
-                    var valida = load.ExisteImagem(Convert.ToInt32(idVisita), imagepreview);
-
-
-                    if (valida != null)
                     {
-                        var div = (HtmlControl)dMain.FindControl(imagepreview);
-                        div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + valida);
-                    }
+                        string imagepreview = "imagepreview" + (i + 1).ToString();
 
+                        var ValidaImagem = load.ExisteImagem(Convert.ToInt32(idVisita), imagepreview);
+
+
+                        if (ValidaImagem != null)
+                        {
+                            var div = (HtmlControl)dMain.FindControl(imagepreview);
+                            div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + ValidaImagem);
+                        }
+
+                    }
                 }
             }
         }

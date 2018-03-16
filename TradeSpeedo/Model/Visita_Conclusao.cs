@@ -11,6 +11,8 @@ namespace TradeSpeedo.Model
     {
         private SqlConnection _conexao;
 
+        public int ID { get; set; }
+
         private string _stringconexao { get; set; }
 
         public int IdVisita { get; set; }
@@ -77,6 +79,25 @@ namespace TradeSpeedo.Model
                 }
             }
 
+        }
+
+
+        public void Valida(int IdVisita)
+        {
+            using (var conexao = new SqlConnection(_stringconexao))
+            {
+                conexao.Open();
+                var sql = $@"SELECT TOP 1 ID FROM VISITA_CONCLUSAO WHERE ID_VISITA = '{IdVisita}'";
+
+                using (var dr = new SqlCommand(sql, conexao).ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        ID = Convert.ToInt32(dr["ID"].ToString());
+                    }
+                }
+
+            }
         }
 
     }
