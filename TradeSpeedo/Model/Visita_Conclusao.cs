@@ -17,6 +17,8 @@ namespace TradeSpeedo.Model
 
         public int IdVisita { get; set; }
 
+        public int IdVisitaConclusao { get; set; }
+
         public string Conclusao { get; set; }
 
         public string Imagem { get; set; }
@@ -32,22 +34,57 @@ namespace TradeSpeedo.Model
             _stringconexao = stringConexao;
         }
 
-        public void Salva()
+        public void SalvaImagem()
         {
-            string sql;
+            string sql;                   
 
-            sql = $@"INSERT INTO VISITA_CONCLUSAO (ID_VISITA, CONCLUSAO, IMAGEM, LEGENDA, SEQUENCIA)
-                    VALUES ('{IdVisita}','{Conclusao}','{Imagem}','{Legenda}', '{sequencia}')";
+            sql = $@"INSERT INTO VISITA_CONCLUSAO_IMG (ID_VISITA, ID_CONCLUSAO,IMAGEM,LEGENDA,SEQUENCIA)
+                    VALUES ('{IdVisita}','{IdVisitaConclusao}','{Imagem}','{Legenda}', '{sequencia}')";
 
             using (var conexao = new SqlConnection(_stringconexao))
                 conexao.Execute(sql);
         }
 
-        public void Altera()
+        public void SalvaConclusao()
+        {
+            string sql;           
+
+            sql = $@"INSERT INTO VISITA_CONCLUSAO (ID_VISITA, CONCLUSAO)
+                    VALUES ('{IdVisita}','{Conclusao}')";           
+
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);
+        }
+
+
+        public void AlteraConclusao()
         {
             string sql;
+            
 
-            sql = $@"UPDATE VISITA_CONCLUSAO SET CONCLUSAO = '{Conclusao}' , IMAGEM = '{Imagem}' , LEGENDA = '{Legenda}', SEQUENCIA = '{sequencia}' WHERE ID_VISITA = '{IdVisita}'";
+            sql = $@"UPDATE VISITA_CONCLUSAO " +
+                                    "SET ID_VISITA = '" + IdVisita + "'" +
+                                    ",CONCLUSAO = '" + Conclusao + "'" +
+                             "WHERE ID_VISITA = '"+ IdVisita +"'";    
+
+            using (var conexao = new SqlConnection(_stringconexao))
+                conexao.Execute(sql);
+        }
+
+        public void AlteraImagem()
+        {
+            string sql;         
+
+   
+            sql = $@"UPDATE VISITA_CONCLUSAO_IMG " +
+                                  "SET ID_VISITA = '" + IdVisita + "'" +
+                                  ",ID_CONCLUSAO = '" + IdVisitaConclusao + "'" +
+                                  ",IMAGEM = '" + Imagem + "'" +
+                                  ",LEGENDA = '" + Legenda + "'" +
+                                  ",SEQUENCIA = '" + sequencia + "'" +
+                          "WHERE ID_VISITA = '" + IdVisita + "'" +
+                          "AND ID_CONCLUSAO = '" + IdVisitaConclusao + "'" +
+                          "AND SEQUENCIA = '" + sequencia + "'";
 
             using (var conexao = new SqlConnection(_stringconexao))
                 conexao.Execute(sql);
@@ -55,10 +92,12 @@ namespace TradeSpeedo.Model
 
         public List<Visitas_Conclusao> Lista(int IdVisita) =>
         _conexao
-            .Query<Visitas_Conclusao>("SELECT TOP 1 ID, ID_VISITA, CONCLUSAO, IMAGEM, LEGENDA, SEQUENCIA  " +
-                                    "FROM VISITA_CONCLUSAO  " +
-                                    "WHERE ID_VISITA ='" + IdVisita + "'")
+            .Query<Visitas_Conclusao>("SELECT TOP 1 A.ID_VISITA, A.CONCLUSAO, B.IMAGEM, B.LEGENDA, B.SEQUENCIA  " +
+                                    "FROM VISITA_CONCLUSAO A "+
+                                    "JOIN VISITA_CONCLUSAO_IMG B ON A.ID_VISITA = B.ID_VISITA AND A.ID = B.ID_CONCLUSAO  " +
+                                    "WHERE A.ID_VISITA ='" + IdVisita + "'")
         .ToList();
+
 
         public string ExisteImagem(int IdVisita, string Sequencia)
         {
@@ -66,7 +105,7 @@ namespace TradeSpeedo.Model
             {
                 conexao.Open();
 
-                var sql = $"SELECT TOP 1 IMAGEM FROM VISITA_CONCLUSAO WHERE ID_VISITA ='{IdVisita}' and SEQUENCIA = '{Sequencia}'";
+                var sql = $"SELECT TOP 1 IMAGEM FROM VISITA_CONCLUSAO_IMG WHERE ID_VISITA ='{IdVisita}' and SEQUENCIA = '{Sequencia}'";
                 var dr = new SqlCommand(sql, conexao).ExecuteReader();
 
                 if (dr.Read())
@@ -100,5 +139,51 @@ namespace TradeSpeedo.Model
             }
         }
 
+        public void Carrega(int Id)
+        {
+            using (var conexao = new SqlConnection(_stringconexao))
+            {
+                conexao.Open();
+                var sql = $@"SELECT TOP 1 A.ID,A.ID_VISITA, A.CONCLUSAO, B.IMAGEM, B.LEGENDA, B.SEQUENCIA " +
+                            "FROM VISITA_CONCLUSAO A " +
+                            "LEFT JOIN VISITA_CONCLUSAO_IMG B ON A.ID_VISITA = B.ID_VISITA AND A.ID = B.ID_CONCLUSAO " +
+                            "WHERE A.ID_VISITA ='" + Id + "'";
+                var dr = new SqlCommand(sql, conexao).ExecuteReader();
+
+               while(dr.Read())
+                {
+                    ID = Convert.ToInt32(dr["ID"].ToString());
+                    IdVisita = Convert.ToInt32(dr["ID_VISITA"].ToString());
+                    Conclusao = dr["CONCLUSAO"].ToString();
+                    Imagem = dr["IMAGEM"].ToString();
+                    Legenda = dr["LEGENDA"].ToString();
+                    sequencia = dr["SEQUENCIA"].ToString();
+                }
+            }
+        }
+
+        public void CarregaLoad(int Id, string preview)
+        {
+            using (var conexao = new SqlConnection(_stringconexao))
+            {
+                conexao.Open();
+                var sql = $@"SELECT TOP 1 A.ID,A.ID_VISITA, A.CONCLUSAO, B.IMAGEM, B.LEGENDA, B.SEQUENCIA " +
+                            "FROM VISITA_CONCLUSAO A " +
+                            "LEFT JOIN VISITA_CONCLUSAO_IMG B ON A.ID_VISITA = B.ID_VISITA AND A.ID = B.ID_CONCLUSAO " +
+                            "WHERE A.ID_VISITA ='" + Id + "'" +
+                            "AND B.SEQUENCIA = '" + preview +"'";
+                var dr = new SqlCommand(sql, conexao).ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ID = Convert.ToInt32(dr["ID"].ToString());
+                    IdVisita = Convert.ToInt32(dr["ID_VISITA"].ToString());
+                    Conclusao = dr["CONCLUSAO"].ToString();
+                    Imagem = dr["IMAGEM"].ToString();
+                    Legenda = dr["LEGENDA"].ToString();
+                    sequencia = dr["SEQUENCIA"].ToString();
+                }
+            }
+        }
     }
 }

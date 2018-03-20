@@ -151,6 +151,12 @@
     all: initial;
     all: unset;
 }
+.iLogo {
+    top: -32px;
+    left: 4px;
+    outline: none;
+    position: relative;
+}
 
 .body {
     overflow-y: hidden;
@@ -163,10 +169,10 @@
 .hTitulo {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
-    font-size: 250%;
+    font-size: 300%;
     right: 48.8%;
     position: fixed;
-    top: 100px;
+    top: 95px;
 }
 
 .gvVisitas {

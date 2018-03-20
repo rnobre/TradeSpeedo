@@ -152,6 +152,13 @@
     all: unset;
 }
 
+.iLogo {
+    position: relative;
+    top: -9px;
+    left: 25px;
+    outline: none;
+}
+
 .hTitulo {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;

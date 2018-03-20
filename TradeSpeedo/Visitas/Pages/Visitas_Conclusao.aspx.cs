@@ -29,14 +29,19 @@ namespace TradeSpeedo.Visitas.Pages
 
                     {
                         string imagepreview = "imagepreview" + (i + 1).ToString();
+                        var legenda = "txLegenda" + (i + 1).ToString();
+                        TextBox leg = dMain.FindControl(legenda) as TextBox;
 
                         var ValidaImagem = load.ExisteImagem(Convert.ToInt32(idVisita), imagepreview);
 
 
                         if (ValidaImagem != null)
                         {
+                            load.CarregaLoad(Convert.ToInt32(idVisita), imagepreview);
                             var div = (HtmlControl)dMain.FindControl(imagepreview);
                             div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + ValidaImagem);
+                            txConclusao.InnerText = load.Conclusao;
+                            leg.Text = load.Legenda;
                         }
 
                     }
@@ -57,33 +62,55 @@ namespace TradeSpeedo.Visitas.Pages
             return nomeimagem;
         }
 
-        private void Salvar(int id_visita, string conclusao, string imagem, string legenda, string sequencia, string conexao)
+        private void SalvaImagem(int id_visita, int idconclusao, string imagem, string legenda, string sequencia, string conexao)
         {
             var a = new Visita_Conclusao(conexao)
             {
                 IdVisita = id_visita,
-                Conclusao = conclusao,
+                IdVisitaConclusao = idconclusao,
                 Imagem = imagem,
                 Legenda = legenda,
                 sequencia = sequencia
             };
 
-            a.Salva();
+            a.SalvaImagem();
+
+        }
+        private void SalvaConclusao(int id_visita, string conclusao, string conexao)
+        {
+            var a = new Visita_Conclusao(conexao)
+            {
+                IdVisita = id_visita,
+                Conclusao = conclusao,
+            };
+
+            a.SalvaConclusao();
 
         }
 
-        private void Alterar(int id_visita, string conclusao, string imagem, string legenda, string sequencia, string conexao)
+        private void AlterarImagem(int id_visita, int idconclusao, string imagem, string legenda, string sequencia, string conexao)
         {
             var a = new Visita_Conclusao(conexao)
             {
                 IdVisita = id_visita,
-                Conclusao = conclusao,
+                IdVisitaConclusao = idconclusao,
                 Imagem = imagem,
                 Legenda = legenda,
                 sequencia = sequencia
             };
 
-            a.Altera();
+            a.AlteraImagem();
+        }
+
+        private void AlterarConclusao(int id_visita, string conclusao, string conexao)
+        {
+            var a = new Visita_Conclusao(conexao)
+            {
+                IdVisita = id_visita,
+                Conclusao = conclusao,
+            };
+
+            a.AlteraConclusao();
         }
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
@@ -93,15 +120,21 @@ namespace TradeSpeedo.Visitas.Pages
             var idVisita = Request.QueryString["IdVisita"];
             var load = new Visita_Conclusao(conexao);
 
+
             for (int i = 0; i <= 6; i++)
 
             {
                 string imagepreview = "imagepreview" + (i + 1).ToString();
-                var div = (HtmlControl)dMain.FindControl(imagepreview);
-                var urlNova = "urlNova" + i.ToString();
+                var legenda = "txLegenda" + (i + 1).ToString();
 
-                var imageupload = "imageupload" + i.ToString();
-                var legenda = "txLegenda" + i.ToString();
+                var div = (HtmlControl)dMain.FindControl(imagepreview);
+
+                TextBox leg = dMain.FindControl(legenda) as TextBox;
+
+                var urlNova = "urlNova" + (i + 1).ToString();
+
+                var imageupload = "imageupload" + (i + 1).ToString();
+
 
                 urlNova = SubirImagem(Convert.ToInt32(i.ToString()), Convert.ToInt32(idVisita));
 
@@ -117,14 +150,32 @@ namespace TradeSpeedo.Visitas.Pages
                             if (File.Exists(arquivo))
                                 File.Delete(arquivo);
                         }
+                        var valida = new Visita_Conclusao(conexao);
+                        valida.Carrega(Convert.ToInt32(idVisita));
 
-                        Alterar(Convert.ToInt32(idVisita), txConclusao.InnerText, urlNova, legenda, imagepreview, conexao);
+                        AlterarConclusao(Convert.ToInt32(idVisita), txConclusao.InnerText, conexao);                        
+                        AlterarImagem(Convert.ToInt32(idVisita), Convert.ToInt32(valida.ID), urlNova, leg.Text, imagepreview, conexao);
                         div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
                     }
                     else
                     {
-                        Salvar(Convert.ToInt32(idVisita), txConclusao.InnerText, urlNova, legenda, imagepreview, conexao);
-                        div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
+                        var Validaa = new Visita_Conclusao(conexao);
+                        Validaa.Carrega(Convert.ToInt32(idVisita));
+
+                        if(Validaa.ID != 0)
+                        {
+                            SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(Validaa.ID), urlNova, leg.Text, imagepreview, conexao);
+                            div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
+                        }
+                        else
+                        {
+                            SalvaConclusao(Convert.ToInt32(idVisita), txConclusao.InnerText, conexao);
+                            var Validab = new Visita_Conclusao(conexao);
+                            Validab.Carrega(Convert.ToInt32(idVisita));
+                            SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(Validab.ID), urlNova, leg.Text, imagepreview, conexao);
+                            div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
+                        }
+                        
                     }
                 }
             }

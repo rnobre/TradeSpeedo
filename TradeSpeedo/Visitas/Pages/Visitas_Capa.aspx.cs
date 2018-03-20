@@ -35,7 +35,7 @@ namespace TradeSpeedo.Visitas.Pages
 
                     if(valida.ID != 0)
                     {
-                        ibConclusaoPreto.Visible = true;
+                        ibConclusaoPreto.Visible = false;
                         ibConclusaoVerde.Visible = true;
                     }
                                     

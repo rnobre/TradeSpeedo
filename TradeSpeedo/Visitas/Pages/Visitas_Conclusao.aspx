@@ -12,6 +12,7 @@
     <link href="../Style/bootstrap.min.css" rel="stylesheet" />
     <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />
     <link href="../Style/visitas_conclusao.css" rel="stylesheet" />
+    
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

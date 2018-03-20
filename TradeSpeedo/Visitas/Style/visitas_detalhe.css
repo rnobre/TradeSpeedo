@@ -151,13 +151,20 @@
     all: initial;
     all: unset;
 }
+.iLogo {
+    position: absolute;
+    top: -9px;
+    left: 25px;
+    outline: none;
+}
+
 .hTitulo {
     font-family: Arial, Helvetica, sans-serif;
     color: #666666;
     font-size: 250%;
-    right: 48.8%;
+    right: 45.8%;
     position: fixed;
-    top: 100px;
+    top: 76px;
 }
 .dFormulario {
     top:27%;

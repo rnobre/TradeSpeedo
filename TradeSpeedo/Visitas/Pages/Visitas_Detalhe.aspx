@@ -14,6 +14,7 @@
     <link href="../../Image/bumerangue.ico" rel="shortcur icon" type="image/x-icon" />
     <link href="../Style/bootstrap.min.css" rel="stylesheet" />
     <link href="../Style/visitas_detalhe.css" rel="stylesheet" />
+   
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </asp:Content>

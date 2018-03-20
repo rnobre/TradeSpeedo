@@ -206,6 +206,7 @@
     <Content Include="Visitas\Style\visitas_index.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Visitas\Pages\Visitas_Login.aspx" />
+    <Content Include="Visitas\Style\Visitas_Top.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
