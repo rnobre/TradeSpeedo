@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -43,7 +41,6 @@ namespace TradeSpeedo.Visitas.Pages
                             txConclusao.InnerText = load.Conclusao;
                             leg.Text = load.Legenda;
                         }
-
                     }
                 }
             }
@@ -153,7 +150,7 @@ namespace TradeSpeedo.Visitas.Pages
                         var valida = new Visita_Conclusao(conexao);
                         valida.Carrega(Convert.ToInt32(idVisita));
 
-                        AlterarConclusao(Convert.ToInt32(idVisita), txConclusao.InnerText, conexao);                        
+                        AlterarConclusao(Convert.ToInt32(idVisita), txConclusao.InnerText, conexao);
                         AlterarImagem(Convert.ToInt32(idVisita), Convert.ToInt32(valida.ID), urlNova, leg.Text, imagepreview, conexao);
                         div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
                     }
@@ -162,7 +159,7 @@ namespace TradeSpeedo.Visitas.Pages
                         var Validaa = new Visita_Conclusao(conexao);
                         Validaa.Carrega(Convert.ToInt32(idVisita));
 
-                        if(Validaa.ID != 0)
+                        if (Validaa.ID != 0)
                         {
                             SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(Validaa.ID), urlNova, leg.Text, imagepreview, conexao);
                             div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
@@ -175,13 +172,11 @@ namespace TradeSpeedo.Visitas.Pages
                             SalvaImagem(Convert.ToInt32(idVisita), Convert.ToInt32(Validab.ID), urlNova, leg.Text, imagepreview, conexao);
                             div.Style["background-image"] = Page.ResolveUrl(".." + "/Upload_Conclusao/" + urlNova);
                         }
-                        
                     }
                 }
             }
 
             Response.Redirect("Visitas_Capa.aspx?id=" + idVisita);
-
         }
     }
 }

@@ -189,6 +189,7 @@
     <Content Include="Visitas\Pages\Visitas_Detalhe.aspx" />
     <Content Include="Visitas\Pages\Visitas_Imagem.aspx" />
     <Content Include="Visitas\Pages\Visitas_Index.aspx" />
+    <Content Include="Visitas\Pages\Visitas_Relatorio.aspx" />
     <Content Include="Visitas\Script\bootstrap-select.js" />
     <Content Include="Visitas\Script\chosen.jquery.js" />
     <Content Include="Visitas\Script\jquery.mask.js" />
@@ -245,6 +246,7 @@
     <Compile Include="Model\Classificacao.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Imagem.cs" />
+    <Compile Include="Model\ReportBuilder.cs" />
     <Compile Include="Model\Tipo.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Model\Visita.cs" />
@@ -261,6 +263,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Relatorio.cs" />
+    <Compile Include="Utils\Visita_Relatorio.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -316,6 +319,13 @@
     </Compile>
     <Compile Include="Visitas\Pages\Visitas_Login.aspx.designer.cs">
       <DependentUpon>Visitas_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Relatorio.aspx.cs">
+      <DependentUpon>Visitas_Relatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitas\Pages\Visitas_Relatorio.aspx.designer.cs">
+      <DependentUpon>Visitas_Relatorio.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

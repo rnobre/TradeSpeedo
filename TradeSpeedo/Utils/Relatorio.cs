@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Text;
-using System.IO;
+
 
 namespace TradeSpeedo.Utils
 {

@@ -35,7 +35,7 @@ namespace TradeSpeedo.Model
 
         public string Dia { get; set; }
 
-        public string Data { get; set; }
+        public DateTime Data { get; set; }
 
         public string Local { get; set; }
 
@@ -113,7 +113,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"INSERT INTO VISITA_DETALHE(ID_VISITA,DIA,DATA,ID_CLIFOR,LOCAL,COMPRADOR,ID_PERFIL,ID_SORTIMENTO,ID_EXPOSICAO,CONCORRENTE,COMENTARIOS,H1,H2,H3,H4,HT1,HT2,HT3,HT4) VALUES('{ID_VISITA}','{Dia}','{Data}','{idClifor}','{Local}','{Comprador}','{Id_Perfil}','{Id_Sortimento}','{Id_Exposicao}','{Concorrente}','{Comentarios}','{H1}','{H2}','{H3}','{H4}','{Ht1}','{Ht2}','{Ht3}','{Ht4}')";
+            var sql = $"INSERT INTO VISITA_DETALHE(ID_VISITA,DIA,DATA,ID_CLIFOR,LOCAL,COMPRADOR,ID_PERFIL,ID_SORTIMENTO,ID_EXPOSICAO,CONCORRENTE,COMENTARIOS,H1,H2,H3,H4,HT1,HT2,HT3,HT4) VALUES('{ID_VISITA}','{Dia}','{Data.ToString("yyyyMMdd")}','{idClifor}','{Local}','{Comprador}','{Id_Perfil}','{Id_Sortimento}','{Id_Exposicao}','{Concorrente}','{Comentarios}','{H1}','{H2}','{H3}','{H4}','{Ht1}','{Ht2}','{Ht3}','{Ht4}')";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();
@@ -123,7 +123,7 @@ namespace TradeSpeedo.Model
         {
             _conexao.Open();
 
-            var sql = $"UPDATE VISITA_DETALHE SET DIA = '{Dia}', DATA = '{Data}', ID_CLIFOR = '{idClifor}',LOCAL= '{Local}',COMPRADOR= '{Comprador}',ID_PERFIL= '{Id_Perfil}',ID_SORTIMENTO = '{Id_Sortimento}', ID_EXPOSICAO = '{Id_Exposicao}', CONCORRENTE = '{Concorrente}',COMENTARIOS = '{Comentarios}', H1 = '{H1}', H2 = '{H2}', H3 = '{H3}', H4 = '{H4}', HT1 = '{Ht1}', HT2 = '{Ht2}', HT3 = '{Ht3}', HT4 = '{Ht3}' WHERE ID = '{ID}' AND ID_VISITA = '{ID_VISITA}' AND DIA = '{Dia}'";
+            var sql = $"UPDATE VISITA_DETALHE SET DIA = '{Dia}', DATA = '{Data.ToString("yyyyMMdd")}', ID_CLIFOR = '{idClifor}',LOCAL= '{Local}',COMPRADOR= '{Comprador}',ID_PERFIL= '{Id_Perfil}',ID_SORTIMENTO = '{Id_Sortimento}', ID_EXPOSICAO = '{Id_Exposicao}', CONCORRENTE = '{Concorrente}',COMENTARIOS = '{Comentarios}', H1 = '{H1}', H2 = '{H2}', H3 = '{H3}', H4 = '{H4}', HT1 = '{Ht1}', HT2 = '{Ht2}', HT3 = '{Ht3}', HT4 = '{Ht3}' WHERE ID = '{ID}' AND ID_VISITA = '{ID_VISITA}' AND DIA = '{Dia}'";
             new SqlCommand(sql, _conexao).ExecuteNonQuery();
 
             _conexao.Close();
@@ -171,7 +171,7 @@ namespace TradeSpeedo.Model
                 ID = Convert.ToInt32(dr["ID"].ToString());
                 ID_VISITA = Convert.ToInt32(dr["ID_VISITA"].ToString());
                 Dia = dr["DIA"].ToString();
-                Data = dr["DATA"].ToString();
+                Data = Convert.ToDateTime(dr["DATA"].ToString());
                 idClifor = Convert.ToInt32(dr["ID_CLIFOR"].ToString());
                 Local = dr["LOCAL"].ToString();
                 Comprador = dr["COMPRADOR"].ToString();

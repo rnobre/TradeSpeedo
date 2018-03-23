@@ -8,10 +8,10 @@ namespace TradeSpeedo.Visitas.Pages
     public partial class Visitas_Index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             var conexao = Session["conexao"].ToString();
             var usuario = (Usuario)Session["usuario"];
-            
+
             if (!Page.IsPostBack)
             {
                 ddPesquisa.DataSource = Visita.Lista(conexao);
@@ -34,9 +34,13 @@ namespace TradeSpeedo.Visitas.Pages
 
         protected void BtnAlterar_Click(object sender, EventArgs e)
         {
-            var conexao = Session["conexao"].ToString();           
+            var conexao = Session["conexao"].ToString();
             Response.Redirect("Visitas_Capa.aspx?id=" + Convert.ToInt32(ddPesquisa.SelectedValue).ToString());
         }
 
+        protected void BtnRelatorio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -11,17 +11,17 @@ namespace TradeSpeedo.Visitas.Pages
         {
             BtnAltera.Visible = false;
             var conexao = Session["conexao"].ToString();
-            var id = Request.QueryString["ID"];            
+            var id = Request.QueryString["ID"];
             ibConclusaoPreto.Visible = true;
             ibConclusaoVerde.Visible = false;
-            
+
 
 
 
             if (!Page.IsPostBack)
             {
                 var valor = Request.QueryString["ID"];
-                var load = new Visita_Capa(conexao);                
+                var load = new Visita_Capa(conexao);
                 load.Carrega(Convert.ToInt32(valor));
                 var valida = new Visita_Capa(conexao);
                 valida.Valida(Convert.ToInt32(valor));
@@ -33,19 +33,15 @@ namespace TradeSpeedo.Visitas.Pages
                     CarregaPagina(load.Visita, load.Periodo, load.Representante, load.Regiao, load.Objetivo);
                     gera.GeraTabela(Convert.ToInt32(valor), tbVisitas, conexao);
 
-                    if(valida.ID != 0)
+                    if (valida.ID != 0)
                     {
                         ibConclusaoPreto.Visible = false;
                         ibConclusaoVerde.Visible = true;
                     }
-                                    
-
                 }
-
-                
             }
         }
-        
+
         public void CarregaPagina(string lVisita, string lPeriodo, string lRepre, string lRegiao, string lObjetivo)
         {
             txtVisita.Text = lVisita;
@@ -137,7 +133,7 @@ namespace TradeSpeedo.Visitas.Pages
             var id = recupera.ID;
 
             Response.Redirect("Visitas_Detalhe.aspx?id=" + id);
-        }   
+        }
 
         protected void ibConclusaoVerde_Click(object sender, ImageClickEventArgs e)
         {

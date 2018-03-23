@@ -36,7 +36,7 @@ namespace TradeSpeedo.Model
 
         public void SalvaImagem()
         {
-            string sql;                   
+            string sql;
 
             sql = $@"INSERT INTO VISITA_CONCLUSAO_IMG (ID_VISITA, ID_CONCLUSAO,IMAGEM,LEGENDA,SEQUENCIA)
                     VALUES ('{IdVisita}','{IdVisitaConclusao}','{Imagem}','{Legenda}', '{sequencia}')";
@@ -47,10 +47,10 @@ namespace TradeSpeedo.Model
 
         public void SalvaConclusao()
         {
-            string sql;           
+            string sql;
 
             sql = $@"INSERT INTO VISITA_CONCLUSAO (ID_VISITA, CONCLUSAO)
-                    VALUES ('{IdVisita}','{Conclusao}')";           
+                    VALUES ('{IdVisita}','{Conclusao}')";
 
             using (var conexao = new SqlConnection(_stringconexao))
                 conexao.Execute(sql);
@@ -60,12 +60,12 @@ namespace TradeSpeedo.Model
         public void AlteraConclusao()
         {
             string sql;
-            
+
 
             sql = $@"UPDATE VISITA_CONCLUSAO " +
                                     "SET ID_VISITA = '" + IdVisita + "'" +
                                     ",CONCLUSAO = '" + Conclusao + "'" +
-                             "WHERE ID_VISITA = '"+ IdVisita +"'";    
+                             "WHERE ID_VISITA = '" + IdVisita + "'";
 
             using (var conexao = new SqlConnection(_stringconexao))
                 conexao.Execute(sql);
@@ -73,9 +73,9 @@ namespace TradeSpeedo.Model
 
         public void AlteraImagem()
         {
-            string sql;         
+            string sql;
 
-   
+
             sql = $@"UPDATE VISITA_CONCLUSAO_IMG " +
                                   "SET ID_VISITA = '" + IdVisita + "'" +
                                   ",ID_CONCLUSAO = '" + IdVisitaConclusao + "'" +
@@ -93,7 +93,7 @@ namespace TradeSpeedo.Model
         public List<Visitas_Conclusao> Lista(int IdVisita) =>
         _conexao
             .Query<Visitas_Conclusao>("SELECT TOP 1 A.ID_VISITA, A.CONCLUSAO, B.IMAGEM, B.LEGENDA, B.SEQUENCIA  " +
-                                    "FROM VISITA_CONCLUSAO A "+
+                                    "FROM VISITA_CONCLUSAO A " +
                                     "JOIN VISITA_CONCLUSAO_IMG B ON A.ID_VISITA = B.ID_VISITA AND A.ID = B.ID_CONCLUSAO  " +
                                     "WHERE A.ID_VISITA ='" + IdVisita + "'")
         .ToList();
@@ -117,7 +117,6 @@ namespace TradeSpeedo.Model
                     return null;
                 }
             }
-
         }
 
 
@@ -135,7 +134,6 @@ namespace TradeSpeedo.Model
                         ID = Convert.ToInt32(dr["ID"].ToString());
                     }
                 }
-
             }
         }
 
@@ -150,7 +148,7 @@ namespace TradeSpeedo.Model
                             "WHERE A.ID_VISITA ='" + Id + "'";
                 var dr = new SqlCommand(sql, conexao).ExecuteReader();
 
-               while(dr.Read())
+                while (dr.Read())
                 {
                     ID = Convert.ToInt32(dr["ID"].ToString());
                     IdVisita = Convert.ToInt32(dr["ID_VISITA"].ToString());
@@ -171,7 +169,7 @@ namespace TradeSpeedo.Model
                             "FROM VISITA_CONCLUSAO A " +
                             "LEFT JOIN VISITA_CONCLUSAO_IMG B ON A.ID_VISITA = B.ID_VISITA AND A.ID = B.ID_CONCLUSAO " +
                             "WHERE A.ID_VISITA ='" + Id + "'" +
-                            "AND B.SEQUENCIA = '" + preview +"'";
+                            "AND B.SEQUENCIA = '" + preview + "'";
                 var dr = new SqlCommand(sql, conexao).ExecuteReader();
 
                 while (dr.Read())
