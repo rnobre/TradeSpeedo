@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.IO;
+using System.Net;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TradeSpeedo.Model;
@@ -40,6 +44,15 @@ namespace TradeSpeedo.Visitas.Pages
 
         protected void BtnRelatorio_Click(object sender, EventArgs e)
         {
+            var conexao = Session["conexao"].ToString();
+            var gera = new ReportBuilder(conexao);           
+            var stringHtml = gera.GerarRelatorio();
+            StreamWriter escritor = new StreamWriter(@"Visitas_Relatorio.aspx");
+            escritor.WriteLine(stringHtml);
+            escritor.Close();
+
+
+            Response.Redirect(@"Visitas_Relatorio.aspx");
 
         }
     }

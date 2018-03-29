@@ -74,7 +74,9 @@ namespace TradeSpeedo.Utils
             _stringconexao = stringconexao;
         }
 
-
+        public Visita_Relatorio(SqlConnection conexao)
+        {
+        }
 
         public void MontaCorpo(int id)
         {
